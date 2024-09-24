@@ -1,6 +1,5 @@
 site_name: icligo-payments-docs
-site_url: https://franciscomatos.icligo.com/icligo-payments-docs
-repo_url: https://gitlab.icligo.com/franciscomatos/icligo-payments-docs
+site_url: https://chico199912.github.io/documentation/
 site_dir: public
 extra_css:
   - assets/stylesheets/extra.css
