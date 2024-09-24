@@ -1,4 +1,4 @@
-site_name: icligo-payments-docs
+site_name: Payments API
 site_url: https://icligo.github.io/documentation/
 site_dir: public
 extra_css:
