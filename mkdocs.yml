@@ -1,5 +1,5 @@
 site_name: icligo-payments-docs
-site_url: https://chico199912.github.io/documentation/
+site_url: https://icligo.github.io/documentation/
 site_dir: public
 extra_css:
   - assets/stylesheets/extra.css
