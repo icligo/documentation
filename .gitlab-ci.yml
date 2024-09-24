@@ -1,0 +1,28 @@
+image: python:3.8-buster
+
+before_script:
+  - pip install --root-user-action=ignore -r requirements.txt
+  - python3 -m pip install mkdocs
+  - python3 -m pip install mkdocs-material
+  - pip install --root-user-action=ignore mkdocs-material mkdocs-material-extensions --upgrade
+  - pip install --root-user-action=ignore pillow cairosvg --upgrade
+
+test:
+  stage: test
+  script:
+  - mkdocs build --strict --verbose --site-dir test
+  artifacts:
+    paths:
+    - test
+  rules:
+    - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
+
+pages:
+  stage: deploy
+  script:
+  - mkdocs build --strict --verbose
+  artifacts:
+    paths:
+    - public
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH

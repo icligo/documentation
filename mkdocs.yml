@@ -1,0 +1,65 @@
+site_name: icligo-payments-docs
+site_url: https://franciscomatos.icligo.com/icligo-payments-docs
+repo_url: https://gitlab.icligo.com/franciscomatos/icligo-payments-docs
+site_dir: public
+extra_css:
+  - assets/stylesheets/extra.css
+
+nav:
+  - Payment API: 'index.md'
+  - 'webhooks.md'
+  - 'dtos.md'
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+    - announce.dismiss
+  language: en
+  palette:
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch-off-outline 
+        name: Switch to light mode
+      primary: black
+      accent: green 
+    - scheme: default 
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode    
+      primary: black
+      accent: green
+
+plugins:
+  - social
+  - search
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - attr_list
+  
+copyright: |
+  &copy; 2024 <span>ICligo</span>
