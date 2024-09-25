@@ -1,20 +1,20 @@
 # CreatePaymentResponse
 
 ## Properties
-Name | Type           | Description | Notes
------------- |----------------| ------------- | -------------
-**createdPaymentId** | **String**     |  | [optional] 
-**provider** | **String**     |  | [optional] 
-**require3DSecure** | **Boolean**    |  | [optional] 
-**status** | **String**     |  | [optional] 
-**createdAt** | **Date**       |  | [optional] 
-**reference** | **String**     |  | [optional] 
-**entity** | **String**     |  | [optional] 
-**clientSecret** | **String**     |  | [optional] 
-**clientToken** | **String**     |  | [optional] 
-**amount** | **Double** |  | [optional] 
-**currency** | **String**     |  | [optional] 
-**redirectUrl** | **String**     |  | [optional] 
+Name | Type           | Description                                                                 | Notes
+------------ |----------------|-----------------------------------------------------------------------------| -------------
+**createdPaymentId** | **String**     |                                                                             | [optional] 
+**provider** | **String**     |                                                                             | [optional] 
+**require3DSecure** | **Boolean**    |                                                                             | [optional] 
+**status** | **String**     |                                                                             | [optional] 
+**createdAt** | **Date**       |                                                                             | [optional] 
+**reference** | **String**     |                                                                             | [optional] 
+**entity** | **String**     |                                                                             | [optional] 
+**clientSecret** | **String**     |                                                                             | [optional] 
+**clientToken** | **String**     |                                                                             | [optional] 
+**amount** | **Double** |                                                                             | [optional] 
+**currency** | **String**     | Currency code for the payment. Must respect the ISO 4217 and be upper case. | [optional] 
+**redirectUrl** | **String**     |                                                                             | [optional] 
 
 <a name="ProviderEnum"></a>
 ## Enum: ProviderEnum

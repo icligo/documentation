@@ -1218,7 +1218,9 @@ Request DTO: [**ExternalCancelPaymentResponse**](ExternalCancelPaymentResponse.m
 
 ---
 
-### **5. Refund**
+### 5. Refund
+
+#### 5.1
 
 Refunds a payment for a given payment ID
 
@@ -1235,16 +1237,13 @@ Refunds a payment for a given payment ID
 
 The request specifies the amount to be refunded and includes an optional description.
 
-Request DTO: [**RefundEndpointPaymentRequest**](RefundEndpointPaymentRequest.md)
+Request DTO: [**ExternalRefundPaymentRequest**](ExternalRefundPaymentRequest.md)
 
 <details>
   <summary>Request Payload Example</summary>
 ```json
 {
-    "amountInfo": {
-      "currency": "EUR",
-      "value": "10"
-    },
+    "amount": "10",
     "description": "Refund description."
 }
 ```
@@ -1260,20 +1259,26 @@ The response is an object detailing the date when the refund occurred, along wit
 
 Response DTO: [**RefundDetail**](RefundDetail.md)
 
+!!! tip
+
+    Although the response includes a `list` of `RefundDetail` objects, currently only a single refund is allowed. Therefore, you can expect the list to always contain just one element.
+
 
 <details>
   <summary>Response Example</summary>
 ```json
-{
-    "id": "4444d000-659b-a21d-974d-ba3b489d50d9",
-    "captureId": "66f2df95-659b-a21d-974d-ba3b489d50d9",
-    "createTime": 1727193013453,
-    "description": "Refund Description",
-    "amount": {
-        "currency": "EUR",
-        "value": 10.0
-    }
-}
+[
+  {
+      "id": "4444d000-659b-a21d-974d-ba3b489d50d9",
+      "captureId": "66f2df95-659b-a21d-974d-ba3b489d50d9",
+      "createTime": 1727193013453,
+      "description": "Refund Description",
+      "amount": {
+          "currency": "EUR",
+          "value": 10.0
+      }
+  }
+]
 ```
 </details>
 

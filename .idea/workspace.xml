@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ecf80970-2ec2-4fe0-92f1-c404d37cc03f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/AmountInfo.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/AmountInfo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/CreateIntentRequest.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/CreateIntentRequest.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/CreatePaymentResponse.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/CreatePaymentResponse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ExternalPaymentDto.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ExternalPaymentDto.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/PaymentDto.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/PaymentDto.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ResumeDto.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ResumeDto.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/dtos.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/dtos.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +62,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727257870243</updated>
-      <workItem from="1727257871552" duration="7486000" />
+      <workItem from="1727257871552" duration="8188000" />
     </task>
     <servers />
   </component>

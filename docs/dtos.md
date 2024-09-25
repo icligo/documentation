@@ -3,17 +3,17 @@ The following section defines the Data Transfer Objects (DTOs) used in our syste
 
 ---
 
-## **AmountInfo**
+## [**AmountInfo**](AmountInfo.md)
 
 **Properties**
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**currency** | **String** | The currency code (ISO 4217) for the transaction (e.g., USD, EUR). |
-**value** | **Number** | The total amount of the transaction in the specified currency. |
+Name | Type | Description                                                                 | Notes
+------------ | ------------- |-----------------------------------------------------------------------------| -------------
+**currency** | **String** | Currency code for the payment. Must respect the ISO 4217 and be upper case. |
+**value** | **Number** | The total amount of the transaction in the specified currency.              |
 
 ---
-## **AuthorizePaymentRequest**
+## [**AuthorizePaymentRequest**](AuthorizePaymentRequest.md)
 
 **Properties**
 
@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 * `ICLIGO` (value: `"ICLIGO"`)
 
 ---
-## **AuthorizePaymentResponse**
+## [**AuthorizePaymentResponse**](AuthorizePaymentResponse.md)
 
 **Properties**
 
@@ -63,7 +63,7 @@ Name | Type | Description | Notes
 * `ICLIGO` (value: `"ICLIGO"`)
 
 ---
-## **CaptureDetail**
+## [**CaptureDetail**](CaptureDetail.md)
 
 **Properties**
 
@@ -75,7 +75,7 @@ Name | Type | Description | Notes
 
 
 ---
-## **CircuitDto**
+## [**CircuitDto**](CircuitDto.md)
 
 **Properties**
 
@@ -86,7 +86,7 @@ Name | Type | Description | Notes
 **location** | **String** | The location associated with the check-in and check-out. | [optional] 
 
 ---
-## **ClientDto**
+## [**ClientDto**](ClientDto.md)
 
 **Properties**
 
@@ -98,7 +98,7 @@ Name | Type | Description | Notes
 **children** | **Boolean** | Indicates if the client is a child. | [optional] 
 
 ---
-## **ConfirmPaymentResponse**
+## [**ConfirmPaymentResponse**](ConfirmPaymentResponse.md)
 
 **Properties**
 
@@ -111,7 +111,7 @@ Name | Type | Description | Notes
 **captures** | [**CaptureDetail**](/mkdocs/dtos/#capturedetail) | Information about individual captures related to the transaction. | [optional] 
 
 ---
-## **DetailDto**
+## [**DetailDto**](DetailDto.md)
 
 **Properties**
 
@@ -150,7 +150,7 @@ Name | Type | Description | Notes
 * `suite` (value: `"Suite"`)
 
 ---
-## **ErrorPayloadMessage**
+## [**ErrorPayloadMessage**](ErrorPayloadMessage.md)
 
 **Properties**
 
@@ -164,7 +164,7 @@ Name | Type | Description | Notes
 
 ---
 
-## **ExternalCancelPaymentResponse**
+## [**ExternalCancelPaymentResponse**](ExternalCancelPaymentResponse.md)
 
 **Properties**
 
@@ -173,7 +173,7 @@ Name | Type | Description | Notes
 **date** | **Date** | Time of cancel payment intent. |
 
 ---
-## **ExternalConfirmPaymentRequest**
+## [**ExternalConfirmPaymentRequest**](ExternalConfirmPaymentRequest.md)
 
 **Properties**
 
@@ -185,36 +185,36 @@ Name | Type | Description | Notes
 
 ---
 
-## **ExternalPaymentDto**
+## [**ExternalPaymentDto**](ExternalPaymentDto.md)
 
 **Properties**
 
-Name | Type | Description                                              | Notes
------------- | ------------- |----------------------------------------------------------| -------------
-**id** | **String** | Unique identifier for the payment intent.                | [optional] 
-**clientId** | **String** | Unique client identifier.                                | [optional] 
-**userId** | **String** | User/Customer identifier who initiated the payment.      | [optional] 
-**service** | **String** | Service associated with the payment.                     | [optional] 
-**serviceDescription** | **String** | Detailed description of the service.                     | [optional] 
-**productId** | **String** | Product identifier related to the payment.               | [optional] 
-**productType** | **String** | Type of the product for which the payment is being made. | [optional] 
-**resume** | [**ResumeDto**](/mkdocs/dtos/#resumedto) |                                                          | [optional] 
-**products** | [**ProductDto**](/mkdocs/dtos/#productdto) | List of products associated with this payment.           | [optional] 
-**company** | **String** | Company associated with the payment.                     | [optional] 
-**microsite** | **String** | Microsite used for making the payment.                   | [optional] 
-**country** | **String** | Country where the payment is being made.                 | [optional] 
-**currency** | **String** | Currency used for the payment.                           | [optional] 
-**createdBy** | **String** | Username of the person who created the payment.          | [optional] 
-**state** | **String** | Current state of the payment.                            | [optional] 
-**amount** | **Number** | Total amount of the order.                               | [optional] 
-**capturedAmount** | **Number** | Amount captured.                                         | [optional] 
-**authorizedAmount** | **Number** | Amount authorized to be captured.                        | [optional] 
-**methodTax** | **Number** | Tax applied to the payment method.                       | [optional] 
-**captureDetails** | [**CaptureDetail**](/mkdocs/dtos/#capturedetail) | Details of the captures made for the payment.            | [optional] 
-**refundDetails** | [**RefundDetail**](/mkdocs/dtos/#refunddetail) | Details of any refunds made for the payment.             | [optional] 
-**expirationDate** | **Date** | Expiration date of the payment.                          | [optional] 
-**gifts** | [**GiftDto**](/mkdocs/dtos/#giftdto) | Details of the gifts/vouchers used for the payment.      | [optional] 
-**isFullyPaidWithGifts** | **Boolean** | The payment is fully paid with gifts.                    | [optional] 
+Name | Type | Description                                                                 | Notes
+------------ | ------------- |-----------------------------------------------------------------------------| -------------
+**id** | **String** | Unique identifier for the payment intent.                                   | [optional] 
+**clientId** | **String** | Unique client identifier.                                                   | [optional] 
+**userId** | **String** | User/Customer identifier who initiated the payment.                         | [optional] 
+**service** | **String** | Service associated with the payment.                                        | [optional] 
+**serviceDescription** | **String** | Detailed description of the service.                                        | [optional] 
+**productId** | **String** | Product identifier related to the payment.                                  | [optional] 
+**productType** | **String** | Type of the product for which the payment is being made.                    | [optional] 
+**resume** | [**ResumeDto**](/mkdocs/dtos/#resumedto) |                                                                             | [optional] 
+**products** | [**ProductDto**](/mkdocs/dtos/#productdto) | List of products associated with this payment.                              | [optional] 
+**company** | **String** | Company associated with the payment.                                        | [optional] 
+**microsite** | **String** | Microsite used for making the payment.                                      | [optional] 
+**country** | **String** | Country where the payment is being made.                                    | [optional] 
+**currency** | **String** | Currency code for the payment. Must respect the ISO 4217 and be upper case. | [optional] 
+**createdBy** | **String** | Username of the person who created the payment.                             | [optional] 
+**state** | **String** | Current state of the payment.                                               | [optional] 
+**amount** | **Number** | Total amount of the order.                                                  | [optional] 
+**capturedAmount** | **Number** | Amount captured.                                                            | [optional] 
+**authorizedAmount** | **Number** | Amount authorized to be captured.                                           | [optional] 
+**methodTax** | **Number** | Tax applied to the payment method.                                          | [optional] 
+**captureDetails** | [**CaptureDetail**](/mkdocs/dtos/#capturedetail) | Details of the captures made for the payment.                               | [optional] 
+**refundDetails** | [**RefundDetail**](/mkdocs/dtos/#refunddetail) | Details of any refunds made for the payment.                                | [optional] 
+**expirationDate** | **Date** | Expiration date of the payment.                                             | [optional] 
+**gifts** | [**GiftDto**](/mkdocs/dtos/#giftdto) | Details of the gifts/vouchers used for the payment.                         | [optional] 
+**isFullyPaidWithGifts** | **Boolean** | The payment is fully paid with gifts.                                       | [optional] 
 
 <a name="ProductTypeEnum"></a>
 **Enum: ProductTypeEnum**
@@ -245,7 +245,7 @@ Name | Type | Description                                              | Notes
 * `REFUNDED` (value: `"REFUNDED"`)
 
 ---
-## **GiftDto**
+## [**GiftDto**](GiftDto.md)
 
 **Properties**
 
@@ -260,7 +260,7 @@ Name | Type | Description | Notes
 **fkType** | **Number** | Foreign key reference to another entity or type. | [optional] 
 
 ---
-## **PaymentDto**
+## [**PaymentDto**](PaymentDto.md)
 
 **Properties**
 
@@ -278,7 +278,7 @@ Name | Type | Description | Notes
 **company** | **String** | Company associated with the payment. | [optional] 
 **microsite** | **String** | Microsite used for making the payment. | [optional] 
 **country** | **String** | Country where the payment is being made. | [optional] 
-**currency** | **String** | Currency used for the payment. | [optional] 
+**currency** | **String** | Currency code for the payment. Must respect the ISO 4217 and be upper case. | [optional] 
 **createdBy** | **String** | Username of the person who created the payment. | [optional] 
 **state** | **String** | Current state of the payment. | [optional] 
 **amount** | **Number** | Total amount of the order. | [optional] 
@@ -320,7 +320,7 @@ Name | Type | Description | Notes
 * `REFUNDED` (value: `"REFUNDED"`)
 
 ---
-## **PaymentExceptionPayload**
+## [**PaymentExceptionPayload**](PaymentExceptionPayload.md)
 
 **Properties**
 
@@ -355,7 +355,7 @@ Name | Type | Description | Notes
 * `CLOSE` (value: `"CLOSE"`)
 
 ---
-## **ProductDto**
+## [**ProductDto**](ProductDto.md)
 
 **Properties**
 
@@ -398,7 +398,7 @@ Name | Type | Description | Notes
 * `TRAIN` (value: `"TRAIN"`)
 
 ---
-## **RefundDetail**
+## [**RefundDetail**](RefundDetail.md)
 
 **Properties**
 
@@ -411,7 +411,7 @@ Name | Type | Description | Notes
 **amount** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Detailed information about the capture amount, including currency and value. | [optional] 
 
 ---
-## **RefundEndpointPaymentRequest**
+## [**RefundEndpointPaymentRequest**](RefundEndpointPaymentRequest.md)
 
 **Properties**
 
@@ -423,7 +423,7 @@ Name | Type | Description | Notes
 
 ---
 
-## **ResumeDto**
+## [**ResumeDto**](ResumeDto.md)
 
 **Properties**
 
@@ -433,7 +433,7 @@ Name | Type | Description | Notes
 **reference** | **String** | Reference ID for the product or service. | [optional] 
 **owner** | **String** | Owner or responsible party for the transaction. | [optional] 
 **email** | **String** | Owner&#x27;s contact email address. | [optional] 
-**currency** | **String** | Currency code for the transaction. | [optional] 
+**currency** | **String** | Currency code for the payment. Must respect the ISO 4217 and be upper case. | [optional] 
 **amount** | **Number** | Total amount of the transaction. | [optional] 
 **checkin** | **Date** | Check-in date for the booking, formatted as a string. | [optional] 
 **checkout** | **Date** | Check-out date for the booking, formatted as a string. | [optional] 
@@ -441,7 +441,7 @@ Name | Type | Description | Notes
 
 ---
 
-## **SelectPaymentMethodRequest**
+## [**SelectPaymentMethodRequest**](SelectPaymentMethodRequest.md)
 
 **Properties**
 
@@ -480,7 +480,7 @@ Name | Type | Description | Notes
 
 ---
 
-## **StopoversDto**
+## [**StopoversDto**](StopoversDto.md)
 
 **Properties**
 
