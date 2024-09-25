@@ -1,62 +1,100 @@
 # **Payment Gateway Widget**
 
-This widget is a custom payment form built using **iCligoPaymentGateway**. It renders a payment form on the web page, leveraging a React-based component bundled in `index.umd.js`.
+Documentation for iCliGo’s payment platform.
 
+There are two ways to present the payment interface:
 
+1. Widget
+2. External Page
 
-```plain
-https://staging.icligo.com/payment-gateway/widgets/styles/style.css
-https://staging.icligo.com/payment-gateway/widgets/index.umd.js
+**Prerequisite**
+
+To initiate a payment, a payment intent (***paymentId***) must be created beforehand.
+
+In this documentation, we will use the following session as an example.
+
+```jsx
+const paymentId = '54727d94-3b4e-4fa1-b356-38e0eb6ecdaa';
 ```
 
+## **Widget Mode**
 
+Use the widget mode to embed the form into an existing page.
 
-**Prerequisites**
+### **Assets**
 
-`paymentId`: Unique identifier for the payment session (e.g., `'54727d94-3b4e-4fa1-b356-38e0eb6ecdaa'`).
+CSS and Script to include in the html page.
 
-
-
-**WIDGET**
-
-The widget is initialised inside the custom HTML tag `<icligo-widget-app>`. The `data-widget` attribute defines the widget type (`payment-form` in this case).
-
-```xml
-<!-- Widget container -->
-<icligo-widget-app data-widget="payment-form"></icligo-widget-app>
+```html
+<!-- Widget styles -->
+<link
+  rel="stylesheet"
+  href="https://staging.icligo.com/payment-gateway/widgets/styles/style.css"
+  data-asset-type="stylesheet"
+/>
+<!-- Widget library -->
+<script
+  type="application/javascript"
+  src="https://staging.icligo.com/payment-gateway/widgets/index.umd.js"
+></script>
 ```
 
+### **Initialise Widget**
 
+To initialise the Widget, include the assets defined above and:
 
-The script passes in a set of props to the `payment-form` widget:
+1. Include the HTML element where the widget is loaded (container).
 
-*   `paymentId`: Unique identifier for the payment session (e.g., `'54727d94-3b4e-4fa1-b356-38e0eb6ecdaa'`).
-*   `options`: Configuration options for the widget:
-    *   `locale`: Locale setting (e.g., `'pt'` for Portuguese, `'en'` , `'it'`, `'de'`, `'es'`).
-    *   `showCopyButton`: Boolean to toggle the display of a button that allows users to copy payment details.
-
-![](https://t42104168.p.clickup-attachments.com/t42104168/6fe09fbe-94f9-425e-bfaf-2fcc10a1917d/Screenshot%202024-09-24%20at%2017.17.32.png)
-
-*       *   `vouchers`: Boolean to determine if vouchers are enabled (in this case, disabled).
-
-!!! example
-
-    ``` javascript
-    const props = {
-            paymentId: '54727d94-3b4e-4fa1-b356-38e0eb6ecdaa',
-            options: {
-                locale: 'pt',
-                showCopyButton: true,
-                vouchers: true
-            }
-            };
+    ```html
+    <!-- Widget container -->
+    <icligo-widget-app data-widget="payment-form"></icligo-widget-app>
     ```
 
+   **Attributes**
 
+   | Attribute | Required | Description |
+       | --- | --- | --- |
+   | `data-widget` | *true* | Unique element ID |
 
-Full Demo html
+2. Execute function P*aymentForm* (*window.iCligoPaymentGateway.widgets.PaymentForm*)
 
-```xml
+    ```html
+    <!-- Start Widget -->
+    <script type="application/javascript">
+      ((widget) => {
+        const props = {
+          paymentId: '54727d94-3b4e-4fa1-b356-38e0eb6ecdaa',
+          options: {
+            locale: 'pt',
+            showCopyButton: true,
+            vouchers: true
+          }
+        };
+        widget('payment-form', props);
+      })(window.iCligoPaymentGateway.widgets.PaymentForm);
+    </script>
+    ```
+
+   ***PaymentForm Args***
+
+    ```jsx
+    window.iCligoPaymentGateway.widgets.PaymentForm(containerId, props)
+    ```
+
+   | Arg | Type | Required | Default | Description |
+       | --- | --- | --- | --- | --- |
+   | *`containerId`* | *string* | *true* |  | ID defined on HTML element attribute (`data-widget`)  |
+   | *`props`* | *object* | true |  | Widget Props |
+   |     *`props.paymentId`* | string | *true* |  | Payment intent ID |
+   |     *`props.options`* | *object* | *false* |  | Widget options |
+   |         *`props.options.locale`* | *Enum* <br/> `"pt"\|"en"\|"es"\|"fr"\|"it"` | *false* | `"pt"` | Widget locale definitions |
+   |         *`props.options.showCopyButton`* | *boolean* | *false* | `true` | Show button ‘copy payment link’ |
+   |         *`props.options.vouchers`* | *boolean* | *false* | `true` | Show voucher’s section |
+
+### **Widget Example**
+
+```html
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -64,11 +102,13 @@ Full Demo html
     <link
       rel="stylesheet"
       href="https://staging.icligo.com/payment-gateway/widgets/styles/style.css"
-      data-asset-type="stylesheet" />
+      data-asset-type="stylesheet"
+    />
     <!-- Widget library -->
     <script
       type="application/javascript"
-      src="https://staging.icligo.com/payment-gateway/widgets/index.umd.js"></script>
+      src="https://staging.icligo.com/payment-gateway/widgets/index.umd.js"
+    ></script>
   </head>
   <body>
     <div style="max-width: 768px; margin: 0 auto">
@@ -76,11 +116,11 @@ Full Demo html
       <icligo-widget-app data-widget="payment-form"></icligo-widget-app>
     </div>
 
-    <!-- browser -->
+    <!-- Start Widget -->
     <script type="application/javascript">
       ((widget) => {
         const props = {
-          paymentId: 'ebe304bb-d8a9-4542-b8e1-9c1ea85e7cdc',
+          paymentId: '54727d94-3b4e-4fa1-b356-38e0eb6ecdaa',
           options: {
             locale: 'pt',
             showCopyButton: true,
@@ -94,31 +134,24 @@ Full Demo html
 </html>
 ```
 
+![](assets/widget.png){ width="580" }
 
+## **External Page (full page url)**
 
-![](https://t42104168.p.clickup-attachments.com/t42104168/147ef0fb-0bbe-4acb-82e1-616a71b29dd3/image.png)
+Open the platform on a new page.
 
+### **URL address**
 
-
-This widget also can be called by url: `/payment-gateway?payment=8037c4e1-7075-4fc4-94c2-dace98d49ab6&enableCopy=false&enableVouchers=false`
-
-
-
-
-
-
-
-*   This page can be called by url: `https://staging.icligo.com/payment-gateway/payment-gateway?payment=8037c4e1-7075-4fc4-94c2-dace98d49ab6`
-
-
-
-```plain
-enableCopy
-enableVouchers
+```html
+https://staging.icligo.com/payment-gateway?payment={paymentId}&enableCopy=true&enableVouchers=true
 ```
 
+### **URL Params**
 
+| Attribute | Required | Default | Description |
+| --- | --- | --- | --- |
+| *`payment`* | *true* |  | Payment intent ID |
+| *`enableCopy`* | *false* | *true* | Show button ‘copy payment link’ |
+| *`enableVouchers`* | *false* | *true* | Show voucher’s section |
 
-
-
-![](https://t42104168.p.clickup-attachments.com/t42104168/cb336be4-e895-471d-b5f0-b75f18f2f05a/image.png)
+![](assets/page.png){ width="768" }
