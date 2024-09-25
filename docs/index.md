@@ -3,7 +3,6 @@
 This API allows you to manage payment intents, enabling payment capture, cancellations, and refunds.
 
 ---
-
 ## **Authentication**
 
 To authenticate, include the following headers with all your API requests:
