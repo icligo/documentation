@@ -200,7 +200,7 @@ Request DTO: [**CreateIntentRequest**](CreateIntentRequest.md)
 
 The success response returns the submitted information along with additional details, such as the amounts authorized, captured, etc.
 
-Response DTO: [**PaymentDto**](PaymentDto.md)
+Response DTO: [**ExternalPaymentDto**](ExternalPaymentDto.md)
 
 <details>
   <summary>Basic Response Example</summary>

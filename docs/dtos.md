@@ -23,20 +23,7 @@ Name | Type | Description | Notes
 **klarnaToken** | **String** | Token provided by Klarna for processing payments. | [optional] 
 **merchantReference** | **String** | A reference code provided by the merchant to identify the transaction. | [optional] 
 **country** | **String** | The country where the transaction is being processed. |
-**amountInfo** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Detailed information about the transaction amount, including currency and total. |
-
-
-<a name="PaymentProviderEnum"></a>
-**Enum: PaymentProviderEnum**
-
-* `STRIPE_PT` (value: `"STRIPE_PT"`)
-* `VIVAWALLET_PT` (value: `"VIVAWALLET_PT"`)
-* `IFTHEN_PT` (value: `"IFTHEN_PT"`)
-* `PAYPAL_PT` (value: `"PAYPAL_PT"`)
-* `PAYPAL_US` (value: `"PAYPAL_US"`)
-* `REVOLUT_PT` (value: `"REVOLUT_PT"`)
-* `KLARNA_PT` (value: `"KLARNA_PT"`)
-* `ICLIGO` (value: `"ICLIGO"`)
+**amountInfo** | [**AmountInfo**](/documentation/dtos/#amountinfo) | Detailed information about the transaction amount, including currency and total. |
 
 ---
 ## [**AuthorizePaymentResponse**](AuthorizePaymentResponse.md)
@@ -50,18 +37,6 @@ Name | Type | Description | Notes
 **_date** | **Date** | The date when the transaction took place. | [optional] 
 **description** | **String** | A brief description of the transaction or its purpose. | [optional] 
 
-<a name="ProviderEnum"></a>
-**Enum: ProviderEnum**
-
-* `STRIPE_PT` (value: `"STRIPE_PT"`)
-* `VIVAWALLET_PT` (value: `"VIVAWALLET_PT"`)
-* `IFTHEN_PT` (value: `"IFTHEN_PT"`)
-* `PAYPAL_PT` (value: `"PAYPAL_PT"`)
-* `PAYPAL_US` (value: `"PAYPAL_US"`)
-* `REVOLUT_PT` (value: `"REVOLUT_PT"`)
-* `KLARNA_PT` (value: `"KLARNA_PT"`)
-* `ICLIGO` (value: `"ICLIGO"`)
-
 ---
 ## [**CaptureDetail**](CaptureDetail.md)
 
@@ -71,7 +46,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Unique identifier for the transaction or record. | [optional] 
 **captureTime** | **Date** | The date and time when the transaction was captured. | [optional] 
-**amount** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Detailed information about the captured amount, including currency and value. | [optional] 
+**amount** | [**AmountInfo**](/documentation/dtos/#amountinfo) | Detailed information about the captured amount, including currency and value. | [optional] 
 
 
 ---
@@ -106,9 +81,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **String** | The current status of the process or transaction. | [optional] 
 **_date** | **Date** | The date when the event or transaction occurred. | [optional] 
-**capturedAmountInfo** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Details about the amount that has been captured, including currency and value. | [optional] 
+**capturedAmountInfo** | [**AmountInfo**](/documentation/dtos/#amountinfo) | Details about the amount that has been captured, including currency and value. | [optional] 
 **description** | **String** | A brief description providing additional context or details. | [optional] 
-**captures** | [**CaptureDetail**](/mkdocs/dtos/#capturedetail) | Information about individual captures related to the transaction. | [optional] 
+**captures** | [**CaptureDetail**](/documentation/dtos/#capturedetail) | Information about individual captures related to the transaction. | [optional] 
 
 ---
 ## [**DetailDto**](DetailDto.md)
@@ -138,8 +113,8 @@ Name | Type | Description | Notes
 **receptionTime** | **Date** | Time of reception at the destination. | [optional] 
 **destinationTime** | **Date** | Time of arrival at the destination. | [optional] 
 **destination** | **String** | Destination details. | [optional] 
-**circuit** | [**CircuitDto**](/mkdocs/dtos/#circuitdto) | Details of the circuit, if applicable. | [optional] 
-**stopovers** | [**StopoversDto**](/mkdocs/dtos/#stopoversdto) | Details of stopovers during transportation, if applicable. | [optional] 
+**circuit** | [**CircuitDto**](/documentation/dtos/#circuitdto) | Details of the circuit, if applicable. | [optional] 
+**stopovers** | [**StopoversDto**](/documentation/dtos/#stopoversdto) | Details of stopovers during transportation, if applicable. | [optional] 
 
 <a name="RoomTypeEnum"></a>
 **Enum: RoomTypeEnum**
@@ -179,7 +154,7 @@ Name | Type | Description | Notes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amountInfo** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Detailed information about the captured amount, including currency and value. |
+**amountInfo** | [**AmountInfo**](/documentation/dtos/#amountinfo) | Detailed information about the captured amount, including currency and value. |
 **description** | **String** | A brief description of the transaction or context for the amount information. | [optional] 
 
 
@@ -198,8 +173,8 @@ Name | Type | Description                                                       
 **serviceDescription** | **String** | Detailed description of the service.                                        | [optional] 
 **productId** | **String** | Product identifier related to the payment.                                  | [optional] 
 **productType** | **String** | Type of the product for which the payment is being made.                    | [optional] 
-**resume** | [**ResumeDto**](/mkdocs/dtos/#resumedto) |                                                                             | [optional] 
-**products** | [**ProductDto**](/mkdocs/dtos/#productdto) | List of products associated with this payment.                              | [optional] 
+**resume** | [**ResumeDto**](/documentation/dtos/#resumedto) |                                                                             | [optional] 
+**products** | [**ProductDto**](/documentation/dtos/#productdto) | List of products associated with this payment.                              | [optional] 
 **company** | **String** | Company associated with the payment.                                        | [optional] 
 **microsite** | **String** | Microsite used for making the payment.                                      | [optional] 
 **country** | **String** | Country where the payment is being made.                                    | [optional] 
@@ -210,10 +185,10 @@ Name | Type | Description                                                       
 **capturedAmount** | **Number** | Amount captured.                                                            | [optional] 
 **authorizedAmount** | **Number** | Amount authorized to be captured.                                           | [optional] 
 **methodTax** | **Number** | Tax applied to the payment method.                                          | [optional] 
-**captureDetails** | [**CaptureDetail**](/mkdocs/dtos/#capturedetail) | Details of the captures made for the payment.                               | [optional] 
-**refundDetails** | [**RefundDetail**](/mkdocs/dtos/#refunddetail) | Details of any refunds made for the payment.                                | [optional] 
+**captureDetails** | [**CaptureDetail**](/documentation/dtos/#capturedetail) | Details of the captures made for the payment.                               | [optional] 
+**refundDetails** | [**RefundDetail**](/documentation/dtos/#refunddetail) | Details of any refunds made for the payment.                                | [optional] 
 **expirationDate** | **Date** | Expiration date of the payment.                                             | [optional] 
-**gifts** | [**GiftDto**](/mkdocs/dtos/#giftdto) | Details of the gifts/vouchers used for the payment.                         | [optional] 
+**gifts** | [**GiftDto**](/documentation/dtos/#giftdto) | Details of the gifts/vouchers used for the payment.                         | [optional] 
 **isFullyPaidWithGifts** | **Boolean** | The payment is fully paid with gifts.                                       | [optional] 
 
 <a name="ProductTypeEnum"></a>
@@ -260,101 +235,6 @@ Name | Type | Description | Notes
 **fkType** | **Number** | Foreign key reference to another entity or type. | [optional] 
 
 ---
-## [**PaymentDto**](PaymentDto.md)
-
-**Properties**
-
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | **String** | Unique identifier for the payment intent. | [optional] 
-**clientId** | **String** | Unique client identifier. | [optional] 
-**userId** | **String** | User/Customer identifier who initiated the payment. | [optional] 
-**service** | **String** | Service associated with the payment. | [optional] 
-**serviceDescription** | **String** | Detailed description of the service. | [optional] 
-**productId** | **String** | Product identifier related to the payment. | [optional] 
-**productType** | **String** | Type of the product for which the payment is being made. | [optional] 
-**resume** | [**ResumeDto**](/mkdocs/dtos/#resumedto) |  | [optional] 
-**products** | [**ProductDto**](/mkdocs/dtos/#productdto) | List of products associated with this payment. | [optional] 
-**company** | **String** | Company associated with the payment. | [optional] 
-**microsite** | **String** | Microsite used for making the payment. | [optional] 
-**country** | **String** | Country where the payment is being made. | [optional] 
-**currency** | **String** | Currency code for the payment. Must respect the ISO 4217 and be upper case. | [optional] 
-**createdBy** | **String** | Username of the person who created the payment. | [optional] 
-**state** | **String** | Current state of the payment. | [optional] 
-**amount** | **Number** | Total amount of the order. | [optional] 
-**capturedAmount** | **Number** | Amount captured. | [optional] 
-**authorizedAmount** | **Number** | Amount authorized to be captured. | [optional] 
-**methodTax** | **Number** | Tax applied to the payment method. | [optional] 
-**captureDetails** | [**CaptureDetail**](/mkdocs/dtos/#capturedetail) | Details of the captures made for the payment. | [optional] 
-**refundDetails** | [**RefundDetail**](/mkdocs/dtos/#refunddetail) | Details of any refunds made for the payment. | [optional] 
-**expirationDate** | **Date** | Expiration date of the payment. | [optional] 
-**gifts** | [**GiftDto**](/mkdocs/dtos/#giftdto) | Details of the gifts/vouchers used for the payment. | [optional] 
-**isFullyPaidWithGifts** | **Boolean** | The payment is fully paid with gifts. | [optional] 
-
-<a name="ProductTypeEnum"></a>
-**Enum: ProductTypeEnum**
-
-* `BOOKING` (value: `"BOOKING"`)
-* `SUBSCRIPTION` (value: `"SUBSCRIPTION"`)
-* `GIFT` (value: `"GIFT"`)
-* `EVENT` (value: `"EVENT"`)
-* `SERVICE` (value: `"SERVICE"`)
-* `ACCOMMODATION` (value: `"ACCOMMODATION"`)
-* `FLIGHT` (value: `"FLIGHT"`)
-* `PACKAGE` (value: `"PACKAGE"`)
-* `INSURANCE` (value: `"INSURANCE"`)
-* `CRUISE` (value: `"CRUISE"`)
-* `ACTIVITY` (value: `"ACTIVITY"`)
-* `TRANSFER` (value: `"TRANSFER"`)
-
-
-<a name="StateEnum"></a>
-**Enum: StateEnum**
-
-* `CREATED` (value: `"CREATED"`)
-* `PROCESSING` (value: `"PROCESSING"`)
-* `AUTHORIZED` (value: `"AUTHORIZED"`)
-* `COMPLETED` (value: `"COMPLETED"`)
-* `CANCELED` (value: `"CANCELED"`)
-* `FAILED` (value: `"FAILED"`)
-* `REFUNDED` (value: `"REFUNDED"`)
-
----
-## [**PaymentExceptionPayload**](PaymentExceptionPayload.md)
-
-**Properties**
-
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**translationKey** | **String** | Key used for translating the error message. | [optional] 
-**message** | **String** | Detailed error message related to the payment exception. | [optional] 
-**action** | **String** | Action to be taken based on the payment exception. | [optional] 
-
-<a name="TranslationKeyEnum"></a>
-**Enum: TranslationKeyEnum**
-
-* `PAYMENT_API_ERROR_NAME` (value: `"PAYMENT_API_ERROR_NAME"`)
-* `PAYMENT_API_ERROR_FIELD` (value: `"PAYMENT_API_ERROR_FIELD"`)
-* `PAYMENT_API_ERROR_CREATING_ORDER` (value: `"PAYMENT_API_ERROR_CREATING_ORDER"`)
-* `PAYMENT_API_ERROR_STATE` (value: `"PAYMENT_API_ERROR_STATE"`)
-* `GIFT_API_ERROR` (value: `"GIFT_API_ERROR"`)
-* `PAYMENT_API_ERROR_CAPTURE` (value: `"PAYMENT_API_ERROR_CAPTURE"`)
-* `PAYMENT_API_ERROR_CANCELLATION` (value: `"PAYMENT_API_ERROR_CANCELLATION"`)
-* `PAYMENT_API_ERROR_REFUND` (value: `"PAYMENT_API_ERROR_REFUND"`)
-* `PAYMENT_API_ID_NOT_FOUND` (value: `"PAYMENT_API_ID_NOT_FOUND"`)
-* `PAYMENT_API_INVALID_SELECTED_METHOD` (value: `"PAYMENT_API_INVALID_SELECTED_METHOD"`)
-* `PAYMENT_API_ALREADY_CANCELLED` (value: `"PAYMENT_API_ALREADY_CANCELLED"`)
-* `PAYMENT_API_TIMEOUT` (value: `"PAYMENT_API_TIMEOUT"`)
-
-
-<a name="ActionEnum"></a>
-**Enum: ActionEnum**
-
-* `INFO` (value: `"INFO"`)
-* `WARNING` (value: `"WARNING"`)
-* `CLOSE` (value: `"CLOSE"`)
-
----
 ## [**ProductDto**](ProductDto.md)
 
 **Properties**
@@ -371,7 +251,7 @@ Name | Type | Description | Notes
 **checkout** | **Date** | Check-out date of the product, formatted as a string. | [optional] 
 **_date** | **Date** | Date of the product activity or service, formatted as a string. | [optional] 
 **price** | **Number** | Price of the product. | [optional] 
-**detail** | [**DetailDto**](/mkdocs/dtos/#detaildto) |  | [optional] 
+**detail** | [**DetailDto**](/documentation/dtos/#detaildto) |  | [optional] 
 
 <a name="TypeEnum"></a>
 **Enum: TypeEnum**
@@ -408,7 +288,7 @@ Name | Type | Description | Notes
 **captureId** | **String** | Identifier for the specific capture associated with the transaction. | [optional] 
 **createTime** | **Date** | The date and time when the capture was created. | [optional] 
 **description** | **String** | A brief description providing additional context about the capture. | [optional] 
-**amount** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Detailed information about the capture amount, including currency and value. | [optional] 
+**amount** | [**AmountInfo**](/documentation/dtos/#amountinfo) | Detailed information about the capture amount, including currency and value. | [optional] 
 
 ---
 ## [**RefundEndpointPaymentRequest**](RefundEndpointPaymentRequest.md)
@@ -417,7 +297,7 @@ Name | Type | Description | Notes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amountInfo** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Detailed information about the amount involved in the transaction, including currency and value. |
+**amountInfo** | [**AmountInfo**](/documentation/dtos/#amountinfo) | Detailed information about the amount involved in the transaction, including currency and value. |
 **description** | **String** | A brief description providing additional context or details about the refund. | [optional] 
 
 
@@ -437,49 +317,9 @@ Name | Type | Description | Notes
 **amount** | **Number** | Total amount of the transaction. | [optional] 
 **checkin** | **Date** | Check-in date for the booking, formatted as a string. | [optional] 
 **checkout** | **Date** | Check-out date for the booking, formatted as a string. | [optional] 
-**clients** | [**ClientDto**](/mkdocs/dtos/#clientdto) | List of clients involved in the transaction. | [optional] 
+**clients** | [**ClientDto**](/documentation/dtos/#clientdto) | List of clients involved in the transaction. | [optional] 
 
 ---
-
-## [**SelectPaymentMethodRequest**](SelectPaymentMethodRequest.md)
-
-**Properties**
-
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**paymentMethod** | **String** | The method used for payment. |
-**provider** | **String** | The service provider facilitating the payment (e.g., Stripe, PayPal). |
-**mbWayNumber** | **String** | The mobile number associated with the MB Way payment method. | [optional] 
-**stripeMethodId** | **String** | Unique identifier for the payment method in Stripe's system. | [optional] 
-
-
-<a name="PaymentMethodEnum"></a>
-**Enum: PaymentMethodEnum**
-
-* `VISA` (value: `"VISA"`)
-* `PAYPAL` (value: `"PAYPAL"`)
-* `MASTERCARD` (value: `"MASTERCARD"`)
-* `AMERICANEXPRESS` (value: `"AMERICANEXPRESS"`)
-* `MULTIBANCO` (value: `"MULTIBANCO"`)
-* `MBWAY` (value: `"MBWAY"`)
-* `KLARNA` (value: `"KLARNA"`)
-* `ICLIGOGIFT` (value: `"ICLIGOGIFT"`)
-
-
-<a name="ProviderEnum"></a>
-**Enum: ProviderEnum**
-
-* `STRIPE_PT` (value: `"STRIPE_PT"`)
-* `VIVAWALLET_PT` (value: `"VIVAWALLET_PT"`)
-* `IFTHEN_PT` (value: `"IFTHEN_PT"`)
-* `PAYPAL_PT` (value: `"PAYPAL_PT"`)
-* `PAYPAL_US` (value: `"PAYPAL_US"`)
-* `REVOLUT_PT` (value: `"REVOLUT_PT"`)
-* `KLARNA_PT` (value: `"KLARNA_PT"`)
-* `ICLIGO` (value: `"ICLIGO"`)
-
----
-
 ## [**StopoversDto**](StopoversDto.md)
 
 **Properties**

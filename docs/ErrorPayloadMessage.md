@@ -8,4 +8,3 @@ Name | Type                                                      | Description |
 **error** | **String**                                                | HTTP description of the error. | [optional] 
 **message** | **String**                                                | Detailed error message. | [optional] 
 **path** | **String**                                                | The path of the endpoint where the error occurred. | [optional] 
-**metadata** | [**PaymentExceptionPayload**](PaymentExceptionPayload.md) |  | [optional] 
