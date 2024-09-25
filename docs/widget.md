@@ -7,7 +7,7 @@ There are two ways to present the payment interface:
 1. Widget
 2. External Page
 
-**Prerequisite**
+## **Prerequisite**
 
 To initiate a payment, a payment intent (***paymentId***) must be created beforehand.
 
@@ -50,11 +50,13 @@ To initialise the Widget, include the assets defined above and:
     <icligo-widget-app data-widget="payment-form"></icligo-widget-app>
     ```
 
-   **Attributes**
+      **Attributes**
+   
+      | Attribute | Required | Description |
+          | --- | --- | --- |
+      | `data-widget` | *true* | Unique element ID |
+   
 
-   | Attribute | Required | Description |
-       | --- | --- | --- |
-   | `data-widget` | *true* | Unique element ID |
 
 2. Execute function P*aymentForm* (*window.iCligoPaymentGateway.widgets.PaymentForm*)
 
@@ -75,21 +77,21 @@ To initialise the Widget, include the assets defined above and:
     </script>
     ```
 
-   ***PaymentForm Args***
-
-    ```jsx
-    window.iCligoPaymentGateway.widgets.PaymentForm(containerId, props)
-    ```
-
-   | Arg | Type | Required | Default | Description |
-       | --- | --- | --- | --- | --- |
-   | *`containerId`* | *string* | *true* |  | ID defined on HTML element attribute (`data-widget`)  |
-   | *`props`* | *object* | true |  | Widget Props |
-   |     *`props.paymentId`* | string | *true* |  | Payment intent ID |
-   |     *`props.options`* | *object* | *false* |  | Widget options |
-   |         *`props.options.locale`* | *Enum* <br/> `"pt"\|"en"\|"es"\|"fr"\|"it"` | *false* | `"pt"` | Widget locale definitions |
-   |         *`props.options.showCopyButton`* | *boolean* | *false* | `true` | Show button ‘copy payment link’ |
-   |         *`props.options.vouchers`* | *boolean* | *false* | `true` | Show voucher’s section |
+      ***PaymentForm Args***
+   
+       ```javascript
+       window.iCligoPaymentGateway.widgets.PaymentForm(containerId, props)
+       ```
+   
+      | Arg                              | Type                                    | Required | Default | Description |
+          |----------------------------------|-----------------------------------------| --- | --- | --- |
+      | *`containerId`*                  | *string*                                | *true* |  | ID defined on HTML element attribute (`data-widget`)  |
+      | *`props`*                        | *object*                                | true |  | Widget Props |
+      | *`props.paymentId`*              | string                                  | *true* |  | Payment intent ID |
+      | *`props.options`*                | *object*                                | *false* |  | Widget options |
+      | *`props.options.locale`*         | *Enum* <br/> `"pt","en","es","fr","it"` | *false* | `"pt"` | Widget locale definitions |
+      | *`props.options.showCopyButton`* | *boolean*                               | *false* | `true` | Show button ‘copy payment link’ |
+      | *`props.options.vouchers`*       | *boolean*                               | *false* | `true` | Show voucher’s section |
 
 ### **Widget Example**
 
@@ -148,10 +150,10 @@ https://staging.icligo.com/payment-gateway?payment={paymentId}&enableCopy=true&e
 
 ### **URL Params**
 
-| Attribute | Required | Default | Description |
-| --- | --- | --- | --- |
-| *`payment`* | *true* |  | Payment intent ID |
-| *`enableCopy`* | *false* | *true* | Show button ‘copy payment link’ |
+| Attribute         | Required | Default | Description |
+|-------------------| --- | --- | --- |
+| *`payment`*       | *true* |  | Payment intent ID |
+| *`enableCopy`*    | *false* | *true* | Show button ‘copy payment link’ |
 | *`enableVouchers`* | *false* | *true* | Show voucher’s section |
 
 ![](assets/page.png){ width="768" }
