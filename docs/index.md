@@ -1,6 +1,6 @@
 # **iCliGo Payment API Documentation**
 
-This API allows you to manage payment intents, enabling payment capture, cancellations, and refunds. 
+This API allows you to manage payment intents, enabling payment capture, cancellations, and refunds.
 
 ---
 
@@ -27,14 +27,14 @@ The error payload includes the following parameters:
 | path      | string | The API endpoint path where the error occurred                    | "/payments/create-payment-intent"           |
 
 
- **Error Payload Example**:
+**Error Payload Example**:
 ```json
 {
-    "timestamp": 1727169321150,
-    "status": 400,
-    "error": "Bad Request",
-    "message": "Headers 'X-Access-Token' and 'X-Application-Id' are necessary.",
-    "path": "/payments/create-payment-intent"
+  "timestamp": 1727169321150,
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Headers 'X-Access-Token' and 'X-Application-Id' are necessary.",
+  "path": "/payments/create-payment-intent"
 }
 ```
 
@@ -352,6 +352,10 @@ Response DTO: [**PaymentDto**](PaymentDto.md)
 
 After creating the payment intent, direct the user to the payment page or widget. This part is abstracted for you. The user will complete the payment, and you will receive a webhook with the payment status: **AUTHORIZED** (for manual capture) or **COMPLETED** (for automatic capture).
 
+!!! note
+
+    For more information about how the widget works, please refer to the [Widget Documentation](/documentation/widget/).
+
 ---
 
 ### **3. Payment Capture (Manual vs. Automatic)**
@@ -368,8 +372,8 @@ Afterward, it's necessary to call the `Capture` endpoint to complete the operati
 
 - **Method**: PUT
 - **Path**: `/payments/{payment_id}/capture`
-- **Path Variables**: 
-  - payment_id: The ID of the payment intent.
+- **Path Variables**:
+    - payment_id: The ID of the payment intent.
 
 ---
 
@@ -399,8 +403,9 @@ The response is an object detailing the date when the capture occurred, along wi
 
 Response DTO: [**ConfirmPaymentResponse**](ConfirmPaymentResponse.md)
 
-> [!TIP]
-> Although the response includes a `list` of `CaptureDetail` objects, currently only a single capture is allowed. Therefore, you can expect the list to always contain just one element.
+!!! tip
+
+    Although the response includes a `list` of `CaptureDetail` objects, currently only a single capture is allowed. Therefore, you can expect the list to always contain just one element.
 
 <details>
   <summary>Response Example</summary>
@@ -426,8 +431,9 @@ Response DTO: [**ConfirmPaymentResponse**](ConfirmPaymentResponse.md)
 ```
 </details>
 
-> [!NOTE]  
-> Upon capture, a **CONFIRMED** webhook will be sent, indicating that the payment has been successfully confirmed and captured.
+!!! note
+
+    Upon capture, a **CONFIRMED** webhook will be sent, indicating that the payment has been successfully confirmed and captured.
 
 **Error responses**
 
@@ -454,8 +460,8 @@ A payment can only be canceled if its status is either **Created** or **Authoriz
 
 - **Method**: PUT
 - **Path**: `/payments/{payment_id}/cancel`
-- **Path Variables**: 
-  - payment_id: The ID of the payment intent.
+- **Path Variables**:
+    - payment_id: The ID of the payment intent.
 
 ---
 
@@ -503,6 +509,8 @@ Response DTO: [**PaymentDto**](PaymentDto.md)
 | --- | ------------- | ------------------------------------------------------------------------------------------------------------- |
 | 400 | Bad Request   | The request was unacceptable, often due to missing a required parameter or some auth aspect like the headers. |
 | 401 | Unauthorized  | No valid pairs of auth headers was provided.                                                                  |
+| 403  | Forbidden    | The client lacks the necessary permissions to perform the 
+request.                                             |
 | 500 | Server Errors | Something went wrong on iCliGo's end.                                                                         |
 
 ---
@@ -515,8 +523,8 @@ Refunds a payment for a given payment ID
 
 - **Method**: POST
 - **Path**: `/payments/{payment_id}/refund`
-- **Path Variables**: 
-  - payment_id: The ID of the payment intent.
+- **Path Variables**:
+    - payment_id: The ID of the payment intent.
 
 ---
 

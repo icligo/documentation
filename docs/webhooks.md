@@ -86,26 +86,26 @@ This more secure strategy involves digital signatures and RSA public keys.
 **Steps to Verify:**
 
 1. **Save the public key:** After subscribing to our webhooks, you will receive an RSA public key in the PKCS8 format. Store this key securely.
-2. **Hash the payload:** 
-   - Remove all spaces from the raw payload to normalize it. 
-   
-     *Raw payload:*
-     ```json
-     {
-       "event": "PAYMENT_AUTHORIZED",
-       "reference": "reference-id",
-       "payment-id": "d76d1fcb-9a9e-489b-a71b-25304c2d8c5c"
-     }
-     ```
-   
-     *Processed payload:*
-     ```json
-     {"event":"PAYMENT_AUTHORIZED","reference":"reference-id","payment-id":"d76d1fcb-9a9e-489b-a71b-25304c2d8c5c"}
-     ```
-   - Generate a SHA-256 hash of the processed payload. For example:
-     ```
-     e9f77536b9fc6ec2853fdd4d0026ca29541e741b225d8ce9107e612350149a15
-     ```
+2. **Hash the payload:**
+    - Remove all spaces from the raw payload to normalize it.
+
+      *Raw payload:*
+      ```json
+      {
+        "event": "PAYMENT_AUTHORIZED",
+        "reference": "reference-id",
+        "payment-id": "d76d1fcb-9a9e-489b-a71b-25304c2d8c5c"
+      }
+      ```
+
+      *Processed payload:*
+      ```json
+      {"event":"PAYMENT_AUTHORIZED","reference":"reference-id","payment-id":"d76d1fcb-9a9e-489b-a71b-25304c2d8c5c"}
+      ```
+    - Generate a SHA-256 hash of the processed payload. For example:
+      ```
+      e9f77536b9fc6ec2853fdd4d0026ca29541e741b225d8ce9107e612350149a15
+      ```
 3. **Verify the signature:** Use the stored public key, the generated payload hash, and the signature provided in the metadata to verify the signature.
 
     - Load the public key into the program.
@@ -116,121 +116,122 @@ This more secure strategy involves digital signatures and RSA public keys.
 
 **Example Code of Signature Strategy**
 
-*Java*
+=== "Java"
 
-```java
-import java.nio.charset.StandardCharsets;
-import java.security.KeyFactory;
-import java.security.MessageDigest;
-import java.security.PublicKey;
-import java.security.Signature;
-import java.security.spec.X509EncodedKeySpec;
-import java.util.Base64;
+    ``` java
+    import java.nio.charset.StandardCharsets;
+    import java.security.KeyFactory;
+    import java.security.MessageDigest;
+    import java.security.PublicKey;
+    import java.security.Signature;
+    import java.security.spec.X509EncodedKeySpec;
+    import java.util.Base64;
 
-class PayloadValidation {
+    class PayloadValidation {
 
-    private static PublicKey parsePublicKey(String publicKeyString) throws Exception {
-        publicKeyString = publicKeyString
-                .replace("\n", "")
-                .replace("-----END PUBLIC KEY-----", "")
-                .replace("-----BEGIN PUBLIC KEY-----", "");
+        private static PublicKey parsePublicKey(String publicKeyString) throws Exception {
+            publicKeyString = publicKeyString
+                    .replace("\n", "")
+                    .replace("-----END PUBLIC KEY-----", "")
+                    .replace("-----BEGIN PUBLIC KEY-----", "");
 
-        byte[] publicKeyBytes = Base64.getDecoder().decode(publicKeyString);
-        X509EncodedKeySpec keySpec = new X509EncodedKeySpec(publicKeyBytes);
-        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-        return keyFactory.generatePublic(keySpec);
-    }
+            byte[] publicKeyBytes = Base64.getDecoder().decode(publicKeyString);
+            X509EncodedKeySpec keySpec = new X509EncodedKeySpec(publicKeyBytes);
+            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            return keyFactory.generatePublic(keySpec);
+        }
 
-    private static boolean verifyMessage(String publicKeyStr, String plainText, String signature) throws Exception {
-        Signature publicSignature = Signature.getInstance("SHA512withRSA");
-        PublicKey publicKey = parsePublicKey(publicKeyStr);
-        publicSignature.initVerify(publicKey);
-        publicSignature.update(plainText.getBytes(StandardCharsets.UTF_8));
-        byte[] signatureBytes = Base64.getDecoder().decode(signature);
-        return publicSignature.verify(signatureBytes);
-    }
+        private static boolean verifyMessage(String publicKeyStr, String plainText, String signature) throws Exception {
+            Signature publicSignature = Signature.getInstance("SHA512withRSA");
+            PublicKey publicKey = parsePublicKey(publicKeyStr);
+            publicSignature.initVerify(publicKey);
+            publicSignature.update(plainText.getBytes(StandardCharsets.UTF_8));
+            byte[] signatureBytes = Base64.getDecoder().decode(signature);
+            return publicSignature.verify(signatureBytes);
+        }
 
-    public static String generateSHA256Hash(String string) throws Exception {
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        byte[] encodedHash = digest.digest(string.getBytes(StandardCharsets.UTF_8));
-        return bytesToHex(encodedHash);
-    }
+        public static String generateSHA256Hash(String string) throws Exception {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] encodedHash = digest.digest(string.getBytes(StandardCharsets.UTF_8));
+            return bytesToHex(encodedHash);
+        }
 
-    private static String bytesToHex(byte[] hash) {
-        StringBuilder hexString = new StringBuilder(2 * hash.length);
-        for (byte b : hash) {
-            String hex = Integer.toHexString(0xff & b);
-            if (hex.length() == 1) {
-                hexString.append('0');
+        private static String bytesToHex(byte[] hash) {
+            StringBuilder hexString = new StringBuilder(2 * hash.length);
+            for (byte b : hash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
+                hexString.append(hex);
             }
-            hexString.append(hex);
+            return hexString.toString();
         }
-        return hexString.toString();
-    }
 
-    public static void main(String[] args) {
-        String signature = "signature";
-        String publicKeyStr = "public key";
-        String payloadStr = "{\"event\":\"PAYMENT_AUTHORIZED\",\"reference\":\"reference-id\",\"payment-id\":\"d76d1fcb-9a9e-489b-a71b-25304c2d8c5c\"}";
+        public static void main(String[] args) {
+            String signature = "signature";
+            String publicKeyStr = "public key";
+            String payloadStr = "{\"event\":\"PAYMENT_AUTHORIZED\",\"reference\":\"reference-id\",\"payment-id\":\"d76d1fcb-9a9e-489b-a71b-25304c2d8c5c\"}";
 
-        try {
-            String payloadHash = generateSHA256Hash(payloadStr);
-            boolean isValid = verifyMessage(publicKeyStr, payloadHash, signature);
-            System.out.println("The signature is " + (isValid ? "valid" : "invalid"));
-        } catch (Exception e) {
-            e.printStackTrace();
+            try {
+                String payloadHash = generateSHA256Hash(payloadStr);
+                boolean isValid = verifyMessage(publicKeyStr, payloadHash, signature);
+                System.out.println("The signature is " + (isValid ? "valid" : "invalid"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
-}
-```
+    ```
 
-*Python*
+=== "Python"
 
-```python
-import base64
-import hashlib
+    ``` python
+    import base64
+    import hashlib
 
-from cryptography.exceptions import InvalidSignature
-from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives import serialization
-from cryptography.hazmat.primitives.asymmetric import padding
-
-
-def generate_sha256_hash(string):
-    return hashlib.sha256(string.encode('utf-8')).hexdigest()
+    from cryptography.exceptions import InvalidSignature
+    from cryptography.hazmat.primitives import hashes
+    from cryptography.hazmat.primitives import serialization
+    from cryptography.hazmat.primitives.asymmetric import padding
 
 
-# Load the public key
-public_key_pem = b"""-----BEGIN PUBLIC KEY-----
-your-public-key
------END PUBLIC KEY-----"""
-public_key = serialization.load_pem_public_key(public_key_pem)
+    def generate_sha256_hash(string):
+        return hashlib.sha256(string.encode('utf-8')).hexdigest()
 
-# Decode the signature
-decoded_signature = base64.b64decode("the signature")
 
-# Hash the payload
-payload = '{"event":"PAYMENT_AUTHORIZED","reference":"reference-id","payment-id":"d76d1fcb-9a9e-489b-a71b-25304c2d8c5c"}'
-payload_hash = generate_sha256_hash(payload)
+    # Load the public key
+    public_key_pem = b"""-----BEGIN PUBLIC KEY-----
+    your-public-key
+    -----END PUBLIC KEY-----"""
+    public_key = serialization.load_pem_public_key(public_key_pem)
 
-# Verify the signature
-try:
-    public_key.verify(
-        decoded_signature,
-        payload_hash.encode('utf-8'),
-        padding.PKCS1v15(),
-        hashes.SHA512()
-    )
-    print("The signature is valid.")
-except InvalidSignature:
-    print("The signature is invalid.")
-```
+    # Decode the signature
+    decoded_signature = base64.b64decode("the signature")
+
+    # Hash the payload
+    payload = '{"event":"PAYMENT_AUTHORIZED","reference":"reference-id","payment-id":"d76d1fcb-9a9e-489b-a71b-25304c2d8c5c"}'
+    payload_hash = generate_sha256_hash(payload)
+
+    # Verify the signature
+    try:
+        public_key.verify(
+            decoded_signature,
+            payload_hash.encode('utf-8'),
+            padding.PKCS1v15(),
+            hashes.SHA512()
+        )
+        print("The signature is valid.")
+    except InvalidSignature:
+        print("The signature is invalid.")
+    ```
+
 
 ---
 
 ## **Webhook Delivery Confirmation**
 
-To ensure reliable delivery of webhooks, we implement a retry mechanism and notification system. 
+To ensure reliable delivery of webhooks, we implement a retry mechanism and notification system.
 
 ### **Confirming Successful Reception**
 
@@ -245,7 +246,7 @@ If the initial webhook delivery attempt fails, our system automatically initiate
 
 Retries are performed at increasing intervals:
 
-- 5 tries 
+- 5 tries
 - With a backoff ratio of 1.1 over a 15 seconds interval
 - Trigger rate, approximately, in seconds: 0, ~15, ~32, ~50, ~70
 
@@ -256,7 +257,7 @@ If all retry attempts are exhausted without a successful delivery, our system tr
 1. Notifications are sent to a predefined list of email addresses associated with the client's webhook configuration.
 2. This email list is established during the initial webhook setup process.
 3. The notification email includes:
-   - Details of the failed webhook, like:
-     - Timestamp
-     - Payment and order reference
-     - Event type
+    - Details of the failed webhook, like:
+        - Timestamp
+        - Payment and order reference
+        - Event type
