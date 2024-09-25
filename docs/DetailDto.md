@@ -24,8 +24,8 @@ Name | Type | Description | Notes
 **receptionTime** | **Date** | Time of reception at the destination. | [optional] 
 **destinationTime** | **Date** | Time of arrival at the destination. | [optional] 
 **destination** | **String** | Destination details. | [optional] 
-**circuit** | [**[CircuitDto]**](CircuitDto.md) | Details of the circuit, if applicable. | [optional] 
-**stopovers** | [**[StopoversDto]**](StopoversDto.md) | Details of stopovers during transportation, if applicable. | [optional] 
+**circuit** | [**CircuitDto**](CircuitDto.md) | Details of the circuit, if applicable. | [optional] 
+**stopovers** | [**StopoversDto**](StopoversDto.md) | Details of stopovers during transportation, if applicable. | [optional] 
 
 <a name="RoomTypeEnum"></a>
 ## Enum: RoomTypeEnum

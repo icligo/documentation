@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **productId** | **String** | Product identifier related to the payment. | [optional] 
 **productType** | **String** | Type of the product for which the payment is being made. | [optional] 
 **resume** | [**ResumeDto**](ResumeDto.md) |  | [optional] 
-**products** | [**[ProductDto]**](ProductDto.md) | List of products associated with this payment. | [optional] 
+**products** | [**ProductDto**](ProductDto.md) | List of products associated with this payment. | [optional] 
 **company** | **String** | Company associated with the payment. | [optional] 
 **microsite** | **String** | Microsite used for making the payment. | [optional] 
 **country** | **String** | Country where the payment is being made. | [optional] 
@@ -22,10 +22,10 @@ Name | Type | Description | Notes
 **capturedAmount** | **Number** | Amount captured. | [optional] 
 **authorizedAmount** | **Number** | Amount authorized to be captured. | [optional] 
 **methodTax** | **Number** | Tax applied to the payment method. | [optional] 
-**captureDetails** | [**[CaptureDetail]**](CaptureDetail.md) | Details of the captures made for the payment. | [optional] 
-**refundDetails** | [**[RefundDetail]**](RefundDetail.md) | Details of any refunds made for the payment. | [optional] 
+**captureDetails** | [**CaptureDetail**](CaptureDetail.md) | Details of the captures made for the payment. | [optional] 
+**refundDetails** | [**RefundDetail**](RefundDetail.md) | Details of any refunds made for the payment. | [optional] 
 **expirationDate** | **Date** | Expiration date of the payment. | [optional] 
-**gifts** | [**[GiftDto]**](GiftDto.md) | Details of the gifts/vouchers used for the payment. | [optional] 
+**gifts** | [**GiftDto**](GiftDto.md) | Details of the gifts/vouchers used for the payment. | [optional] 
 **isFullyPaidWithGifts** | **Boolean** | The payment is fully paid with gifts. | [optional] 
 
 <a name="ProductTypeEnum"></a>
