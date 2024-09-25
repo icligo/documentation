@@ -111,7 +111,8 @@ This more secure strategy involves digital signatures and RSA public keys.
     - Load the public key into the program.
     - Verify the signature using the `SHA512 RSA` algorithm.
 
-!!! note
+    
+!!! warning
 
     Be careful to use the correct algorithms! The signature is using `SHA512 RSA`, the public key is in the `PKCS8` format, and the hash is generated with `SHA-256`.
 
