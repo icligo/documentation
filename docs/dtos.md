@@ -189,32 +189,32 @@ Name | Type | Description | Notes
 
 **Properties**
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | **String** | Unique identifier for the payment intent. | [optional] 
-**clientId** | **String** | Unique client identifier. Identifies the client that is making the request, in this case it&#x27;syour company/merchant ID agreed at the beginning of the contract. | [optional] 
-**userId** | **String** | User/Customer identifier who initiated the payment. | [optional] 
-**service** | **String** | Service associated with the payment. | [optional] 
-**serviceDescription** | **String** | Detailed description of the service. | [optional] 
-**productId** | **String** | Product identifier related to the payment. | [optional] 
+Name | Type | Description                                              | Notes
+------------ | ------------- |----------------------------------------------------------| -------------
+**id** | **String** | Unique identifier for the payment intent.                | [optional] 
+**clientId** | **String** | Unique client identifier.                                | [optional] 
+**userId** | **String** | User/Customer identifier who initiated the payment.      | [optional] 
+**service** | **String** | Service associated with the payment.                     | [optional] 
+**serviceDescription** | **String** | Detailed description of the service.                     | [optional] 
+**productId** | **String** | Product identifier related to the payment.               | [optional] 
 **productType** | **String** | Type of the product for which the payment is being made. | [optional] 
-**resume** | [**ResumeDto**](/mkdocs/dtos/#resumedto) |  | [optional] 
-**products** | [**ProductDto**](/mkdocs/dtos/#productdto) | List of products associated with this payment. | [optional] 
-**company** | **String** | Company associated with the payment. | [optional] 
-**microsite** | **String** | Microsite used for making the payment. | [optional] 
-**country** | **String** | Country where the payment is being made. | [optional] 
-**currency** | **String** | Currency used for the payment. | [optional] 
-**createdBy** | **String** | Username of the person who created the payment. | [optional] 
-**state** | **String** | Current state of the payment. | [optional] 
-**amount** | **Number** | Total amount of the order. | [optional] 
-**capturedAmount** | **Number** | Amount captured. | [optional] 
-**authorizedAmount** | **Number** | Amount authorized to be captured. | [optional] 
-**methodTax** | **Number** | Tax applied to the payment method. | [optional] 
-**captureDetails** | [**CaptureDetail**](/mkdocs/dtos/#capturedetail) | Details of the captures made for the payment. | [optional] 
-**refundDetails** | [**RefundDetail**](/mkdocs/dtos/#refunddetail) | Details of any refunds made for the payment. | [optional] 
-**expirationDate** | **Date** | Expiration date of the payment. | [optional] 
-**gifts** | [**GiftDto**](/mkdocs/dtos/#giftdto) | Details of the gifts/vouchers used for the payment. | [optional] 
-**isFullyPaidWithGifts** | **Boolean** | The payment is fully paid with gifts. | [optional] 
+**resume** | [**ResumeDto**](/mkdocs/dtos/#resumedto) |                                                          | [optional] 
+**products** | [**ProductDto**](/mkdocs/dtos/#productdto) | List of products associated with this payment.           | [optional] 
+**company** | **String** | Company associated with the payment.                     | [optional] 
+**microsite** | **String** | Microsite used for making the payment.                   | [optional] 
+**country** | **String** | Country where the payment is being made.                 | [optional] 
+**currency** | **String** | Currency used for the payment.                           | [optional] 
+**createdBy** | **String** | Username of the person who created the payment.          | [optional] 
+**state** | **String** | Current state of the payment.                            | [optional] 
+**amount** | **Number** | Total amount of the order.                               | [optional] 
+**capturedAmount** | **Number** | Amount captured.                                         | [optional] 
+**authorizedAmount** | **Number** | Amount authorized to be captured.                        | [optional] 
+**methodTax** | **Number** | Tax applied to the payment method.                       | [optional] 
+**captureDetails** | [**CaptureDetail**](/mkdocs/dtos/#capturedetail) | Details of the captures made for the payment.            | [optional] 
+**refundDetails** | [**RefundDetail**](/mkdocs/dtos/#refunddetail) | Details of any refunds made for the payment.             | [optional] 
+**expirationDate** | **Date** | Expiration date of the payment.                          | [optional] 
+**gifts** | [**GiftDto**](/mkdocs/dtos/#giftdto) | Details of the gifts/vouchers used for the payment.      | [optional] 
+**isFullyPaidWithGifts** | **Boolean** | The payment is fully paid with gifts.                    | [optional] 
 
 <a name="ProductTypeEnum"></a>
 **Enum: ProductTypeEnum**
@@ -267,7 +267,7 @@ Name | Type | Description | Notes
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Unique identifier for the payment intent. | [optional] 
-**clientId** | **String** | Unique client identifier. Identifies the client that is making the request, in this case it&#x27;syour company/merchant ID agreed at the beginning of the contract. | [optional] 
+**clientId** | **String** | Unique client identifier. | [optional] 
 **userId** | **String** | User/Customer identifier who initiated the payment. | [optional] 
 **service** | **String** | Service associated with the payment. | [optional] 
 **serviceDescription** | **String** | Detailed description of the service. | [optional] 

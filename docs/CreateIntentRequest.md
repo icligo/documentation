@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**clientId** | **String** | Unique client identifier. Identifies the client that is making the request, in this case it&#x27;syour company/merchant ID agreed at the beginning of the contract. | [optional] 
+**clientId** | **String** | Unique client identifier. | [optional] 
 **userId** | **String** | The user ID associated with the payment. | 
 **productId** | **String** | The ID of the product being purchased. | 
 **productType** | **String** | Type of the product. | 

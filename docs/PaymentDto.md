@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Unique identifier for the payment intent. | [optional] 
-**clientId** | **String** | Unique client identifier. Identifies the client that is making the request, in this case it&#x27;syour company/merchant ID agreed at the beginning of the contract. | [optional] 
+**clientId** | **String** | Unique client identifier. | [optional] 
 **userId** | **String** | User/Customer identifier who initiated the payment. | [optional] 
 **service** | **String** | Service associated with the payment. | [optional] 
 **serviceDescription** | **String** | Detailed description of the service. | [optional] 
