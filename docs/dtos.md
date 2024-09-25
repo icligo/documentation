@@ -9,8 +9,8 @@ The following section defines the Data Transfer Objects (DTOs) used in our syste
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currency** | **String** |  | 
-**value** | **Number** |  | 
+**currency** | **String** | The currency code (ISO 4217) for the transaction (e.g., USD, EUR). |
+**value** | **Number** | The total amount of the transaction in the specified currency. |
 
 ---
 ## **AuthorizePaymentRequest**
@@ -19,11 +19,12 @@ Name | Type | Description | Notes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**paymentProvider** | **String** |  | 
-**klarnaToken** | **String** |  | [optional] 
-**merchantReference** | **String** |  | [optional] 
-**country** | **String** |  | 
-**amountInfo** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) |  | 
+**paymentProvider** | **String** | The payment provider used for the transaction. |
+**klarnaToken** | **String** | Token provided by Klarna for processing payments. | [optional] 
+**merchantReference** | **String** | A reference code provided by the merchant to identify the transaction. | [optional] 
+**country** | **String** | The country where the transaction is being processed. |
+**amountInfo** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Detailed information about the transaction amount, including currency and total. |
+
 
 <a name="PaymentProviderEnum"></a>
 **Enum: PaymentProviderEnum**
@@ -44,10 +45,10 @@ Name | Type | Description | Notes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**provider** | **String** |  | [optional] 
-**status** | **String** |  | [optional] 
-**_date** | **Date** |  | [optional] 
-**description** | **String** |  | [optional] 
+**provider** | **String** | The service provider responsible for processing the transaction. | [optional] 
+**status** | **String** | The current status of the transaction (e.g., Created, Authorized, Cancelled). | [optional] 
+**_date** | **Date** | The date when the transaction took place. | [optional] 
+**description** | **String** | A brief description of the transaction or its purpose. | [optional] 
 
 <a name="ProviderEnum"></a>
 **Enum: ProviderEnum**
@@ -68,9 +69,10 @@ Name | Type | Description | Notes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
-**captureTime** | **Date** |  | [optional] 
-**amount** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) |  | [optional] 
+**id** | **String** | Unique identifier for the transaction or record. | [optional] 
+**captureTime** | **Date** | The date and time when the transaction was captured. | [optional] 
+**amount** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Detailed information about the captured amount, including currency and value. | [optional] 
+
 
 ---
 ## **CircuitDto**
@@ -79,9 +81,9 @@ Name | Type | Description | Notes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**checkin** | **Date** |  | [optional] 
-**checkout** | **Date** |  | [optional] 
-**location** | **String** |  | [optional] 
+**checkin** | **Date** | The date and time when the check-in occurs. | [optional] 
+**checkout** | **Date** | The date and time when the check-out occurs. | [optional] 
+**location** | **String** | The location associated with the check-in and check-out. | [optional] 
 
 ---
 ## **ClientDto**
@@ -102,11 +104,11 @@ Name | Type | Description | Notes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **String** |  | [optional] 
-**_date** | **Date** |  | [optional] 
-**capturedAmountInfo** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) |  | [optional] 
-**description** | **String** |  | [optional] 
-**captures** | [**CaptureDetail**](/mkdocs/dtos/#capturedetail) |  | [optional] 
+**status** | **String** | The current status of the process or transaction. | [optional] 
+**_date** | **Date** | The date when the event or transaction occurred. | [optional] 
+**capturedAmountInfo** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Details about the amount that has been captured, including currency and value. | [optional] 
+**description** | **String** | A brief description providing additional context or details. | [optional] 
+**captures** | [**CaptureDetail**](/mkdocs/dtos/#capturedetail) | Information about individual captures related to the transaction. | [optional] 
 
 ---
 ## **DetailDto**
@@ -168,8 +170,9 @@ Name | Type | Description | Notes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amountInfo** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) |  | 
-**description** | **String** |  | [optional] 
+**amountInfo** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Detailed information about the captured amount, including currency and value. |
+**description** | **String** | A brief description of the transaction or context for the amount information. | [optional] 
+
 
 ---
 ## **GiftDto**
@@ -178,13 +181,13 @@ Name | Type | Description | Notes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** |  | [optional] 
-**value** | **Number** |  | [optional] 
-**valueToUse** | **Number** |  | [optional] 
-**code** | **String** |  | [optional] 
-**clientName** | **String** |  | [optional] 
-**refund** | **Boolean** |  | [optional] 
-**fkType** | **Number** |  | [optional] 
+**id** | **Number** | Unique identifier for the record or entity. | [optional] 
+**value** | **Number** | The total amount associated with the transaction or record. | [optional] 
+**valueToUse** | **Number** | The amount that should be utilized for processing or calculations. | [optional] 
+**code** | **String** | A reference code related to the transaction or entity. | [optional] 
+**clientName** | **String** | The name of the client associated with the transaction. | [optional] 
+**refund** | **Boolean** | Indicates whether the transaction involves a refund (true) or not (false). | [optional] 
+**fkType** | **Number** | Foreign key reference to another entity or type. | [optional] 
 
 ---
 ## **PaymentDto**
@@ -331,11 +334,11 @@ Name | Type | Description | Notes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
-**captureId** | **String** |  | [optional] 
-**createTime** | **Date** |  | [optional] 
-**description** | **String** |  | [optional] 
-**amount** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) |  | [optional] 
+**id** | **String** | Unique identifier for the transaction or record. | [optional] 
+**captureId** | **String** | Identifier for the specific capture associated with the transaction. | [optional] 
+**createTime** | **Date** | The date and time when the capture was created. | [optional] 
+**description** | **String** | A brief description providing additional context about the capture. | [optional] 
+**amount** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Detailed information about the capture amount, including currency and value. | [optional] 
 
 ---
 ## **RefundEndpointPaymentRequest**
@@ -344,8 +347,9 @@ Name | Type | Description | Notes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amountInfo** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) |  | 
-**description** | **String** |  | [optional] 
+**amountInfo** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Detailed information about the amount involved in the transaction, including currency and value. |
+**description** | **String** | A brief description providing additional context or details about the refund. | [optional] 
+
 
 ---
 
@@ -373,10 +377,11 @@ Name | Type | Description | Notes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**paymentMethod** | **String** |  | 
-**provider** | **String** |  | 
-**mbWayNumber** | **String** |  | [optional] 
-**stripeMethodId** | **String** |  | [optional] 
+**paymentMethod** | **String** | The method used for payment. |
+**provider** | **String** | The service provider facilitating the payment (e.g., Stripe, PayPal). |
+**mbWayNumber** | **String** | The mobile number associated with the MB Way payment method. | [optional] 
+**stripeMethodId** | **String** | Unique identifier for the payment method in Stripe's system. | [optional] 
+
 
 <a name="PaymentMethodEnum"></a>
 **Enum: PaymentMethodEnum**
@@ -411,14 +416,14 @@ Name | Type | Description | Notes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**departure** | **Date** |  | [optional] 
-**arrival** | **Date** |  | [optional] 
-**departureTime** | **String** |  | [optional] 
-**arrivalTime** | **String** |  | [optional] 
-**departureAirport** | **String** |  | [optional] 
-**arrivalAirport** | **String** |  | [optional] 
-**departureCity** | **String** |  | [optional] 
-**arrivalCity** | **String** |  | [optional] 
-**departureCountry** | **String** |  | [optional] 
-**arrivalCountry** | **String** |  | [optional] 
-**duration** | **String** |  | [optional] 
+**departure** | **Date** | The date and time when the departure occurs. | [optional] 
+**arrival** | **Date** | The date and time when the arrival occurs. | [optional] 
+**departureTime** | **String** | The time of departure in a specified format (e.g., HH:MM). | [optional] 
+**arrivalTime** | **String** | The time of arrival in a specified format (e.g., HH:MM). | [optional] 
+**departureAirport** | **String** | The airport from which the journey departs. | [optional] 
+**arrivalAirport** | **String** | The airport at which the journey arrives. | [optional] 
+**departureCity** | **String** | The city from which the journey departs. | [optional] 
+**arrivalCity** | **String** | The city at which the journey arrives. | [optional] 
+**departureCountry** | **String** | The country from which the journey departs. | [optional] 
+**arrivalCountry** | **String** | The country at which the journey arrives. | [optional] 
+**duration** | **String** | The total duration of the journey, typically expressed in hours and minutes. | [optional] 
