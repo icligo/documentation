@@ -7,8 +7,9 @@ This API allows you to manage payment intents, enabling payment capture, cancell
 ## **Authentication**
 
 To authenticate, include the following headers with all your API requests:
-- **X-Application-Id**: Your application ID.
-- **X-Access-Token**: A token used to authenticate your application's access to the API.
+
+    - **X-Application-Id**: Your application ID.
+    - **X-Access-Token**: A token used to authenticate your application's access to the API.
 
 The API will return a **400 Bad Request** response if these headers are missing or invalid. If the payment request is associated with an unauthorized or incorrect Application ID, a **401 Unauthorised** response will be returned. If an attempt is made to access a forbidden resource, a **403 Forbidden** response is returned.
 
@@ -1219,8 +1220,6 @@ Request DTO: [**ExternalCancelPaymentResponse**](ExternalCancelPaymentResponse.m
 ---
 
 ### 5. Refund
-
-#### 5.1
 
 Refunds a payment for a given payment ID
 
