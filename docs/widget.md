@@ -77,19 +77,19 @@ To initialise the Widget, include the assets defined above and:
 
    ***PaymentForm Args***
 
-    ```jsx
+    ```javascript
     window.iCligoPaymentGateway.widgets.PaymentForm(containerId, props)
     ```
 
-   | Arg | Type | Required | Default | Description |
-       | --- | --- | --- | --- | --- |
-   | *`containerId`* | *string* | *true* |  | ID defined on HTML element attribute (`data-widget`)  |
-   | *`props`* | *object* | true |  | Widget Props |
-   |     *`props.paymentId`* | string | *true* |  | Payment intent ID |
-   |     *`props.options`* | *object* | *false* |  | Widget options |
-   |         *`props.options.locale`* | *Enum* <br/> `"pt"\|"en"\|"es"\|"fr"\|"it"` | *false* | `"pt"` | Widget locale definitions |
-   |         *`props.options.showCopyButton`* | *boolean* | *false* | `true` | Show button ‘copy payment link’ |
-   |         *`props.options.vouchers`* | *boolean* | *false* | `true` | Show voucher’s section |
+   | Arg | Type                                    | Required | Default | Description |
+       | --- |-----------------------------------------| --- | --- | --- |
+   | *`containerId`* | *string*                                | *true* |  | ID defined on HTML element attribute (`data-widget`)  |
+   | *`props`* | *object*                                | true |  | Widget Props |
+   |     *`props.paymentId`* | string                                  | *true* |  | Payment intent ID |
+   |     *`props.options`* | *object*                                | *false* |  | Widget options |
+   |         *`props.options.locale`* | *Enum* <br/> `"pt","en","es","fr","it"` | *false* | `"pt"` | Widget locale definitions |
+   |         *`props.options.showCopyButton`* | *boolean*                               | *false* | `true` | Show button ‘copy payment link’ |
+   |         *`props.options.vouchers`* | *boolean*                               | *false* | `true` | Show voucher’s section |
 
 ### **Widget Example**
 
