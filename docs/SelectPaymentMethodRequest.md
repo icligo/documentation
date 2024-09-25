@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**paymentMethod** | **String** |  | 
-**provider** | **String** |  | 
-**mbWayNumber** | **String** |  | [optional] 
-**stripeMethodId** | **String** |  | [optional] 
+**paymentMethod** | **String** | The method used for payment. |
+**provider** | **String** | The service provider facilitating the payment (e.g., Stripe, PayPal). |
+**mbWayNumber** | **String** | The mobile number associated with the MB Way payment method. | [optional] 
+**stripeMethodId** | **String** | Unique identifier for the payment method in Stripe's system. | [optional]
 
 <a name="PaymentMethodEnum"></a>
 ## Enum: PaymentMethodEnum

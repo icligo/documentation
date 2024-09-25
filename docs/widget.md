@@ -1,4 +1,4 @@
-# **Payment Gateway Widget**
+# Payment Gateway Widget
 
 This widget is a custom payment form built using **iCligoPaymentGateway**. It renders a payment form on the web page, leveraging a React-based component bundled in `index.umd.js`.
 

@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**paymentProvider** | **String** |  | 
-**klarnaToken** | **String** |  | [optional] 
-**merchantReference** | **String** |  | [optional] 
-**country** | **String** |  | 
-**amountInfo** | [**AmountInfo**](AmountInfo.md) |  | 
+**paymentProvider** | **String** | The payment provider used for the transaction. |
+**klarnaToken** | **String** | Token provided by Klarna for processing payments. | [optional] 
+**merchantReference** | **String** | A reference code provided by the merchant to identify the transaction. | [optional] 
+**country** | **String** | The country where the transaction is being processed. |
+**amountInfo** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Detailed information about the transaction amount, including currency and total. |
 
 <a name="PaymentProviderEnum"></a>
 ## Enum: PaymentProviderEnum

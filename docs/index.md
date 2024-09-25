@@ -30,11 +30,11 @@ The error payload includes the following parameters:
 **Error Payload Example**:
 ```json
 {
-  "timestamp": 1727169321150,
-  "status": 400,
-  "error": "Bad Request",
-  "message": "Headers 'X-Access-Token' and 'X-Application-Id' are necessary.",
-  "path": "/payments/create-payment-intent"
+    "timestamp": 1727169321150,
+    "status": 400,
+    "error": "Bad Request",
+    "message": "Headers 'X-Access-Token' and 'X-Application-Id' are necessary.",
+    "path": "/payments/create-payment-intent"
 }
 ```
 
@@ -476,42 +476,24 @@ This request does not require a body. The specified payment intent will be cance
 
 The success response returns the submitted information along with additional details, such as the amounts authorized, captured, etc.
 
-Response DTO: [**PaymentDto**](PaymentDto.md)
-
+Request DTO: [**ExternalCancelPaymentResponse**](ExternalCancelPaymentResponse.md)
 <details>
   <summary>Basic Response Example</summary>
 ```json
 {
-  "status": "CANCELLED",
   "date": "1727193013453",
-  "capturedAmountInfo": {
-    "currency": "EUR",
-    "value": 25.0
-  },
-  "description": "Description example",
-  "captures": [
-    {
-      "id": "66f2df95-659b-a21d-974d-ba3b489d50d9",
-      "captureTime": "1727193004172",
-      "amount": {
-        "currency": "EUR",
-        "value": 25.0
-      }
-    }
-  ]
 }
 ```
 </details>
 
 **Error responses**
 
-|     |               |                                                                                                               |
-| --- | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| 400 | Bad Request   | The request was unacceptable, often due to missing a required parameter or some auth aspect like the headers. |
-| 401 | Unauthorized  | No valid pairs of auth headers was provided.                                                                  |
-| 403  | Forbidden    | The client lacks the necessary permissions to perform the 
-request.                                             |
-| 500 | Server Errors | Something went wrong on iCliGo's end.                                                                         |
+| Code | Description  | Details                                                                                                       |
+| ---- | ------------ | ------------------------------------------------------------------------------------------------------------- |
+| 400  | Bad Request  | The request was unacceptable, often due to missing required parameters or incorrect authorization headers.     |
+| 401  | Unauthorized | No valid authentication headers were provided.                                                                |
+| 403  | Forbidden    | The client lacks the necessary permissions to perform the request.                                             |
+| 500  | Server Error | An issue occurred on iCliGo’s side.                                                                         |
 
 ---
 
@@ -532,7 +514,7 @@ Refunds a payment for a given payment ID
 
 The request specifies the amount to be refunded and includes an optional description.
 
-Request DTO: [**ExternalRefundPaymentRequest**](ExternalRefundPaymentRequest.md)
+Request DTO: [**RefundEndpointPaymentRequest**](RefundEndpointPaymentRequest.md)
 
 <details>
   <summary>Request Payload Example</summary>
@@ -570,6 +552,170 @@ Response DTO: [**RefundDetail**](RefundDetail.md)
         "currency": "EUR",
         "value": 10.0
     }
+}
+```
+</details>
+
+**Error responses**
+
+| Code | Description  | Details                                                                                                       |
+| ---- | ------------ | ------------------------------------------------------------------------------------------------------------- |
+| 400  | Bad Request  | The request was unacceptable, often due to missing required parameters or incorrect authorization headers.     |
+| 401  | Unauthorized | No valid authentication headers were provided.                                                                |
+| 403  | Forbidden    | The client lacks the necessary permissions to perform the request.                                             |
+| 500  | Server Error | An issue occurred on iCliGo’s side.                                                                            |
+
+---
+
+### **6. Retrieve**
+
+For a given ID retrieve all the information about the payment intent.
+
+**API Endpoint:**
+
+- **Method**: GET
+- **Path**: `/payments/{payment_id}/retrieve`
+- **Path Variables**:
+    - payment_id: The ID of the payment intent.
+
+---
+
+##### **Request**
+
+This request does not require a body. The specified payment intent will retrieve payment intente info by making a GET request to this endpoint using the provided payment_id.
+
+---
+
+##### **Responses**
+
+**Success response (200 OK)**
+
+The response is an object detailing the payment intent info.
+
+Response DTO: [**ExternalPaymentDto**](ExternalPaymentDto.md)
+
+
+<details>
+  <summary>Response Example</summary>
+```json
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "clientId": "string",
+  "userId": "user-abc",
+  "service": "Flight booking",
+  "serviceDescription": "string",
+  "productId": "prod-456",
+  "productType": "BOOKING",
+  "resume": {
+    "description": "Booking a suite.",
+    "reference": "REF12345678",
+    "owner": "John Doe",
+    "email": "johndoe@example.com",
+    "currency": "EUR",
+    "amount": 1500.75,
+    "checkin": "2024-09-25T11:29:07.371Z",
+    "checkout": "2024-09-25T11:29:07.371Z",
+    "clients": [
+      {
+        "name": "John Doe",
+        "email": "johndoe@example.com",
+        "dateOfBirth": "2024-09-25T11:29:07.371Z",
+        "children": false
+      }
+    ]
+  },
+  "products": [
+    {
+      "type": "BOOKING",
+      "name": "Product XYZ",
+      "location": "Location X",
+      "duration": "string",
+      "code": "PRD12345",
+      "transport": "CAR",
+      "checkin": "2024-09-25T11:29:07.371Z",
+      "checkout": "2024-09-25T11:29:07.371Z",
+      "date": "2024-09-25T11:29:07.371Z",
+      "price": 500,
+      "detail": {
+        "night": 3,
+        "roomType": "Suite",
+        "regime": "Half board",
+        "flightNumber": "FL123",
+        "departure": "2024-09-25T11:29:07.371Z",
+        "arrival": "2024-09-25T11:29:07.371Z",
+        "departureTime": "string",
+        "arrivalTime": "string",
+        "departureAirport": "JFK",
+        "arrivalAirport": "LHR",
+        "departureCity": "New York",
+        "arrivalCity": "London",
+        "departureCountry": "US",
+        "arrivalCountry": "UK",
+        "baggage": "string",
+        "duration": "string",
+        "provider": "Airline XYZ",
+        "reception": "string",
+        "receptionTime": "2024-09-25T11:29:07.371Z",
+        "destinationTime": "2024-09-25T11:29:07.371Z",
+        "destination": "string",
+        "circuit": [
+          {
+            "checkin": "2024-09-25T11:29:07.371Z",
+            "checkout": "2024-09-25T11:29:07.371Z",
+            "location": "string"
+          }
+        ],
+        "stopovers": [
+          {
+            "departure": "2024-09-25T11:29:07.371Z",
+            "arrival": "2024-09-25T11:29:07.371Z",
+            "departureTime": "string",
+            "arrivalTime": "string",
+            "departureAirport": "string",
+            "arrivalAirport": "string",
+            "departureCity": "string",
+            "arrivalCity": "string",
+            "departureCountry": "string",
+            "arrivalCountry": "string",
+            "duration": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "company": "iCliGo",
+  "microsite": "iCliGo Payments",
+  "country": "Spain",
+  "currency": "EUR",
+  "createdBy": "user-123",
+  "state": "CREATED",
+  "amount": 0,
+  "capturedAmount": 0,
+  "authorizedAmount": 0,
+  "methodTax": 0,
+  "captureDetails": [
+    {
+      "id": "string",
+      "captureTime": "2024-09-25T11:29:07.371Z",
+      "amount": {
+        "currency": "string",
+        "value": 0
+      }
+    }
+  ],
+  "refundDetails": [
+    {
+      "id": "string",
+      "captureId": "string",
+      "createTime": "2024-09-25T11:29:07.371Z",
+      "description": "string",
+      "amount": {
+        "currency": "string",
+        "value": 0
+      }
+    }
+  ],
+  "expirationDate": "2024-09-25T11:29:07.371Z"
 }
 ```
 </details>

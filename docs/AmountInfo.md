@@ -3,5 +3,5 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currency** | **String** |  | 
-**value** | **Number** |  | 
+**currency** | **String** | The currency code (ISO 4217) for the transaction (e.g., USD, EUR). |
+**value** | **Number** | The total amount of the transaction in the specified currency. |

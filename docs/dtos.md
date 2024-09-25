@@ -71,8 +71,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Unique identifier for the transaction or record. | [optional] 
 **captureTime** | **Date** | The date and time when the transaction was captured. | [optional] 
-**amount** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Detailed information about the captured amount, including currency and value. | [optional] 
-
+**amount** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Detailed information about the captured amount, including currency and value. | [optional]
 
 ---
 ## **CircuitDto**
@@ -161,7 +160,15 @@ Name | Type | Description | Notes
 **error** | **String** | HTTP description of the error. | [optional] 
 **message** | **String** | Detailed error message. | [optional] 
 **path** | **String** | The path of the endpoint where the error occurred. | [optional] 
-**metadata** | [**PaymentExceptionPayload**](/mkdocs/dtos/#paymentexceptionpayload) |  | [optional] 
+
+---
+
+# ExternalCancelPaymentResponse
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**date** | **Date** | Time of cancel payment intent. |
 
 ---
 ## **ExternalConfirmPaymentRequest**
@@ -171,8 +178,68 @@ Name | Type | Description | Notes
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amountInfo** | [**AmountInfo**](/mkdocs/dtos/#amountinfo) | Detailed information about the captured amount, including currency and value. |
-**description** | **String** | A brief description of the transaction or context for the amount information. | [optional] 
+**description** | **String** | A brief description of the transaction or context for the amount information. | [optional]
 
+---
+
+## **ExternalPaymentDto**
+
+**Properties**
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **String** | Unique identifier for the payment intent. | [optional] 
+**clientId** | **String** | Unique client identifier. Identifies the client that is making the request, in this case it&#x27;syour company/merchant ID agreed at the beginning of the contract. | [optional] 
+**userId** | **String** | User/Customer identifier who initiated the payment. | [optional] 
+**service** | **String** | Service associated with the payment. | [optional] 
+**serviceDescription** | **String** | Detailed description of the service. | [optional] 
+**productId** | **String** | Product identifier related to the payment. | [optional] 
+**productType** | **String** | Type of the product for which the payment is being made. | [optional] 
+**resume** | [**ResumeDto**](/mkdocs/dtos/#resumedto) |  | [optional] 
+**products** | [**ProductDto**](/mkdocs/dtos/#productdto) | List of products associated with this payment. | [optional] 
+**company** | **String** | Company associated with the payment. | [optional] 
+**microsite** | **String** | Microsite used for making the payment. | [optional] 
+**country** | **String** | Country where the payment is being made. | [optional] 
+**currency** | **String** | Currency used for the payment. | [optional] 
+**createdBy** | **String** | Username of the person who created the payment. | [optional] 
+**state** | **String** | Current state of the payment. | [optional] 
+**amount** | **Number** | Total amount of the order. | [optional] 
+**capturedAmount** | **Number** | Amount captured. | [optional] 
+**authorizedAmount** | **Number** | Amount authorized to be captured. | [optional] 
+**methodTax** | **Number** | Tax applied to the payment method. | [optional] 
+**captureDetails** | [**CaptureDetail**](/mkdocs/dtos/#capturedetail) | Details of the captures made for the payment. | [optional] 
+**refundDetails** | [**RefundDetail**](/mkdocs/dtos/#refunddetail) | Details of any refunds made for the payment. | [optional] 
+**expirationDate** | **Date** | Expiration date of the payment. | [optional] 
+**gifts** | [**GiftDto**](/mkdocs/dtos/#giftdto) | Details of the gifts/vouchers used for the payment. | [optional] 
+**isFullyPaidWithGifts** | **Boolean** | The payment is fully paid with gifts. | [optional] 
+
+<a name="ProductTypeEnum"></a>
+**Enum: ProductTypeEnum**
+
+* `BOOKING` (value: `"BOOKING"`)
+* `SUBSCRIPTION` (value: `"SUBSCRIPTION"`)
+* `GIFT` (value: `"GIFT"`)
+* `EVENT` (value: `"EVENT"`)
+* `SERVICE` (value: `"SERVICE"`)
+* `ACCOMMODATION` (value: `"ACCOMMODATION"`)
+* `FLIGHT` (value: `"FLIGHT"`)
+* `PACKAGE` (value: `"PACKAGE"`)
+* `INSURANCE` (value: `"INSURANCE"`)
+* `CRUISE` (value: `"CRUISE"`)
+* `ACTIVITY` (value: `"ACTIVITY"`)
+* `TRANSFER` (value: `"TRANSFER"`)
+
+
+<a name="StateEnum"></a>
+**Enum: StateEnum**
+
+* `CREATED` (value: `"CREATED"`)
+* `PROCESSING` (value: `"PROCESSING"`)
+* `AUTHORIZED` (value: `"AUTHORIZED"`)
+* `COMPLETED` (value: `"COMPLETED"`)
+* `CANCELED` (value: `"CANCELED"`)
+* `FAILED` (value: `"FAILED"`)
+* `REFUNDED` (value: `"REFUNDED"`)
 
 ---
 ## **GiftDto**
