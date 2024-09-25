@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**night** | **Number** | Number of nights for the stay. | [optional] 
+**night** | **Integer** | Number of nights for the stay. | [optional] 
 **roomType** | **String** | Room type for accommodation. | [optional] 
 **regime** | **String** | Accommodation regime. | [optional] 
 **flightNumber** | **String** | Flight number for associated transportation. | [optional] 

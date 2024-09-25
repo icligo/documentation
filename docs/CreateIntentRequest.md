@@ -8,12 +8,12 @@ Name | Type | Description | Notes
 **productId** | **String** | The ID of the product being purchased. | 
 **productType** | **String** | Type of the product. | 
 **resume** | [**ResumeDto**](ResumeDto.md) |  | [optional] 
-**products** | [**[ProductDto]**](ProductDto.md) | A list of products associated with the payment. | 
+**products** | [**ProductDto**](ProductDto.md) | A list of products associated with the payment. | 
 **currency** | **String** | Currency code for the payment. | 
 **company** | **String** | Company making the payment request. | 
 **microsite** | **String** | The microsite making the payment request. | 
 **country** | **String** | Country where the payment is being made. | 
-**amount** | **Number** | The amount to be charged. | 
+**amount** | **BigDecimal** | The amount to be charged. | 
 
 <a name="ProductTypeEnum"></a>
 ## Enum: ProductTypeEnum

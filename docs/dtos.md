@@ -10,7 +10,7 @@ The following section defines the Data Transfer Objects (DTOs) used in our syste
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency** | **String** | The currency code (ISO 4217) for the transaction (e.g., USD, EUR). |
-**value** | **Number** | The total amount of the transaction in the specified currency. |
+**value** | **BigDecimal** | The total amount of the transaction in the specified currency. |
 
 ---
 ## **AuthorizePaymentRequest**
@@ -116,7 +116,7 @@ Name | Type | Description | Notes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**night** | **Number** | Number of nights for the stay. | [optional] 
+**night** | **Integer** | Number of nights for the stay. | [optional] 
 **roomType** | **String** | Room type for accommodation. | [optional] 
 **regime** | **String** | Accommodation regime. | [optional] 
 **flightNumber** | **String** | Flight number for associated transportation. | [optional] 
@@ -153,10 +153,10 @@ Name | Type | Description | Notes
 
 **Properties**
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**timestamp** | **Number** | Timestamp of when the error occurred. | [optional] 
-**status** | **Number** | HTTP status code of the error. | [optional] 
+Name | Type       | Description | Notes
+------------ |------------| ------------- | -------------
+**timestamp** | **long**   | Timestamp of when the error occurred. | [optional] 
+**status** | **int**    | HTTP status code of the error. | [optional] 
 **error** | **String** | HTTP description of the error. | [optional] 
 **message** | **String** | Detailed error message. | [optional] 
 **path** | **String** | The path of the endpoint where the error occurred. | [optional] 
@@ -203,10 +203,10 @@ Name | Type | Description | Notes
 **currency** | **String** | Currency used for the payment. | [optional] 
 **createdBy** | **String** | Username of the person who created the payment. | [optional] 
 **state** | **String** | Current state of the payment. | [optional] 
-**amount** | **Number** | Total amount of the order. | [optional] 
-**capturedAmount** | **Number** | Amount captured. | [optional] 
-**authorizedAmount** | **Number** | Amount authorized to be captured. | [optional] 
-**methodTax** | **Number** | Tax applied to the payment method. | [optional] 
+**amount** | **BigDecimal** | Total amount of the order. | [optional] 
+**capturedAmount** | **BigDecimal** | Amount captured. | [optional] 
+**authorizedAmount** | **BigDecimal** | Amount authorized to be captured. | [optional] 
+**methodTax** | **BigDecimal** | Tax applied to the payment method. | [optional] 
 **captureDetails** | [**CaptureDetail**](/mkdocs/dtos/#capturedetail) | Details of the captures made for the payment. | [optional] 
 **refundDetails** | [**RefundDetail**](/mkdocs/dtos/#refunddetail) | Details of any refunds made for the payment. | [optional] 
 **expirationDate** | **Date** | Expiration date of the payment. | [optional] 
@@ -248,13 +248,13 @@ Name | Type | Description | Notes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | Unique identifier for the record or entity. | [optional] 
-**value** | **Number** | The total amount associated with the transaction or record. | [optional] 
-**valueToUse** | **Number** | The amount that should be utilized for processing or calculations. | [optional] 
+**id** | **Integer** | Unique identifier for the record or entity. | [optional] 
+**value** | **BigDecimal** | The total amount associated with the transaction or record. | [optional] 
+**valueToUse** | **BigDecimal** | The amount that should be utilized for processing or calculations. | [optional] 
 **code** | **String** | A reference code related to the transaction or entity. | [optional] 
 **clientName** | **String** | The name of the client associated with the transaction. | [optional] 
 **refund** | **Boolean** | Indicates whether the transaction involves a refund (true) or not (false). | [optional] 
-**fkType** | **Number** | Foreign key reference to another entity or type. | [optional] 
+**fkType** | **Integer** | Foreign key reference to another entity or type. | [optional] 
 
 ---
 ## **PaymentDto**
@@ -278,10 +278,10 @@ Name | Type | Description | Notes
 **currency** | **String** | Currency used for the payment. | [optional] 
 **createdBy** | **String** | Username of the person who created the payment. | [optional] 
 **state** | **String** | Current state of the payment. | [optional] 
-**amount** | **Number** | Total amount of the order. | [optional] 
-**capturedAmount** | **Number** | Amount captured. | [optional] 
-**authorizedAmount** | **Number** | Amount authorized to be captured. | [optional] 
-**methodTax** | **Number** | Tax applied to the payment method. | [optional] 
+**amount** | **BigDecimal** | Total amount of the order. | [optional] 
+**capturedAmount** | **BigDecimal** | Amount captured. | [optional] 
+**authorizedAmount** | **BigDecimal** | Amount authorized to be captured. | [optional] 
+**methodTax** | **BigDecimal** | Tax applied to the payment method. | [optional] 
 **captureDetails** | [**CaptureDetail**](/mkdocs/dtos/#capturedetail) | Details of the captures made for the payment. | [optional] 
 **refundDetails** | [**RefundDetail**](/mkdocs/dtos/#refunddetail) | Details of any refunds made for the payment. | [optional] 
 **expirationDate** | **Date** | Expiration date of the payment. | [optional] 
@@ -367,7 +367,7 @@ Name | Type | Description | Notes
 **checkin** | **Date** | Check-in date of the product, formatted as a string. | [optional] 
 **checkout** | **Date** | Check-out date of the product, formatted as a string. | [optional] 
 **_date** | **Date** | Date of the product activity or service, formatted as a string. | [optional] 
-**price** | **Number** | Price of the product. | [optional] 
+**price** | **BigDecimal** | Price of the product. | [optional] 
 **detail** | [**DetailDto**](/mkdocs/dtos/#detaildto) |  | [optional] 
 
 <a name="TypeEnum"></a>
@@ -431,7 +431,7 @@ Name | Type | Description | Notes
 **owner** | **String** | Owner or responsible party for the transaction. | [optional] 
 **email** | **String** | Owner&#x27;s contact email address. | [optional] 
 **currency** | **String** | Currency code for the transaction. | [optional] 
-**amount** | **Number** | Total amount of the transaction. | [optional] 
+**amount** | **BigDecimal** | Total amount of the transaction. | [optional] 
 **checkin** | **Date** | Check-in date for the booking, formatted as a string. | [optional] 
 **checkout** | **Date** | Check-out date for the booking, formatted as a string. | [optional] 
 **clients** | [**ClientDto**](/mkdocs/dtos/#clientdto) | List of clients involved in the transaction. | [optional] 

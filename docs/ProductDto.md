@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **checkin** | **Date** | Check-in date of the product, formatted as a string. | [optional] 
 **checkout** | **Date** | Check-out date of the product, formatted as a string. | [optional] 
 **_date** | **Date** | Date of the product activity or service, formatted as a string. | [optional] 
-**price** | **Number** | Price of the product. | [optional] 
+**price** | **BigDecimal** | Price of the product. | [optional] 
 **detail** | [**DetailDto**](DetailDto.md) |  | [optional] 
 
 <a name="TypeEnum"></a>
