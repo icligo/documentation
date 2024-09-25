@@ -1,4 +1,4 @@
-site_name: icligo-payments-docs
+site_name: ICligo Payments API
 site_url: https://franciscomatos.gitlab.io/icligo-payments-docs/
 site_dir: public
 extra_css:
