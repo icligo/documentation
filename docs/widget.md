@@ -145,8 +145,14 @@ Open the platform on a new page.
 ### **URL address**
 
 ```html
-https://staging.icligo.com/payment-gateway?payment={paymentId}&enableCopy=true&enableVouchers=true
+https://staging.icligo.com/payment-gateway/${locale}?payment=${paymentId}&enableCopy=true&enableVouchers=true
 ```
+
+### **URL Paths**
+
+| Attribute  | Required | Default                                        | Description                                                |
+|------------|----------|------------------------------------------------|------------------------------------------------------------|
+| *`locale`* | *false*  | `"pt"` | Page locale definitions. Enum: `"pt","en","es","fr","it"` |
 
 ### **URL Params**
 
