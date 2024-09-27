@@ -4,7 +4,7 @@ This document outlines the steps involved in a typical payment transaction using
 
 The diagram bellow represents the high-level **sequence diagram** of the payment's flow.
 
-![sequence](./seq-diagram.jpg)
+![](assets/seq-diagram.jpg){}
 
 ### Step 1: Creating a Payment Intent
 
@@ -61,7 +61,7 @@ After creating the payment intent, your role is to choose between embedding the 
 
 The **state machine diagram** below provides a clear view of the possible states a payment can assume in their lifecycle.
 
-![alt text](./state-diagram.jpg)
+![](assets/state-diagram.jpg){}
 
 After initiating the payment, it enters the `CREATED` state. At this point, you can force a cancellation, which will move the payment to the `CANCELED` state, ending its lifecycle.
 
