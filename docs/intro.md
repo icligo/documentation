@@ -4,7 +4,7 @@ This document outlines the steps involved in a typical payment transaction using
 
 The diagram bellow represents the high-level **sequence diagram** of the payment's flow.
 
-![](assets/seq-diagram.jpg){}
+![](assets/seq-diagram.jpg)
 
 ### Step 1: Creating a Payment Intent
 
@@ -24,8 +24,9 @@ After successfully creating the payment intent, the next step is to **present th
 2. **iCliGo Checkout Standalone Page**
     - Alternatively, you can redirect the customer to iCliGo’s standalone checkout page. This is a fully hosted page managed by iCliGo, where all payment-related interactions are handled externally. The main difference is that the customer is redirected to a new URL where all checkout operations take place.
 
->[!IMPORTANT]  
-> Regardless of whether you choose the widget or the standalone page, the customer can be redirected to a **success** or **failure** URL, as specified in the initial payment creation request.
+!!! note
+
+    Regardless of whether you choose the widget or the standalone page, the customer can be redirected to a **success** or **failure** URL, as specified in the initial payment creation request.
 
 ### Step 3: Managing Customer Interactions and Webhooks
 
@@ -61,7 +62,7 @@ After creating the payment intent, your role is to choose between embedding the 
 
 The **state machine diagram** below provides a clear view of the possible states a payment can assume in their lifecycle.
 
-![](assets/state-diagram.jpg){}
+![](assets/state-diagram.jpg)
 
 After initiating the payment, it enters the `CREATED` state. At this point, you can force a cancellation, which will move the payment to the `CANCELED` state, ending its lifecycle.
 
