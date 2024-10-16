@@ -11,8 +11,9 @@ The diagram bellow represents the high-level **sequence diagram** of the payment
 The payment process begins with the creation of a **payment intent** (Step 1 in the sequence diagram). In this request, you provide key details such as the payment amount, currency, capture mode (manual or automatic), product information, the time window that the customer it is allowed to complete the payment, and any other necessary data. This request communicates your intent to initiate the transaction with the iCliGo gateway.
 
 Once your request is received, the system processes it and responds with a status code:
-    - A **200 OK** response confirms that the payment intent has been successfully created, giving you the assurance that everything is correctly set up, allowing you to proceed with the next steps.
-    - If you receive errors such as **400, 401, or 403**, this indicates an issue with the request (e.g., missing parameters, invalid credentials), and you will need to correct it before continuing.
+    
+- A **200 OK** response confirms that the payment intent has been successfully created, giving you the assurance that everything is correctly set up, allowing you to proceed with the next steps.
+- If you receive errors such as **400, 401, or 403**, this indicates an issue with the request (e.g., missing parameters, invalid credentials), and you will need to correct it before continuing.
 
 ### Step 2: Presenting the Payment Interface
 
