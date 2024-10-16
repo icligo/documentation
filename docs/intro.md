@@ -45,8 +45,9 @@ If you choose manual capture at the creation of payment intent, you maintain con
 #### Automatic Capture
 
 For automatic capture, you do not need to manually control the capture process. Therefore, you will not receive a `PAYMENT_AUTHORIZED` webhook. Instead, depending on the transaction outcome, you will receive either:
-    - **PAYMENT_COMPLETED Webhook**: If the customer successfully completes the payment.
-    - **PAYMENT_CANCELED Webhook**: If the payment is canceled due to an error or expiration of the time window defined to the payment.
+    
+- **PAYMENT_COMPLETED Webhook**: If the customer successfully completes the payment.
+- **PAYMENT_CANCELED Webhook**: If the payment is canceled due to an error or expiration of the time window defined to the payment.
 
 ### Step 4: Refunding a Payment Intent
 
