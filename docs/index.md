@@ -91,7 +91,8 @@ Request DTO: [**CreateIntentRequest**](CreateIntentRequest.md)
     "manualCapture": false,
     "successUrl": "https://success.com",
     "failureUrl": "http://failure.com",
-    "amount": 100.0
+    "amount": 100.0,
+    "expirationDate": "2024-10-03T17:59:30.398+00:00"
 }
 ```
 </details>
@@ -188,7 +189,8 @@ Request DTO: [**CreateIntentRequest**](CreateIntentRequest.md)
     "company": "Company XYZ",
     "microsite": "site_001",
     "country": "PT",
-    "amount": 100
+    "amount": 100,
+    "expirationDate": "2024-10-03T17:59:30.398+00:00"
 }
 ```
 </details>
