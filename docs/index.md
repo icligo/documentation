@@ -73,56 +73,43 @@ This request contains all the necessary information about the payment, such as t
 Request DTO: [**CreateIntentRequest**](CreateIntentRequest.md)
 
 <details>
-  <summary>Basic Request Payload Example</summary>
+  <summary>Request Payload Example</summary>
 ```json
 {
-    "userId": "user_123",
-    "productType": "BOOKING",
-    "productId": "my-product-id-123",
-    "products": [
+    "userId": "5c6bd4ff-fe65-4899-ac50-af305c27f86d",
+    "userEmail": "joedoe@email.com",
+    "userContact": "+351 910 000 000",
+    "userName": "Joe Doe",
+    "cancellationFees": [
         {
-            "name": "Product XYZ"
+            "limitDate": "2000-12-12",
+            "price": "10.00"
         }
     ],
-    "company": "icligo.pt",
-    "currency": "EUR",
-    "microsite": "icligo.pt",
-    "country": "pt",
-    "manualCapture": false,
-    "successUrl": "https://success.com",
-    "failureUrl": "http://failure.com",
-    "amount": 100.0,
-    "expirationDate": "2024-10-03T17:59:30.398+00:00"
-}
-```
-</details>
-
-<details>
-  <summary>Full Payload Example</summary>
-```json
-{
-    "clientId": "company_x_app",
-    "userId": "user_1234",
-    "productId": "product_1234",
-    "productType": "BOOKING",
+    "cancellationFeesStrings": [
+        "Non-refundable.",
+        "Refundable until 12-12-2000 with a fee of 10.00.",
+        "string ...."
+    ],
     "resume": {
-        "description": "Booking a suite.",
-        "reference": "REF12345678",
-        "owner": "John Doe",
-        "email": "johndoe@example.com",
-        "currency": "EUR",
-        "amount": 1500.75,
-        "checkin": "2024-09-24T16:46:42.411Z",
-        "checkout": "2024-09-24T16:46:42.411Z",
+        "owner": "Bob Smith",
         "clients": [
             {
-                "name": "John Doe",
-                "email": "johndoe@example.com",
-                "dateOfBirth": "2024-09-24T16:46:42.411Z",
+                "name": "Nome 1",
+                "email": "email@email.com",
+                "dateOfBirth": "2000-10-10",
+                "children": false
+            },
+            {
+                "name": "Nome 2",
+                "email": "email2@email.com",
+                "dateOfBirth": "2000-10-10",
                 "children": false
             }
         ]
     },
+    "productType": "BOOKING",
+    "productId": "my-product-id-123",
     "products": [
         {
             "type": "BOOKING",
@@ -182,15 +169,16 @@ Request DTO: [**CreateIntentRequest**](CreateIntentRequest.md)
             }
         }
     ],
+    "company": "icligo.pt",
     "currency": "EUR",
+    "microsite": "icligo.pt",
+    "country": "pt",
     "manualCapture": true,
     "successUrl": "https://success.com",
     "failureUrl": "http://failure.com",
-    "company": "Company XYZ",
-    "microsite": "site_001",
-    "country": "PT",
-    "amount": 100,
-    "expirationDate": "2024-10-03T17:59:30.398+00:00"
+    "ideaId": "15847300",
+    "amount": 100.0,
+    "expirationDate": "2024-12-31T11:43:00.000Z"
 }
 ```
 </details>
