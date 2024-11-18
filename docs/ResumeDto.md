@@ -5,7 +5,7 @@ Name | Type | Description                                                       
 ------------ | ------------- |-----------------------------------------------------------------------------| -------------
 **description** | **String** | Description of the product or service.                                      | [optional] 
 **reference** | **String** | Reference ID for the product or service.                                    | [optional] 
-**owner** | **String** | Owner or responsible party for the transaction.                             | [optional] 
+**owner** | **String** | Owner or responsible party for the transaction.                             | [required] 
 **email** | **String** | Owner&#x27;s contact email address.                                         | [optional] 
 **currency** | **String** | Currency code for the payment. Must respect the ISO 4217 and be upper case. | [optional] 
 **amount** | **BigDecimal** | Total amount of the transaction.                                            | [optional] 

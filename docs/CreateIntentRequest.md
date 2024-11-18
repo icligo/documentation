@@ -1,19 +1,25 @@
 # CreateIntentRequest
 
 ## Properties
-Name | Type | Description                                                                 | Notes
------------- | ------------- |-----------------------------------------------------------------------------| -------------
-**clientId** | **String** | Unique client identifier.                                                   | [optional] 
-**userId** | **String** | The user ID associated with the payment.                                    | 
-**productId** | **String** | The ID of the product being purchased.                                      | 
-**productType** | **String** | Type of the product.                                                        | 
-**resume** | [**ResumeDto**](ResumeDto.md) |                                                                             | [optional] 
-**products** | [**ProductDto**](ProductDto.md) | A list of products associated with the payment.                             | 
-**currency** | **String** | Currency code for the payment. Must respect the ISO 4217 and be upper case. | 
-**company** | **String** | Company making the payment request.                                         | 
-**microsite** | **String** | The microsite making the payment request.                                   | 
-**country** | **String** | Must be a valid ISO 3166-1 alpha-2 code.                                    | 
-**amount** | **BigDecimal** | The amount to be charged.                                                   | 
+| Name                        | Type                                                | Description                                                                                                                                                         | Notes      |
+|-----------------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| **clientId**                | **String**                                          | Unique client identifier. Identifies the client that is making the request, in this case it&#x27;syour company/merchant ID agreed at the beginning of the contract. | [optional] |
+| **userId**                  | **String**                                          | The user ID associated with the payment.                                                                                                                            |            |
+| **userName**                | **String**                                          | The User name.                                                                                                                                                      | [required] |
+| **userEmail**               | **String**                                          | The User e-mail.                                                                                                                                                    | [required] |
+| **userContact**             | **String**                                          | The User contact.                                                                                                                                                   | [required] |
+| **productId**               | **String**                                          | The ID of the product being purchased.                                                                                                                              |            |
+| **productType**             | **String**                                          | Type of the product.                                                                                                                                                |            |
+| **resume**                  | [**ResumeDto**](ResumeDto.md)                       |                                                                                                                                                                     | [optional] |
+| **products**                | [**[ProductDto]**](ProductDto.md)                   | A list of products associated with the payment.                                                                                                                     |            |
+| **currency**                | **String**                                          | Currency code for the payment.                                                                                                                                      |            |
+| **company**                 | **String**                                          | Company making the payment request.                                                                                                                                 |            |
+| **microsite**               | **String**                                          | The microsite making the payment request.                                                                                                                           |            |
+| **country**                 | **String**                                          | Country where the payment is being made.                                                                                                                            |            |
+| **amount**                  | **Number**                                          | The amount to be charged.                                                                                                                                           |            |
+| **ideaId**                  | **String**                                          | Idea identifier.                                                                                                                                                    | [required] |
+| **cancellationFees**        | [**[CancellationFeesDto]**](CancellationFeesDto.md) | List of cancellation fees associated with this payment.                                                                                                             | [required] |
+| **cancellationFeesStrings** | **String**                                          | List of cancellation fees on plain text                                                                                                                             | [required] |
 
 <a name="ProductTypeEnum"></a>
 ## Enum: ProductTypeEnum
