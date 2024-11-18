@@ -38,6 +38,16 @@ Name | Type | Description | Notes
 **description** | **String** | A brief description of the transaction or its purpose. | [optional] 
 
 ---
+## [**CancellationFeesDto**](CancellationFeesDto.md)
+
+**Properties**
+
+| Name          | Type           | Description                                         | Notes      |
+|---------------|----------------|-----------------------------------------------------|------------|
+| **limitDate** | **Date**       | Limit date for cancellation, formatted as a string. | [optional] |
+| **price**     | **BigDecimal** | Price of the cancellation.                          | [optional] |
+
+---
 ## [**CaptureDetail**](CaptureDetail.md)
 
 **Properties**
@@ -84,6 +94,47 @@ Name | Type | Description | Notes
 **capturedAmountInfo** | [**AmountInfo**](/documentation/dtos/#amountinfo) | Details about the amount that has been captured, including currency and value. | [optional] 
 **description** | **String** | A brief description providing additional context or details. | [optional] 
 **captures** | [**CaptureDetail**](/documentation/dtos/#capturedetail) | Information about individual captures related to the transaction. | [optional] 
+
+---
+## [**CreateIntentRequest**](CreateIntentRequest.md)
+
+**Properties**
+
+| Name                        | Type                                                | Description                                                                                                                                                         | Notes      |
+|-----------------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| **clientId**                | **String**                                          | Unique client identifier. Identifies the client that is making the request, in this case it&#x27;syour company/merchant ID agreed at the beginning of the contract. | [optional] |
+| **userId**                  | **String**                                          | The user ID associated with the payment.                                                                                                                            |            |
+| **userName**                | **String**                                          | The User name.                                                                                                                                                      | [required] |
+| **userEmail**               | **String**                                          | The User e-mail.                                                                                                                                                    | [required] |
+| **userContact**             | **String**                                          | The User contact.                                                                                                                                                   | [required] |
+| **productId**               | **String**                                          | The ID of the product being purchased.                                                                                                                              |            |
+| **productType**             | **String**                                          | Type of the product.                                                                                                                                                |            |
+| **resume**                  | [**ResumeDto**](ResumeDto.md)                       |                                                                                                                                                                     | [optional] |
+| **products**                | [**[ProductDto]**](ProductDto.md)                   | A list of products associated with the payment.                                                                                                                     |            |
+| **currency**                | **String**                                          | Currency code for the payment.                                                                                                                                      |            |
+| **company**                 | **String**                                          | Company making the payment request.                                                                                                                                 |            |
+| **microsite**               | **String**                                          | The microsite making the payment request.                                                                                                                           |            |
+| **country**                 | **String**                                          | Country where the payment is being made.                                                                                                                            |            |
+| **amount**                  | **Number**                                          | The amount to be charged.                                                                                                                                           |            |
+| **ideaId**                  | **String**                                          | Idea identifier.                                                                                                                                                    | [required] |
+| **cancellationFees**        | [**[CancellationFeesDto]**](CancellationFeesDto.md) | List of cancellation fees associated with this payment.                                                                                                             | [required] |
+| **cancellationFeesStrings** | **String**                                          | List of cancellation fees on plain text                                                                                                                             | [required] |
+
+<a name="ProductTypeEnum"></a>
+## Enum: ProductTypeEnum
+
+* `BOOKING` (value: `"BOOKING"`)
+* `SUBSCRIPTION` (value: `"SUBSCRIPTION"`)
+* `GIFT` (value: `"GIFT"`)
+* `EVENT` (value: `"EVENT"`)
+* `SERVICE` (value: `"SERVICE"`)
+* `ACCOMMODATION` (value: `"ACCOMMODATION"`)
+* `FLIGHT` (value: `"FLIGHT"`)
+* `PACKAGE` (value: `"PACKAGE"`)
+* `INSURANCE` (value: `"INSURANCE"`)
+* `CRUISE` (value: `"CRUISE"`)
+* `ACTIVITY` (value: `"ACTIVITY"`)
+* `TRANSFER` (value: `"TRANSFER"`)
 
 ---
 ## [**DetailDto**](DetailDto.md)
@@ -252,7 +303,7 @@ Name | Type | Description | Notes
 **_date** | **Date** | Date of the product activity or service, formatted as a string. | [optional] 
 **price** | **Number** | Price of the product. | [optional] 
 **detail** | [**DetailDto**](/documentation/dtos/#detaildto) |  | [optional] 
-
+**importantInfo** | **String**                    | String with Important information in plain text. | [required]
 <a name="TypeEnum"></a>
 **Enum: TypeEnum**
 
@@ -311,7 +362,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **String** | Description of the product or service. | [optional] 
 **reference** | **String** | Reference ID for the product or service. | [optional] 
-**owner** | **String** | Owner or responsible party for the transaction. | [optional] 
+**owner** | **String** | Owner or responsible party for the transaction. | [required] 
 **email** | **String** | Owner&#x27;s contact email address. | [optional] 
 **currency** | **String** | Currency code for the payment. Must respect the ISO 4217 and be upper case. | [optional] 
 **amount** | **Number** | Total amount of the transaction. | [optional] 
