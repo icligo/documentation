@@ -10,8 +10,6 @@ For products of type `booking`, use the following guidelines based on the transa
 
 ### **1. Transactions with `amount >= 20`**
 
-Use the test cards based on the card type:
-
 | **Selected Method** | **Test Card Number** |
 |-------------------------|----------------------|
 | Visa                    | 4147 4630 1111 0133	  |
