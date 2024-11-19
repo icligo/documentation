@@ -122,6 +122,7 @@ Request DTO: [**CreateIntentRequest**](CreateIntentRequest.md)
             "checkout": "2024-09-24T16:46:42.411Z",
             "date": "2024-09-24T16:46:42.411Z",
             "price": 500,
+            "importantInfo" : "Important notes ...",
             "detail": {
                 "night": 3,
                 "roomType": "Suite",
@@ -423,7 +424,7 @@ Response DTO: [**ConfirmPaymentResponse**](ConfirmPaymentResponse.md)
 
 !!! note
 
-    Upon capture, a **CONFIRMED** webhook will be sent, indicating that the payment has been successfully confirmed and captured.
+    Upon capture, a **COMPLETED** webhook will be sent, indicating that the payment has been successfully confirmed and captured.
 
 **Error responses**
 
