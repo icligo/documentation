@@ -10,11 +10,10 @@ This page provides instructions on testing different payment methods in a contro
 
 For payment methods where card details are entered directly in an inline form, use the following test cards:
 
-| **Card Type**           | **Test Card Number** |
-|-------------------------|---------------------|
-| Visa                    | 4242 4242 4242 4242 |
-| American Express        | 3782 822463 10005   |
-| Mastercard              | 5555 5555 5555 4444 |
+| **3D Secure usage**   | **Test Card Number** |
+|-----------------------|----------------------|
+| 3DS Required          | 4000 0000 0000 3220  |
+| 3DS Supported         | 4000 0000 0000 3055  |
 
 These cards simulate different scenarios for **Stripe** integration.
 
