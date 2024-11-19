@@ -30,8 +30,9 @@ Payments with these values do not support card transactions.
 
 If the selected payment method is **PayPal**, follow these steps for testing:
 1. When redirected to PayPal's login page, use the following test credentials:
-    - **Email**: `sb-74kmc30573880@personal.example.com`
-    - **Password**: `Z^rbNKj5`
+
+- **Email**: `sb-74kmc30573880@personal.example.com`
+- **Password**: `Z^rbNKj5`
 
 2. After logging in, approve the transaction to simulate a successful payment.
 
