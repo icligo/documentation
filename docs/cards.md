@@ -34,9 +34,7 @@ If the selected payment method is **PayPal**, follow these steps for testing:
 - **Email**: `sb-74kmc30573880@personal.example.com`
 - **Password**: `Z^rbNKj5`
 
-2. After logging in, approve the transaction to simulate a successful payment.
-
-**Note**: Ensure the test environment is correctly configured to use PayPal's sandbox API.
+After logging in, approve the transaction to simulate a successful payment.
 
 
 ### Notes:
