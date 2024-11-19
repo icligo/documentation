@@ -12,7 +12,7 @@ For products of type `booking`, use the following guidelines based on the transa
 
 Use the test cards based on the card type:
 
-| **Card Type**           | **Test Card Number** |
+| **Selected Method** | **Test Card Number** |
 |-------------------------|----------------------|
 | Visa                    | 4147 4630 1111 0133	  |
 | American Express        | 4000 0000 0000 3220  |
