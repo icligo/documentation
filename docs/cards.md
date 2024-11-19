@@ -10,10 +10,15 @@ This page provides instructions on testing different payment methods in a contro
 
 For payment methods where card details are entered directly in an inline form, use the following test cards:
 
-| **3D Secure usage**   | **Test Card Number** |
-|-----------------------|----------------------|
-| 3DS Required          | 4000 0000 0000 3220  |
-| 3DS Supported         | 4000 0000 0000 3055  |
+| **3D Secure usage** | **Outcome** | **Test Card Number** |
+|---------------------|-------------|----------------------|
+| 3DS Required        | OK          | 4000 0000 0000 3220  |
+| 3DS Required        | Declined    | 4000 0084 0000 1629  |
+| 3DS Required        | Error       | 4000 0084 0000 1280  |
+| 3DS Supported       | OK          | 4000 0000 0000 3220  |
+| 3DS Supported       | Error       | 4000 0000 0000 3097  |
+| 3DS Supported       | Unenrolled  | 4242 4242 4242 4242  |
+| 3DS Not supported   | -           | 3782 822463 10005    |
 
 These cards simulate different scenarios for **Stripe** integration.
 
