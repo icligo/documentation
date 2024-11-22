@@ -12,6 +12,11 @@ To authenticate, include the following headers with all your API requests:
 
 The API will return a **400 Bad Request** response if these headers are missing or invalid. If the payment request is associated with an unauthorized or incorrect Application ID, a **401 Unauthorised** response will be returned. If an attempt is made to access a forbidden resource, a **403 Forbidden** response is returned.
 
+**Test Mode Support**:
+
+Our system supports a test mode using test credentials, where to activate this mode it is necessary to make a request using test credentials. 
+The corresponding intent will be marked as a test, and all later operations must use the same test credentials.
+
 
 ## **Errors**
 We have normalized the error payload, where all the errors obey the same format in order to be easier to read the error.
@@ -69,6 +74,11 @@ To initiate a payment, you first need to create a payment intent. This intent ho
 ##### **Request**
 
 This request contains all the necessary information about the payment, such as the client making the purchase, the product being bought, and additional details like success/failure URLs and whether manual capture is required.
+
+!!! note
+
+    To create a test intent make the request with the test credentials.
+
 
 Request DTO: [**CreateIntentRequest**](CreateIntentRequest.md)
 
@@ -176,9 +186,10 @@ Request DTO: [**CreateIntentRequest**](CreateIntentRequest.md)
     "country": "pt",
     "manualCapture": true,
     "successUrl": "https://success.com",
-    "failureUrl": "http://failure.com",
+    "failureUrl": "https://failure.com",
     "ideaId": "15847300",
     "amount": 100.0,
+    "totalAmountService": 2500.00,
     "expirationDate": "2024-12-31T11:43:00.000Z"
 }
 ```
@@ -194,59 +205,27 @@ The success response returns the submitted information along with additional det
 Response DTO: [**ExternalPaymentDto**](ExternalPaymentDto.md)
 
 <details>
-  <summary>Basic Response Example</summary>
+  <summary>Response Example</summary>
 ```json
 {
-    "id": "f0824416-18d5-4fe7-8c66-7cada281c039",
-    "clientId": "travel-c-app",
+    "id": "b67eb5e2-be54-4f8e-bc9c-86f14dcbff4a",
+    "clientId": "your-application-id",
+    "userId": "5c6bd4ff-fe65-4899-ac50-af305c273216d",
     "productId": "my-product-id-123",
     "productType": "BOOKING",
-    "products": [
-        {
-            "name": "Product XYZ"
-        }
-    ],
-    "company": "icligo.pt",
-    "microsite": "icligo.pt",
-    "country": "pt",
-    "currency": "EUR",
-    "state": "CREATED",
-    "baseAmount": 100.0,
-    "capturedAmount": 0,
-    "authorizedAmount": 100.0,
-    "refundedAmount": 0,
-    "automaticCapture": false,
-    "captureDetails": [],
-    "refundDetails": [],
-    "successUrl": "https://success.com",
-    "failureUrl": "http://failure.com",
-    "manualCapture": false
-}
-```
-</details>
-
-<details>
-  <summary>Full Response Example</summary>
-```json
-{
-    "id": "5a83701f-138a-42f1-9464-4b9ee10fc8bc",
-    "clientId": "travel-c-app",
-    "productId": "product_1234",
-    "productType": "BOOKING",
     "resume": {
-        "description": "Booking a suite.",
-        "reference": "REF12345678",
-        "owner": "John Doe",
-        "email": "johndoe@example.com",
-        "currency": "EUR",
-        "amount": 1500.75,
-        "checkin": "2024-09-24",
-        "checkout": "2024-09-24",
+        "owner": "Bob Smith",
         "clients": [
             {
-                "name": "John Doe",
-                "email": "johndoe@example.com",
-                "dateOfBirth": "2024-09-24",
+                "name": "Nome 1",
+                "email": "email@email.com",
+                "dateOfBirth": "2000-10-10",
+                "children": false
+            },
+            {
+                "name": "Nome 2",
+                "email": "email2@email.com",
+                "dateOfBirth": "2000-10-10",
                 "children": false
             }
         ]
@@ -307,24 +286,27 @@ Response DTO: [**ExternalPaymentDto**](ExternalPaymentDto.md)
                         "duration": "2H"
                     }
                 ]
-            }
+            },
+            "importantInfo": "Important notes ..."
         }
     ],
-    "company": "Company XYZ",
-    "microsite": "site_001",
-    "country": "PT",
+    "company": "icligo.pt",
+    "microsite": "icligo.pt",
+    "country": "pt",
     "currency": "EUR",
     "state": "CREATED",
-    "baseAmount": 100,
+    "amount": 100.0,
+    "totalAmountService": 2500.00,
     "capturedAmount": 0,
-    "authorizedAmount": 100,
+    "authorizedAmount": 0,
     "refundedAmount": 0,
-    "automaticCapture": true,
+    "manualCapture": true,
     "captureDetails": [],
     "refundDetails": [],
+    "expirationDate": 1735645380000,
     "successUrl": "https://success.com",
-    "failureUrl": "http://failure.com",
-    "manualCapture": true
+    "failureUrl": "https://failure.com",
+    "testMode": true
 }
 ```
 </details>
@@ -576,7 +558,7 @@ For a given ID retrieve all the information about the payment intent.
 
 ##### **Request**
 
-This request does not require a body. The specified payment intent will retrieve payment intente info by making a GET request to this endpoint using the provided payment_id.
+This request does not require a body. The specified payment intent will retrieve payment intent info by making a GET request to this endpoint using the provided payment_id.
 
 ---
 
@@ -593,123 +575,125 @@ Response DTO: [**ExternalPaymentDto**](ExternalPaymentDto.md)
   <summary>Response Example</summary>
 ```json
 {
-  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-  "clientId": "string",
-  "userId": "user-abc",
-  "service": "Flight booking",
-  "serviceDescription": "string",
-  "productId": "prod-456",
-  "productType": "BOOKING",
-  "resume": {
-    "description": "Booking a suite.",
-    "reference": "REF12345678",
-    "owner": "John Doe",
-    "email": "johndoe@example.com",
-    "currency": "EUR",
-    "amount": 1500.75,
-    "checkin": "2024-09-25T11:29:07.371Z",
-    "checkout": "2024-09-25T11:29:07.371Z",
-    "clients": [
-      {
-        "name": "John Doe",
-        "email": "johndoe@example.com",
-        "dateOfBirth": "2024-09-25T11:29:07.371Z",
-        "children": false
-      }
-    ]
-  },
-  "products": [
-    {
-      "type": "BOOKING",
-      "name": "Product XYZ",
-      "location": "Location X",
-      "duration": "string",
-      "code": "PRD12345",
-      "transport": "CAR",
-      "checkin": "2024-09-25T11:29:07.371Z",
-      "checkout": "2024-09-25T11:29:07.371Z",
-      "date": "2024-09-25T11:29:07.371Z",
-      "price": 500,
-      "detail": {
-        "night": 3,
-        "roomType": "Suite",
-        "regime": "Half board",
-        "flightNumber": "FL123",
-        "departure": "2024-09-25T11:29:07.371Z",
-        "arrival": "2024-09-25T11:29:07.371Z",
-        "departureTime": "string",
-        "arrivalTime": "string",
-        "departureAirport": "JFK",
-        "arrivalAirport": "LHR",
-        "departureCity": "New York",
-        "arrivalCity": "London",
-        "departureCountry": "US",
-        "arrivalCountry": "UK",
-        "baggage": "string",
-        "duration": "string",
-        "provider": "Airline XYZ",
-        "reception": "string",
-        "receptionTime": "2024-09-25T11:29:07.371Z",
-        "destinationTime": "2024-09-25T11:29:07.371Z",
-        "destination": "string",
-        "circuit": [
-          {
-            "checkin": "2024-09-25T11:29:07.371Z",
-            "checkout": "2024-09-25T11:29:07.371Z",
-            "location": "string"
-          }
-        ],
-        "stopovers": [
-          {
-            "departure": "2024-09-25T11:29:07.371Z",
-            "arrival": "2024-09-25T11:29:07.371Z",
-            "departureTime": "string",
-            "arrivalTime": "string",
-            "departureAirport": "string",
-            "arrivalAirport": "string",
-            "departureCity": "string",
-            "arrivalCity": "string",
-            "departureCountry": "string",
-            "arrivalCountry": "string",
-            "duration": "string"
-          }
+    "id": "b67eb5e2-be54-4f8e-bc9c-86f14dcbff4a",
+    "clientId": "your-application-id",
+    "userId": "5c6bd4ff-fe65-4899-ac50-af305c273216d",
+    "productId": "my-product-id-123",
+    "productType": "BOOKING",
+    "resume": {
+        "owner": "Bob Smith",
+        "clients": [
+            {
+                "name": "Nome 1",
+                "email": "email@email.com",
+                "dateOfBirth": "2000-10-10",
+                "children": false
+            },
+            {
+                "name": "Nome 2",
+                "email": "email2@email.com",
+                "dateOfBirth": "2000-10-10",
+                "children": false
+            }
         ]
-      }
-    }
-  ],
-  "company": "iCliGo",
-  "microsite": "iCliGo Payments",
-  "country": "Spain",
-  "currency": "EUR",
-  "createdBy": "user-123",
-  "state": "CREATED",
-  "amount": 0,
-  "capturedAmount": 0,
-  "authorizedAmount": 0,
-  "methodTax": 0,
-  "captureDetails": [
-    {
-      "id": "string",
-      "captureTime": "2024-09-25T11:29:07.371Z",
-      "amount": {
-        "currency": "string",
-        "value": 0
-      }
-    }
-  ],
-  "refundDetails": [
-    {
-      "id": "string",
-      "captureId": "string",
-      "createTime": "2024-09-25T11:29:07.371Z",
-      "description": "string",
-      "amount": {
-        "currency": "string",
-        "value": 0
-      }
-    }
-  ],
-  "expirationDate": "2024-09-25T11:29:07.371Z"
+    },
+    "products": [
+        {
+            "type": "BOOKING",
+            "name": "Product XYZ",
+            "location": "Location X",
+            "duration": "10 Minutes",
+            "code": "PRD12345",
+            "transport": "CAR",
+            "checkin": "2024-09-24",
+            "checkout": "2024-09-24",
+            "date": "2024-09-24",
+            "price": 500,
+            "detail": {
+                "night": 3,
+                "roomType": "Suite",
+                "regime": "Half board",
+                "flightNumber": "FL123",
+                "departure": "2024-09-24",
+                "arrival": "2024-09-24",
+                "departureTime": "2024-09-24T16:46:42.411Z",
+                "arrivalTime": "string",
+                "departureAirport": "JFK",
+                "arrivalAirport": "LHR",
+                "departureCity": "New York",
+                "arrivalCity": "London",
+                "departureCountry": "US",
+                "arrivalCountry": "UK",
+                "baggage": "string",
+                "duration": "string",
+                "provider": "Airline XYZ",
+                "reception": "string",
+                "receptionTime": "2024-09-24T16:46",
+                "destinationTime": "2024-09-24T16:46",
+                "destination": "string",
+                "circuit": [
+                    {
+                        "checkin": "2024-09-24T16:46:42.411+00:00",
+                        "checkout": "2024-09-24T16:46:42.411+00:00",
+                        "location": "string"
+                    }
+                ],
+                "stopovers": [
+                    {
+                        "departure": "2024-09-24T16:46:42.411+00:00",
+                        "arrival": "2024-09-24T16:46:42.411+00:00",
+                        "departureTime": "2024-09-24T16:46:42.411Z",
+                        "arrivalTime": "2024-09-24T16:46:42.411Z",
+                        "departureAirport": "string",
+                        "arrivalAirport": "string",
+                        "departureCity": "string",
+                        "arrivalCity": "string",
+                        "departureCountry": "string",
+                        "arrivalCountry": "string",
+                        "duration": "2H"
+                    }
+                ]
+            },
+            "importantInfo": "Important notes ..."
+        }
+    ],
+    "company": "icligo.pt",
+    "microsite": "icligo.pt",
+    "country": "pt",
+    "currency": "EUR",
+    "state": "CREATED",
+    "amount": 100.0,
+    "totalAmountService": 2500.00,
+    "capturedAmount": 0,
+    "authorizedAmount": 0,
+    "refundedAmount": 0,
+    "manualCapture": true,
+    "captureDetails": [
+        {
+            "id": "string",
+            "captureTime": "2024-09-25T11:29:07.371Z",
+            "amount": {
+                "currency": "string",
+                "value": 0
+            }
+        }
+    ],
+    "refundDetails": [
+        {
+            "id": "string",
+            "captureId": "string",
+            "createTime": "2024-09-25T11:29:07.371Z",
+            "description": "string",
+            "amount": {
+                "currency": "string",
+                "value": 0
+            }
+        }
+    ],
+    "expirationDate": 1735645380000,
+    "successUrl": "https://success.com",
+    "failureUrl": "https://failure.com",
+    "testMode": true
 }
 ```
 </details>
@@ -728,4 +712,4 @@ Response DTO: [**ExternalPaymentDto**](ExternalPaymentDto.md)
 ## **Important Considerations**
 
 - **Single Capture**: A payment can only be captured once.
-- **Refunds**: Multiple refunds are allowed but the total refunded amount cannot exceed the captured amount.
+- **Refunds**: Multiple refunds are allowed, but the total refunded amount cannot exceed the amount of intent.

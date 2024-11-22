@@ -1,27 +1,34 @@
 # CreateIntentRequest
 
 ## Properties
-| Name                        | Type                                                | Description                                                                                                                                                         | Notes    |
-|-----------------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+
+| Name                        | Type                                                | Description                                                                                                                                                         | Notes      |
+|-----------------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
 | **clientId**                | **String**                                          | Unique client identifier. Identifies the client that is making the request, in this case it&#x27;syour company/merchant ID agreed at the beginning of the contract. | [required] |
-| **userId**                  | **String**                                          | The user ID associated with the payment.                                                                                                                            | [required]       |
+| **userId**                  | **String**                                          | The user ID associated with the payment.                                                                                                                            | [required] |
 | **userName**                | **String**                                          | The User name.                                                                                                                                                      | [required] |
 | **userEmail**               | **String**                                          | The User e-mail.                                                                                                                                                    | [required] |
 | **userContact**             | **String**                                          | The User contact.                                                                                                                                                   | [required] |
-| **productId**               | **String**                                          | The ID of the product being purchased.                                                                                                                              | [required]       |
-| **productType**             | **String**                                          | Type of the product.                                                                                                                                                | [required]       |
+| **productId**               | **String**                                          | The ID of the product being purchased.                                                                                                                              | [required] |
+| **productType**             | **String**                                          | Type of the product.                                                                                                                                                | [required] |
 | **resume**                  | [**ResumeDto**](ResumeDto.md)                       |                                                                                                                                                                     | [required] |
-| **products**                | [**[ProductDto]**](ProductDto.md)                   | A list of products associated with the payment.                                                                                                                     |  [required]      |
-| **currency**                | **String**                                          | Currency code for the payment.                                                                                                                                      | [required]       |
-| **company**                 | **String**                                          | Company making the payment request.                                                                                                                                 |  [required]      |
-| **microsite**               | **String**                                          | The microsite making the payment request.                                                                                                                           |  [required]      |
-| **country**                 | **String**                                          | Country where the payment is being made.                                                                                                                            |  [required]      |
-| **amount**                  | **Number**                                          | The amount to be charged.                                                                                                                                           |  [required]      |
+| **products**                | [**[ProductDto]**](ProductDto.md)                   | A list of products associated with the payment.                                                                                                                     | [required] |
+| **currency**                | **String**                                          | Currency code for the payment.                                                                                                                                      | [required] |
+| **company**                 | **String**                                          | Company making the payment request.                                                                                                                                 | [required] |
+| **microsite**               | **String**                                          | The microsite making the payment request.                                                                                                                           | [required] |
+| **country**                 | **String**                                          | Country where the payment is being made.                                                                                                                            | [required] |
+| **amount**                  | **Number**                                          | The amount to be charged.                                                                                                                                           | [required] |
+| **totalAmountService**      | **Number**                                          | Total amount of the service. Obs: This is NOT the value to be charged, it's for visualization purpose that covers all the service's value.                          | [required] |
+| **successUrl**              | **String**                                          | The success url to redirect the user after a successful payment.                                                                                                    | [optional] |
+| **failureUrl**              | **String**                                          | The failure url to redirect the user after a failure on the payment.                                                                                                | [optional] |
+| **manualCapture**           | **Boolean**                                         | If the payment it will be on capture or manual form.                                                                                                                | [required] |
+| **expirationDate**          | **Date**                                            | The expiration date of the intent.                                                                                                                                  | [optional] |
+| **cancellationFees**        | [**[CancellationFeesDto]**](CancellationFeesDto.md) | List of cancellation fees                                                                                                                                           | [required] |
+| **cancellationFeesStrings** | **String**                                          | List of cancellation fees on plain                                                                                                                                  | [required] |
 | **ideaId**                  | **String**                                          | Idea identifier.                                                                                                                                                    | [required] |
-| **cancellationFees**        | [**[CancellationFeesDto]**](CancellationFeesDto.md) | List of cancellation fees associated with this payment.                                                                                                             | [required] |
-| **cancellationFeesStrings** | **String**                                          | List of cancellation fees on plain text                                                                                                                             | [required] |
 
 <a name="ProductTypeEnum"></a>
+
 ## Enum: ProductTypeEnum
 
 * `BOOKING` (value: `"BOOKING"`)
@@ -36,4 +43,3 @@
 * `CRUISE` (value: `"CRUISE"`)
 * `ACTIVITY` (value: `"ACTIVITY"`)
 * `TRANSFER` (value: `"TRANSFER"`)
-
