@@ -6,7 +6,7 @@
 | **location**      | **String**                                | Location of the product.                                        | [optional] |
 | **duration**      | **String**                                | Duration of the product/service.                                | [optional] |
 | **code**          | **String**                                | Unique product code.                                            | [optional] |
-| **transport**     | [**TransportEnum**](ProductTypeEnum.md)   | Type of transport associated with the product, if applicable.   | [optional] |
+| **transport**     | [**TransportEnum**](TransportEnum.md)     | Type of transport associated with the product, if applicable.   | [optional] |
 | **checkin**       | **Date**                                  | Check-in date of the product, formatted as a string.            | [optional] |
 | **checkout**      | **Date**                                  | Check-out date of the product, formatted as a string.           | [optional] |
 | **_date**         | **Date**                                  | Date of the product activity or service, formatted as a string. | [optional] |
