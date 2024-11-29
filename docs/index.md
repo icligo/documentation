@@ -135,8 +135,7 @@ product being bought, and additional details like success/failure URLs and wheth
 
 !!! note
 
-The product array can accommodate various product types. The following example demonstrates an intent with one of all
-available products. For detailed payload information, please refer to the specific ProductDto documentation.
+    The product array can accommodate various product types. The following example demonstrates an intent with one of all available products. For detailed payload information, please refer to the specific ProductDto documentation.
 
 Request DTO: [**CreateIntentRequest**](CreateIntentRequest.md)
 
