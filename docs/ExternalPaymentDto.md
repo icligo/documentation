@@ -36,7 +36,7 @@
 
 ```json
 {
-  "id": "a6aedf5a-ba57-42ae-a7b1-de27edd43a12",
+  "id": "b91c35cc-db74-4663-a491-bed750686faa",
   "clientId": "travel-c-app-test",
   "userId": "5c6bd4ff-fe65-4899-ac50-af305c27f86d",
   "productId": "my-product-id-123",
@@ -45,13 +45,13 @@
     "owner": "Bob Smith",
     "clients": [
       {
-        "name": "Nome 1",
+        "name": "Name 1",
         "email": "email@email.com",
         "dateOfBirth": "2000-10-10",
         "children": false
       },
       {
-        "name": "Nome 2",
+        "name": "Name 2",
         "email": "email2@email.com",
         "dateOfBirth": "2000-10-10",
         "children": false
@@ -60,27 +60,98 @@
   },
   "products": [
     {
+      "type": "FLIGHT",
+      "name": "TAP air PORTUGAL",
+      "checkin": "2024-12-04",
+      "detail": {
+        "flightNumber": "1234546",
+        "departure": "2024-12-05",
+        "arrival": "2024-12-20",
+        "departureTime": "10:00",
+        "arrivalTime": "16:00",
+        "departureAirport": "OPO",
+        "arrivalAirport": "IST",
+        "departureCity": "Porto",
+        "arrivalCity": "Istanbul",
+        "departureCountry": "Portugal",
+        "arrivalCountry": "Turkey",
+        "baggage": "1",
+        "duration": "4h"
+      },
+      "importantInfo": "Important notes ..."
+    },
+    {
       "type": "CRUISE",
       "name": "cruise name",
-      "location": "Istanbul",
-      "checkin": "2024-12-24",
-      "checkout": "2021-12-25",
+      "checkin": "2024-12-15",
       "detail": {
-        "night": 2,
-        "roomType": "Oceanview",
+        "night": 9,
+        "roomType": "OCEAN_VIEW",
         "regime": "all-inclusive",
         "circuit": [
           {
-            "checkin": "2024-12-24T11:03:42.501+00:00",
-            "checkout": "2024-12-24T11:03:42.501+00:00",
+            "checkin": "2024-12-11T11:03:42.501+00:00",
+            "checkout": "2024-12-11T11:03:42.501+00:00",
             "location": "Turkey"
           },
           {
-            "checkin": "2024-12-25T11:03:42.501+00:00",
-            "checkout": "2024-12-25T11:03:42.501+00:00",
+            "checkin": "2024-12-20T11:03:42.501+00:00",
+            "checkout": "2024-12-20T11:03:42.501+00:00",
             "location": "Turkey"
           }
         ]
+      },
+      "importantInfo": "Important notes ..."
+    },
+    {
+      "type": "TRANSFER",
+      "name": "BUS 309",
+      "location": "Istanbul",
+      "transport": "BUS",
+      "checkin": "2024-12-20",
+      "checkout": "2024-12-20",
+      "detail": {
+        "provider": "Istanbul Transfers",
+        "reception": "Crowne Plaza: Istanbul - Old City",
+        "receptionTime": "2024-09-20T16:00",
+        "destinationTime": "2024-09-20T16:15",
+        "destination": "Istanbul Airport"
+      },
+      "importantInfo": "Important notes ..."
+    },
+    {
+      "type": "ACTIVITY",
+      "name": "Activity's name",
+      "location": "Istanbul",
+      "duration": "3h",
+      "checkin": "2024-12-15",
+      "checkout": "2024-12-15",
+      "importantInfo": "Important notes ..."
+    },
+    {
+      "type": "INSURANCE",
+      "name": "Seguro XYZ",
+      "price": 12,
+      "importantInfo": "Important notes ..."
+    },
+    {
+      "type": "EVENT",
+      "name": "Event's name",
+      "location": "Istanbul",
+      "checkin": "2021-12-01",
+      "checkout": "2021-12-10",
+      "importantInfo": "Important notes ..."
+    },
+    {
+      "type": "ACCOMMODATION",
+      "name": "Hotel's name",
+      "location": "Istanbul",
+      "checkin": "2024-12-05",
+      "checkout": "2024-12-20",
+      "detail": {
+        "night": 9,
+        "roomType": "OCEAN_VIEW",
+        "regime": "all-inclusive"
       },
       "importantInfo": "Important notes ..."
     }
@@ -92,34 +163,12 @@
   "state": "CREATED",
   "amount": 100.0,
   "totalAmountService": 2500.00,
-  "capturedAmount": 100.0,
-  "authorizedAmount": 100.0,
-  "refundedAmount": 50.0,
+  "capturedAmount": 0,
+  "authorizedAmount": 0,
+  "refundedAmount": 0,
   "manualCapture": true,
-  "captureDetails": [
-    {
-      "id": "66f2df95-659b-a21d-974d-ba3b489d50d9",
-      "description": "Captured",
-      "captureTime": 1727193004172,
-      "amount": {
-        "currency": "EUR",
-        "value": 100.0
-      }
-    }
-  ],
-  "refundDetails": [
-    {
-      "id": "4444d000-659b-a21d-974d-ba3b489d50d9",
-      "captureId": "66f2df95-659b-a21d-974d-ba3b489d50d9",
-      "createTime": 1727193013453,
-      "description": "Refund Description",
-      "amount": {
-        "currency": "EUR",
-        "value": 50.0
-      }
-    }
-  ],
-  "expirationDate": 1735645380000,
+  "captureDetails": [],
+  "refundDetails": [],
   "successUrl": "https://success.com",
   "failureUrl": "https://failure.com",
   "testMode": true

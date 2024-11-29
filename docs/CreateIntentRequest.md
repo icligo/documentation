@@ -29,87 +29,6 @@
 
 ## Example 
 
-=== "Only Cruise"
-
-```json
-{
-  "userId": "5c6bd4ff-fe65-4899-ac50-af305c27f86d",
-  "userEmail": "joedoe@email.com",
-  "userContact": "+351 910 000 000",
-  "userName": "Joe Doe",
-  "cancellationFees": [
-    {
-      "limitDate": "2000-12-12",
-      "price": "10.00"
-    }
-  ],
-  "cancellationFeesStrings": [
-    "Non-refundable.",
-    "Refundable until 12-12-2000 with a fee of 10.00.",
-    "string ...."
-  ],
-  "resume": {
-    "owner": "Bob Smith",
-    "clients": [
-      {
-        "name": "Nome 1",
-        "email": "email@email.com",
-        "dateOfBirth": "2000-10-10",
-        "children": false
-      },
-      {
-        "name": "Nome 2",
-        "email": "email2@email.com",
-        "dateOfBirth": "2000-10-10",
-        "children": false
-      }
-    ]
-  },
-  "intentType": "BOOKING",
-  "productId": "my-product-id-123",
-  "products": [
-    {
-      "type": "CRUISE",
-      "name": "cruise name",
-      "checkin": "2024-12-24",
-      "checkout": "2021-12-25",
-      "location": "Istanbul",
-      "importantInfo": "Important notes ...",
-      "detail": {
-        "night": 2,
-        "roomType": "Oceanview",
-        "regime": "all-inclusive",
-        "circuit": [
-          {
-            "checkin": "2024-12-24T11:03:42.501+00:00",
-            "checkout": "2024-12-24T11:03:42.501+00:00",
-            "location": "Turkey"
-          },
-          {
-            "checkin": "2024-12-25T11:03:42.501+00:00",
-            "checkout": "2024-12-25T11:03:42.501+00:00",
-            "location": "Turkey"
-          }
-        ]
-      }
-    }
-  ],
-  "company": "icligo.pt",
-  "currency": "EUR",
-  "microsite": "icligo.pt",
-  "country": "pt",
-  "manualCapture": true,
-  "successUrl": "https://success.com",
-  "failureUrl": "https://failure.com",
-  "ideaId": "15847300",
-  "amount": 100.0,
-  "totalAmountService": 2500.00,
-  "expirationDate": "2024-12-31T11:43:00.000Z"
-}
-```
-
-=== "With All Products"
-
 ```json
 {
   "userId": "5c6bd4ff-fe65-4899-ac50-af305c27f86d",
@@ -148,64 +67,6 @@
   "productId": "my-product-id-123",
   "products": [
     {
-      "type": "BOOKING",
-      "name": "Product XYZ",
-      "location": "Location X",
-      "duration": "10 Minutes",
-      "code": "PRD12345",
-      "transport": "CAR",
-      "checkin": "2024-09-24T16:46:42.411Z",
-      "checkout": "2024-09-24T16:46:42.411Z",
-      "date": "2024-09-24T16:46:42.411Z",
-      "price": 500,
-      "importantInfo": "Important notes ...",
-      "detail": {
-        "night": 3,
-        "roomType": "Suite",
-        "regime": "Half board",
-        "flightNumber": "FL123",
-        "departure": "2024-09-24T16:46:42.411Z",
-        "arrival": "2024-09-24T16:46:42.411Z",
-        "departureTime": "2024-09-24T16:46:42.411Z",
-        "arrivalTime": "string",
-        "departureAirport": "JFK",
-        "arrivalAirport": "LHR",
-        "departureCity": "New York",
-        "arrivalCity": "London",
-        "departureCountry": "US",
-        "arrivalCountry": "UK",
-        "baggage": "string",
-        "duration": "string",
-        "provider": "Airline XYZ",
-        "reception": "string",
-        "receptionTime": "2024-09-24T16:46:42.411Z",
-        "destinationTime": "2024-09-24T16:46:42.411Z",
-        "destination": "string",
-        "circuit": [
-          {
-            "checkin": "2024-09-24T16:46:42.411Z",
-            "checkout": "2024-09-24T16:46:42.411Z",
-            "location": "string"
-          }
-        ],
-        "stopovers": [
-          {
-            "departure": "2024-09-24T16:46:42.411Z",
-            "arrival": "2024-09-24T16:46:42.411Z",
-            "departureTime": "2024-09-24T16:46:42.411Z",
-            "arrivalTime": "2024-09-24T16:46:42.411Z",
-            "departureAirport": "string",
-            "arrivalAirport": "string",
-            "departureCity": "string",
-            "arrivalCity": "string",
-            "departureCountry": "string",
-            "arrivalCountry": "string",
-            "duration": "2H"
-          }
-        ]
-      }
-    },
-    {
       "type": "FLIGHT",
       "name": "TAP air PORTUGAL",
       "checkin": "2024-12-04",
@@ -233,7 +94,7 @@
       "importantInfo": "Important notes ...",
       "detail": {
         "night": 9,
-        "roomType": "Oceanview",
+        "roomType": "OCEAN_VIEW",
         "regime": "all-inclusive",
         "circuit": [
           {
@@ -297,7 +158,7 @@
       "importantInfo": "Important notes ...",
       "detail": {
         "night": 9,
-        "roomType": "Oceanview",
+        "roomType": "OCEAN_VIEW",
         "regime": "all-inclusive"
       }
     }
@@ -311,7 +172,6 @@
   "failureUrl": "https://failure.com",
   "ideaId": "15847300",
   "amount": 100.0,
-  "totalAmountService": 2500.00,
-  "expirationDate": "2027-12-31T11:43:00.000Z"
+  "totalAmountService": 2500.00
 }
 ```

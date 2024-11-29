@@ -2,12 +2,12 @@
 
 ## Properties
 
-| Name            | Type                                              | Description                                                                   | Notes |
-|-----------------|---------------------------------------------------|-------------------------------------------------------------------------------|-------|
-| **id**          | **String**                                        | Unique identifier for the transaction or record.                              | -     |
-| **captureTime** | **long**                                          | The timestamp when the transaction was captured.                              | -     |
-| **description** | **String**                                        | Description of the capture.                                                   | -     |
-| **amount**      | [**AmountInfo**](/documentation/dtos/#amountinfo) | Detailed information about the captured amount, including currency and value. | -     |
+| Name            | Type                            | Description                                                                   | Notes |
+|-----------------|---------------------------------|-------------------------------------------------------------------------------|-------|
+| **id**          | **String**                      | Unique identifier for the transaction or record.                              | -     |
+| **captureTime** | **long**                        | The timestamp when the transaction was captured.                              | -     |
+| **description** | **String**                      | Description of the capture.                                                   | -     |
+| **amount**      | [**AmountInfo**](AmountInfo.md) | Detailed information about the captured amount, including currency and value. | -     |
 
 ## Example
 

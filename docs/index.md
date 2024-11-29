@@ -64,6 +64,7 @@ Our API provides detailed error responses for invalid or missing fields across d
 
 - **Root-Level Field Errors**: When a required field at the top level is missing or invalid, the error message will
   specify the exact field name.
+  Example: "name" is missing.
 - **Nested Object Field Errors**: For fields within nested objects, the error message includes the full path to the
   field.  
   Example: `"resume.owner"` indicates an issue with the `owner` field inside the `resume` object.
@@ -74,7 +75,6 @@ Our API provides detailed error responses for invalid or missing fields across d
   Example: `"intentType: Value 'BOOKINx' is not valid for field 'intentType' (expected type: IntentType)"`.
 - **Malformed JSON**: For errors caused by malformed JSON, the error message will be generic, stating:  
   `"Malformed JSON request"`.
-
 
 Examples:
 
@@ -135,7 +135,8 @@ product being bought, and additional details like success/failure URLs and wheth
 
 !!! note
 
-    To see more payload examples please consult the page of each DTO.
+The product array can accommodate various product types. The following example demonstrates an intent with one of all
+available products. For detailed payload information, please refer to the specific ProductDto documentation.
 
 Request DTO: [**CreateIntentRequest**](CreateIntentRequest.md)
 
@@ -179,64 +180,6 @@ Request DTO: [**CreateIntentRequest**](CreateIntentRequest.md)
   "productId": "my-product-id-123",
   "products": [
     {
-      "type": "BOOKING",
-      "name": "Product XYZ",
-      "location": "Location X",
-      "duration": "10 Minutes",
-      "code": "PRD12345",
-      "transport": "CAR",
-      "checkin": "2024-09-24T16:46:42.411Z",
-      "checkout": "2024-09-24T16:46:42.411Z",
-      "date": "2024-09-24T16:46:42.411Z",
-      "price": 500,
-      "importantInfo": "Important notes ...",
-      "detail": {
-        "night": 3,
-        "roomType": "Suite",
-        "regime": "Half board",
-        "flightNumber": "FL123",
-        "departure": "2024-09-24T16:46:42.411Z",
-        "arrival": "2024-09-24T16:46:42.411Z",
-        "departureTime": "2024-09-24T16:46:42.411Z",
-        "arrivalTime": "string",
-        "departureAirport": "JFK",
-        "arrivalAirport": "LHR",
-        "departureCity": "New York",
-        "arrivalCity": "London",
-        "departureCountry": "US",
-        "arrivalCountry": "UK",
-        "baggage": "string",
-        "duration": "string",
-        "provider": "Airline XYZ",
-        "reception": "string",
-        "receptionTime": "2024-09-24T16:46:42.411Z",
-        "destinationTime": "2024-09-24T16:46:42.411Z",
-        "destination": "string",
-        "circuit": [
-          {
-            "checkin": "2024-09-24T16:46:42.411Z",
-            "checkout": "2024-09-24T16:46:42.411Z",
-            "location": "string"
-          }
-        ],
-        "stopovers": [
-          {
-            "departure": "2024-09-24T16:46:42.411Z",
-            "arrival": "2024-09-24T16:46:42.411Z",
-            "departureTime": "2024-09-24T16:46:42.411Z",
-            "arrivalTime": "2024-09-24T16:46:42.411Z",
-            "departureAirport": "string",
-            "arrivalAirport": "string",
-            "departureCity": "string",
-            "arrivalCity": "string",
-            "departureCountry": "string",
-            "arrivalCountry": "string",
-            "duration": "2H"
-          }
-        ]
-      }
-    },
-    {
       "type": "FLIGHT",
       "name": "TAP air PORTUGAL",
       "checkin": "2024-12-04",
@@ -264,7 +207,7 @@ Request DTO: [**CreateIntentRequest**](CreateIntentRequest.md)
       "importantInfo": "Important notes ...",
       "detail": {
         "night": 9,
-        "roomType": "Oceanview",
+        "roomType": "OCEAN_VIEW",
         "regime": "all-inclusive",
         "circuit": [
           {
@@ -328,7 +271,7 @@ Request DTO: [**CreateIntentRequest**](CreateIntentRequest.md)
       "importantInfo": "Important notes ...",
       "detail": {
         "night": 9,
-        "roomType": "Oceanview",
+        "roomType": "OCEAN_VIEW",
         "regime": "all-inclusive"
       }
     }
@@ -342,7 +285,7 @@ Request DTO: [**CreateIntentRequest**](CreateIntentRequest.md)
   "failureUrl": "https://failure.com",
   "ideaId": "15847300",
   "amount": 100.0,
-  "totalAmountService": 2500.00,
+  "totalAmountService": 2500.00
 }
 ```
 </details>
@@ -362,7 +305,7 @@ Response DTO: [**ExternalPaymentDto**](ExternalPaymentDto.md)
   <summary>Response Example With All Products</summary>
 ```json
 {
-    "id": "f491967e-30de-46e0-af9e-cf310a7051f7",
+    "id": "b91c35cc-db74-4663-a491-bed750686faa",
     "clientId": "travel-c-app-test",
     "userId": "5c6bd4ff-fe65-4899-ac50-af305c27f86d",
     "productId": "my-product-id-123",
@@ -385,64 +328,6 @@ Response DTO: [**ExternalPaymentDto**](ExternalPaymentDto.md)
         ]
     },
     "products": [
-        {
-            "type": "BOOKING",
-            "name": "Product XYZ",
-            "location": "Location X",
-            "duration": "10 Minutes",
-            "code": "PRD12345",
-            "transport": "CAR",
-            "checkin": "2024-09-24",
-            "checkout": "2024-09-24",
-            "date": "2024-09-24",
-            "price": 500,
-            "detail": {
-                "night": 3,
-                "roomType": "Suite",
-                "regime": "Half board",
-                "flightNumber": "FL123",
-                "departure": "2024-09-24",
-                "arrival": "2024-09-24",
-                "departureTime": "2024-09-24T16:46:42.411Z",
-                "arrivalTime": "string",
-                "departureAirport": "JFK",
-                "arrivalAirport": "LHR",
-                "departureCity": "New York",
-                "arrivalCity": "London",
-                "departureCountry": "US",
-                "arrivalCountry": "UK",
-                "baggage": "string",
-                "duration": "string",
-                "provider": "Airline XYZ",
-                "reception": "string",
-                "receptionTime": "2024-09-24T16:46",
-                "destinationTime": "2024-09-24T16:46",
-                "destination": "string",
-                "circuit": [
-                    {
-                        "checkin": "2024-09-24T16:46:42.411+00:00",
-                        "checkout": "2024-09-24T16:46:42.411+00:00",
-                        "location": "string"
-                    }
-                ],
-                "stopovers": [
-                    {
-                        "departure": "2024-09-24T16:46:42.411+00:00",
-                        "arrival": "2024-09-24T16:46:42.411+00:00",
-                        "departureTime": "2024-09-24T16:46:42.411Z",
-                        "arrivalTime": "2024-09-24T16:46:42.411Z",
-                        "departureAirport": "string",
-                        "arrivalAirport": "string",
-                        "departureCity": "string",
-                        "arrivalCity": "string",
-                        "departureCountry": "string",
-                        "arrivalCountry": "string",
-                        "duration": "2H"
-                    }
-                ]
-            },
-            "importantInfo": "Important notes ..."
-        },
         {
             "type": "FLIGHT",
             "name": "TAP air PORTUGAL",
@@ -470,7 +355,7 @@ Response DTO: [**ExternalPaymentDto**](ExternalPaymentDto.md)
             "checkin": "2024-12-15",
             "detail": {
                 "night": 9,
-                "roomType": "Oceanview",
+                "roomType": "OCEAN_VIEW",
                 "regime": "all-inclusive",
                 "circuit": [
                     {
@@ -534,7 +419,7 @@ Response DTO: [**ExternalPaymentDto**](ExternalPaymentDto.md)
             "checkout": "2024-12-20",
             "detail": {
                 "night": 9,
-                "roomType": "Oceanview",
+                "roomType": "OCEAN_VIEW",
                 "regime": "all-inclusive"
             },
             "importantInfo": "Important notes ..."
@@ -553,7 +438,6 @@ Response DTO: [**ExternalPaymentDto**](ExternalPaymentDto.md)
     "manualCapture": true,
     "captureDetails": [],
     "refundDetails": [],
-    "expirationDate": 1735645380000,
     "successUrl": "https://success.com",
     "failureUrl": "https://failure.com",
     "testMode": true
@@ -833,7 +717,7 @@ Response DTO: [**ExternalPaymentDto**](ExternalPaymentDto.md)
   <summary>Response Example With All Products</summary>
 ```json
 {
-    "id": "f491967e-30de-46e0-af9e-cf310a7051f7",
+    "id": "b91c35cc-db74-4663-a491-bed750686faa",
     "clientId": "travel-c-app-test",
     "userId": "5c6bd4ff-fe65-4899-ac50-af305c27f86d",
     "productId": "my-product-id-123",
@@ -856,64 +740,6 @@ Response DTO: [**ExternalPaymentDto**](ExternalPaymentDto.md)
         ]
     },
     "products": [
-        {
-            "type": "BOOKING",
-            "name": "Product XYZ",
-            "location": "Location X",
-            "duration": "10 Minutes",
-            "code": "PRD12345",
-            "transport": "CAR",
-            "checkin": "2024-09-24",
-            "checkout": "2024-09-24",
-            "date": "2024-09-24",
-            "price": 500,
-            "detail": {
-                "night": 3,
-                "roomType": "Suite",
-                "regime": "Half board",
-                "flightNumber": "FL123",
-                "departure": "2024-09-24",
-                "arrival": "2024-09-24",
-                "departureTime": "2024-09-24T16:46:42.411Z",
-                "arrivalTime": "string",
-                "departureAirport": "JFK",
-                "arrivalAirport": "LHR",
-                "departureCity": "New York",
-                "arrivalCity": "London",
-                "departureCountry": "US",
-                "arrivalCountry": "UK",
-                "baggage": "string",
-                "duration": "string",
-                "provider": "Airline XYZ",
-                "reception": "string",
-                "receptionTime": "2024-09-24T16:46",
-                "destinationTime": "2024-09-24T16:46",
-                "destination": "string",
-                "circuit": [
-                    {
-                        "checkin": "2024-09-24T16:46:42.411+00:00",
-                        "checkout": "2024-09-24T16:46:42.411+00:00",
-                        "location": "string"
-                    }
-                ],
-                "stopovers": [
-                    {
-                        "departure": "2024-09-24T16:46:42.411+00:00",
-                        "arrival": "2024-09-24T16:46:42.411+00:00",
-                        "departureTime": "2024-09-24T16:46:42.411Z",
-                        "arrivalTime": "2024-09-24T16:46:42.411Z",
-                        "departureAirport": "string",
-                        "arrivalAirport": "string",
-                        "departureCity": "string",
-                        "arrivalCity": "string",
-                        "departureCountry": "string",
-                        "arrivalCountry": "string",
-                        "duration": "2H"
-                    }
-                ]
-            },
-            "importantInfo": "Important notes ..."
-        },
         {
             "type": "FLIGHT",
             "name": "TAP air PORTUGAL",
@@ -941,7 +767,7 @@ Response DTO: [**ExternalPaymentDto**](ExternalPaymentDto.md)
             "checkin": "2024-12-15",
             "detail": {
                 "night": 9,
-                "roomType": "Oceanview",
+                "roomType": "OCEAN_VIEW",
                 "regime": "all-inclusive",
                 "circuit": [
                     {
@@ -1005,7 +831,7 @@ Response DTO: [**ExternalPaymentDto**](ExternalPaymentDto.md)
             "checkout": "2024-12-20",
             "detail": {
                 "night": 9,
-                "roomType": "Oceanview",
+                "roomType": "OCEAN_VIEW",
                 "regime": "all-inclusive"
             },
             "importantInfo": "Important notes ..."
@@ -1024,7 +850,6 @@ Response DTO: [**ExternalPaymentDto**](ExternalPaymentDto.md)
     "manualCapture": true,
     "captureDetails": [],
     "refundDetails": [],
-    "expirationDate": 1735645380000,
     "successUrl": "https://success.com",
     "failureUrl": "https://failure.com",
     "testMode": true

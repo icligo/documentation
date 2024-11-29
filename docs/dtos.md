@@ -33,12 +33,12 @@ respective fields, which are used throughout the application.
 
 **Properties**
 
-| Name            | Type                                              | Description                                                                   | Notes |
-|-----------------|---------------------------------------------------|-------------------------------------------------------------------------------|-------|
-| **id**          | **String**                                        | Unique identifier for the transaction or record.                              | -     |
-| **captureTime** | **long**                                          | The timestamp when the transaction was captured.                              | -     |
-| **description** | **String**                                        | Description of the capture.                                                   | -     |
-| **amount**      | [**AmountInfo**](/documentation/dtos/#amountinfo) | Detailed information about the captured amount, including currency and value. | -     |
+| Name            | Type                            | Description                                                                   | Notes |
+|-----------------|---------------------------------|-------------------------------------------------------------------------------|-------|
+| **id**          | **String**                      | Unique identifier for the transaction or record.                              | -     |
+| **captureTime** | **long**                        | The timestamp when the transaction was captured.                              | -     |
+| **description** | **String**                      | Description of the capture.                                                   | -     |
+| **amount**      | [**AmountInfo**](AmountInfo.md) | Detailed information about the captured amount, including currency and value. | -     |
 
 ---
 
@@ -71,12 +71,12 @@ respective fields, which are used throughout the application.
 
 **Properties**
 
-| Name                   | Type                                                    | Description                                                                | Notes |
-|------------------------|---------------------------------------------------------|----------------------------------------------------------------------------|-------|
-| **date**               | **Date**                                                | The date when the event or transaction occurred.                           | -     |
-| **capturedAmountInfo** | [**AmountInfo**](/documentation/dtos/#amountinfo)       | Details about the amount that had been captured.                           | -     |
-| **description**        | **String**                                              | A brief description providing additional context or details if applicable. | -     |
-| **captures**           | [**CaptureDetail**](/documentation/dtos/#capturedetail) | Information about individual captures related to the transaction.          | -     |
+| Name                   | Type                                  | Description                                                                | Notes |
+|------------------------|---------------------------------------|----------------------------------------------------------------------------|-------|
+| **date**               | **Date**                              | The date when the event or transaction occurred.                           | -     |
+| **capturedAmountInfo** | [**AmountInfo**](AmountInfo.md)       | Details about the amount that had been captured.                           | -     |
+| **description**        | **String**                            | A brief description providing additional context or details if applicable. | -     |
+| **captures**           | [**CaptureDetail**](CaptureDetail.md) | Information about individual captures related to the transaction.          | -     |
 
 ---
 
@@ -225,13 +225,13 @@ respective fields, which are used throughout the application.
 
 **Properties**
 
-| Name            | Type                                              | Description                                                                         | Notes |
-|-----------------|---------------------------------------------------|-------------------------------------------------------------------------------------|-------|
-| **id**          | **String**                                        | Unique identifier for the transaction or record.                                    | -     |
-| **captureId**   | **String**                                        | Identifier for the specific capture associated with the transaction. If applicable. | -     |
-| **createTime**  | **long**                                          | The timestamp when the refund was created.                      -                   |
-| **description** | **String**                                        | A brief description providing additional context about the capture.                 | -     |
-| **amount**      | [**AmountInfo**](/documentation/dtos/#amountinfo) | Detailed information about the refund.                                              | -     |
+| Name            | Type                            | Description                                                                         | Notes |
+|-----------------|---------------------------------|-------------------------------------------------------------------------------------|-------|
+| **id**          | **String**                      | Unique identifier for the transaction or record.                                    | -     |
+| **captureId**   | **String**                      | Identifier for the specific capture associated with the transaction. If applicable. | -     |
+| **createTime**  | **long**                        | The timestamp when the refund was created.                      -                   |
+| **description** | **String**                      | A brief description providing additional context about the capture.                 | -     |
+| **amount**      | [**AmountInfo**](AmountInfo.md) | Detailed information about the refund.                                              | -     |
 
 ---
 
@@ -291,49 +291,49 @@ respective fields, which are used throughout the application.
 
 ## [StateEnum](StateEnum.md)
 
-* `CREATED` 
-* `PROCESSING` 
-* `AUTHORIZED` 
-* `COMPLETED` 
-* `CANCELED` 
-* `FAILED` 
-* `REFUNDED` 
+* `CREATED`
+* `PROCESSING`
+* `AUTHORIZED`
+* `COMPLETED`
+* `CANCELED`
+* `FAILED`
+* `REFUNDED`
 
-* <a name="ProductTypeEnum"></a>
+<a name="ProductTypeEnum"></a>
 
 ## [ProductTypeEnum](ProductTypeEnum.md)
 
-* `ACCOMMODATION` 
-* `FLIGHT` 
-* `PACKAGE` 
-* `INSURANCE` 
-* `CRUISE` 
-* `ACTIVITY` 
-* `TRANSFER` 
+* `ACCOMMODATION`
+* `FLIGHT`
+* `PACKAGE`
+* `INSURANCE`
+* `CRUISE`
+* `ACTIVITY`
+* `TRANSFER`
 
 <a name="ProductTypeEnum"></a>
 
 ## [IntentTypeEnum](IntentTypeEnum.md)
 
-* `BOOKING` 
-* `SUBSCRIPTION` 
-* `GIFT` 
-* `EVENT` 
-* `SERVICE` 
+* `BOOKING`
+* `SUBSCRIPTION`
+* `GIFT`
+* `EVENT`
+* `SERVICE`
 
 <a name="RoomTypeEnum"></a>
 
 ## [RoomTypeEnum](RoomTypeEnum.md)
 
-* `inside` 
-* `oceanview` 
-* `balcony` 
-* `suite` 
+* `INSIDE`
+* `OCEAN_VIEW`
+* `BALCONY`
+* `SUITE`
 
 <a name="TransportEnum"></a>
 
 ## [TransportEnum](TransportEnum.md)
 
-* `CAR` 
-* `BUS` 
+* `CAR`
+* `BUS`
 * `TRAIN` 

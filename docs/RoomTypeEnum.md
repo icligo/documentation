@@ -1,6 +1,6 @@
 # RoomTypeEnum
 
-* `inside` 
-* `oceanview` 
-* `balcony` 
-* `suite` 
+* `INSIDE` 
+* `OCEAN_VIEW` 
+* `BALCONY` 
+* `SUITE`

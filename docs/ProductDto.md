@@ -17,69 +17,6 @@
 
 ### Examples of products
 
-=== "BOOKING"
-
-```json
-{
-  "type": "BOOKING",
-  "name": "Product XYZ",
-  "location": "Location X",
-  "duration": "10 Minutes",
-  "code": "PRD12345",
-  "transport": "CAR",
-  "checkin": "2024-09-24T16:46:42.411Z",
-  "checkout": "2024-09-24T16:46:42.411Z",
-  "date": "2024-09-24T16:46:42.411Z",
-  "price": 500,
-  "importantInfo": "Important notes ...",
-  "detail": {
-    "night": 3,
-    "roomType": "Suite",
-    "regime": "Half board",
-    "flightNumber": "FL123",
-    "departure": "2024-09-24T16:46:42.411Z",
-    "arrival": "2024-09-24T16:46:42.411Z",
-    "departureTime": "2024-09-24T16:46:42.411Z",
-    "arrivalTime": "2024-09-30T16:46:42.411Z",
-    "departureAirport": "JFK",
-    "arrivalAirport": "LHR",
-    "departureCity": "New York",
-    "arrivalCity": "London",
-    "departureCountry": "US",
-    "arrivalCountry": "UK",
-    "baggage": "Type",
-    "duration": "10 H",
-    "provider": "Airline XYZ",
-    "reception": "Recption",
-    "receptionTime": "2024-09-24T16:46:42.411Z",
-    "destinationTime": "2024-09-24T16:46:42.411Z",
-    "destination": "Destination",
-    "circuit": [
-      {
-        "checkin": "2024-09-24T16:46:42.411Z",
-        "checkout": "2024-09-24T16:46:42.411Z",
-        "location": "Location"
-      }
-    ],
-    "stopovers": [
-      {
-        "departure": "2024-09-24T16:46:42.411Z",
-        "arrival": "2024-09-24T16:46:42.411Z",
-        "departureTime": "2024-09-24T16:46:42.411Z",
-        "arrivalTime": "2024-09-24T16:46:42.411Z",
-        "departureAirport": "JFK",
-        "arrivalAirport": "JFK",
-        "departureCity": "City Departure",
-        "arrivalCity": "City Arrival",
-        "departureCountry": "Country Departure",
-        "arrivalCountry": "Country Arrival",
-        "duration": "2H"
-      }
-    ]
-  }
-}
-```
-
 === "FLIGHT"
 
 ```json 
@@ -118,7 +55,7 @@
   "importantInfo": "Important notes ...",
   "detail": {
     "night": 9,
-    "roomType": "Oceanview",
+    "roomType": "OCEAN_VIEW",
     "regime": "all-inclusive"
   }
 }
@@ -134,7 +71,7 @@
   "importantInfo": "Important notes ...",
   "detail": {
     "night": 9,
-    "roomType": "Oceanview",
+    "roomType": "OCEAN_VIEW",
     "regime": "all-inclusive",
     "circuit": [
       {

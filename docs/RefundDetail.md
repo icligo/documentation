@@ -2,13 +2,13 @@
 
 ## Properties
 
-| Name            | Type                                              | Description                                                                         | Notes |
-|-----------------|---------------------------------------------------|-------------------------------------------------------------------------------------|-------|
-| **id**          | **String**                                        | Unique identifier for the transaction or record.                                    | -     |
-| **captureId**   | **String**                                        | Identifier for the specific capture associated with the transaction. If applicable. | -     |
-| **createTime**  | **long**                                          | The timestamp when the refund was created.                      -                   |
-| **description** | **String**                                        | A brief description providing additional context about the capture.                 | -     |
-| **amount**      | [**AmountInfo**](/documentation/dtos/#amountinfo) | Detailed information about the refund.                                              | -     |
+| Name            | Type                            | Description                                                                         | Notes |
+|-----------------|---------------------------------|-------------------------------------------------------------------------------------|-------|
+| **id**          | **String**                      | Unique identifier for the transaction or record.                                    | -     |
+| **captureId**   | **String**                      | Identifier for the specific capture associated with the transaction. If applicable. | -     |
+| **createTime**  | **long**                        | The timestamp when the refund was created.                      -                   |
+| **description** | **String**                      | A brief description providing additional context about the capture.                 | -     |
+| **amount**      | [**AmountInfo**](AmountInfo.md) | Detailed information about the refund.                                              | -     |
 
 ## Example
 

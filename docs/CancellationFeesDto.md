@@ -2,10 +2,10 @@
 
 ## Properties
 
-| Name          | Type       | Description                                                      | Notes      |
-|---------------|------------|------------------------------------------------------------------|------------|
-| **limitDate** | **Date**   | Limit date for cancellation, formatted as a string "yyyy-MM-dd". | [required] |
-| **price**     | **Number** | Price of the cancellation.                                       | [required] |
+| Name          | Type       | Description                                                                    | Notes      |
+|---------------|------------|--------------------------------------------------------------------------------|------------|
+| **limitDate** | **Date**   | Limit date for cancellation, formatted as a string "yyyy-MM-dd".               | [required] |
+| **price**     | **Number** | Price of the cancellation. Currency it is associated to the intent's currency. | [required] |
 
 ## Example
 
