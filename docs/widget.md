@@ -29,13 +29,13 @@ CSS and Script to include in the html page.
 <!-- Widget styles -->
 <link
   rel="stylesheet"
-  href="https://staging.icligo.com/payment-gateway/widgets/styles/style.css"
+  href="https://icligo-payments.icligo.com/payment-gateway/widgets/styles/style.css"
   data-asset-type="stylesheet" />
 
 <!-- Widget library -->
 <script
   type="application/javascript"
-  src="https://staging.icligo.com/payment-gateway/widgets/index.umd.js"></script>
+  src="https://icligo-payments.icligo.com/payment-gateway/widgets/index.umd.js"></script>
 ```
 
 ### **Initialise Widget**
@@ -105,19 +105,19 @@ To initialise the Widget, include the assets defined above and:
 <html lang="pt">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="https://staging.icligo.com/payment-gateway/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="https://icligo-payments.icligo.com/payment-gateway/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>iCliGo Payment Widget Demo</title>
 
     <!-- Widget styles -->
     <link
       rel="stylesheet"
-      href="https://staging.icligo.com/payment-gateway/widgets/styles/style.css"
+      href="https://icligo-payments.icligo.com/payment-gateway/widgets/styles/style.css"
       data-asset-type="stylesheet" />
     <!-- Widget library -->
     <script
       type="application/javascript"
-      src="https://staging.icligo.com/payment-gateway/widgets/index.umd.js"></script>
+      src="https://icligo-payments.icligo.com/payment-gateway/widgets/index.umd.js"></script>
   </head>
   <body>
     <div style="max-width: 768px; margin: 0 auto">
@@ -158,7 +158,7 @@ Open the platform on a new page.
 ### **URL address**
 
 ```html
-https://staging.icligo.com/payment-gateway/${locale}?payment=${paymentId}&enableCopy=true&enableVouchers=true
+https://icligo-payments.icligo.com/payment-gateway/${locale}?payment=${paymentId}&enableCopy=true&enableVouchers=true
 ```
 
 ### **URL Paths**
