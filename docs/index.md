@@ -277,6 +277,7 @@ Request DTO: [**CreateIntentRequest**](CreateIntentRequest.md)
   ],
   "company": "icligo.pt",
   "currency": "EUR",
+  "micrositeCurrency": "EUR",
   "microsite": "icligo.pt",
   "country": "pt",
   "manualCapture": true,
@@ -284,6 +285,7 @@ Request DTO: [**CreateIntentRequest**](CreateIntentRequest.md)
   "failureUrl": "https://failure.com",
   "ideaId": "15847300",
   "amount": 100.0,
+  "micrositeAmount": 100.0,
   "totalAmountService": 2500.00
 }
 ```
