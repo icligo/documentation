@@ -10,6 +10,7 @@ nav:
   - 'webhooks.md'
   - Widget: 'widget.md'
   - 'dtos.md'
+  - Test cards: 'cards.md'
 theme:
   name: material
   logo: assets/logo.png

@@ -1,0 +1,9 @@
+# ProductTypeEnum
+
+* `ACCOMMODATION` 
+* `FLIGHT` 
+* `PACKAGE` 
+* `INSURANCE` 
+* `CRUISE` 
+* `ACTIVITY` 
+* `TRANSFER` 

@@ -1,0 +1,9 @@
+# StateEnum
+
+* `CREATED`
+* `PROCESSING`
+* `AUTHORIZED`
+* `COMPLETED`
+* `CANCELED`
+* `FAILED`
+* `REFUNDED`
