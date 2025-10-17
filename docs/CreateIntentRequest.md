@@ -14,12 +14,12 @@
 | **resume**                  | [**ResumeDto**](ResumeDto.md)                       |                                                                                                                                                                     | [required] |
 | **products**                | [**[ProductDto]**](ProductDto.md)                   | A list of products associated with the payment.                                                                                                                     | [required] |
 | **currency**                | **String**                                          | Currency code for the payment.                                                                                                                                      | [required] |
-| **optionalCurrency**                | **String**                                          | Optional currency code for the payment.                                                                                                                                      | [required] |
+| **micrositeCurrency**                | **String**                                          | Microsite currency code for the payment.                                                                                                                                      | [required] |
 | **company**                 | [**Company**](MicrositeEnum.md)                     | Company making the payment request.                                                                                                                                 | [required] |
 | **microsite**               | [**Microsite**](MicrositeEnum.md)                   | The microsite making the payment request.                                                                                                                           | [required] |
 | **country**                 | **String**                                          | Country where the payment is being made.                                                                                                                            | [required] |
 | **amount**                  | **Number**                                          | The amount to be charged.                                                                                                                                           | [required] |
-| **optionalAmount**    | **Number**                                          | The optional amount to be charged.                                                                                                                                           | [required] |
+| **micrositeAmount**    | **Number**                                          | The microsite amount to be charged.                                                                                                                                           | [required] |
 | **totalAmountService**      | **Number**                                          | Total amount of the service. Obs: This is NOT the value to be charged, it's for visualization purpose that covers all the service's value.                          | [required] |
 | **successUrl**              | **String**                                          | The success url to redirect the user after a successful payment.                                                                                                    | [optional] |
 | **failureUrl**              | **String**                                          | The failure url to redirect the user after a failure on the payment.                                                                                                | [optional] |
@@ -167,7 +167,7 @@
   ],
   "company": "icligo.pt",
   "currency": "EUR",
-  "optionalCurrency": "USD",
+  "micrositeCurrency": "USD",
   "microsite": "icligo.pt",
   "country": "pt",
   "manualCapture": true,
@@ -175,7 +175,7 @@
   "failureUrl": "https://failure.com",
   "ideaId": "15847300",
   "amount": 100.0,
-  "optionalAmount": 120.0,
+  "micrositeAmount": 120.0,
   "totalAmountService": 2500.00
 }
 ```
