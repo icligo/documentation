@@ -13,6 +13,8 @@
 | **checkin**     | **Date**                      | Check-in date for the booking, formatted as a string.                       | [optional] |
 | **checkout**    | **Date**                      | Check-out date for the booking, formatted as a string.                      | [optional] |
 | **clients**     | [**ClientDto**](ClientDto.md) | List of clients involved in the transaction.                                | [optional] |
+| **invoiceInfo**     | [**InvoiceInfoDto**](InvoiceInfoDto.md) | Invoice information of owner or responsible party for the transaction.                                | [optional] |
+
 
 ## Example
 
@@ -38,6 +40,14 @@
       "dateOfBirth": "2000-10-10",
       "children": false
     }
-  ]
+  ],
+  "invoiceInfo": {
+    "documentNumber": "237542927",
+    "email": "test@mil.com",
+    "address": "Rua Camões",
+    "country": "PT",
+    "city": "Porto",
+    "postCode": "4550-100"
+        }
 }
 ```
