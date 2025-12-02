@@ -1,0 +1,1931 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://franciscomatos.gitlab.io/icligo-payments-docs/">
+      
+      
+        <link rel="prev" href="intro/">
+      
+      
+        <link rel="next" href="webhooks/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>ICligo Payments API</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="ICligo Payments API" />
+<meta property="og:image" content="https://franciscomatos.gitlab.io/icligo-payments-docs/assets/images/social/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://franciscomatos.gitlab.io/icligo-payments-docs/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="ICligo Payments API" />
+<meta property="twitter:image" content="https://franciscomatos.gitlab.io/icligo-payments-docs/assets/images/social/index.png" />
+</head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#icligo-payment-api-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="ICligo Payments API" class="md-header__button md-logo" aria-label="ICligo Payments API" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ICligo Payments API
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Payment API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="green"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="intro/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introduction
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Payment API
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="webhooks/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Webhooks
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="widget/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Widget
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="dtos/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  DTOs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="cards/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Test cards
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="ICligo Payments API" class="md-nav__button md-logo" aria-label="ICligo Payments API" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    ICligo Payments API
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Payment API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Payment API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Errors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Errors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#field-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Field Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#payment-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Payment Flow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Payment Flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-payment-intent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create Payment Intent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Create Payment Intent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-payment-page-widget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Payment Page / Widget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-payment-capture-manual-vs-automatic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Payment Capture (Manual vs. Automatic)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Payment Capture (Manual vs. Automatic)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-manual-payment-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Manual Payment Flow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Manual Payment Flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-automatic-capture-payment-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Automatic Capture Payment Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-cancel-payment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Cancel Payment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Cancel Payment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-refund" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Refund
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Refund">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-retrieve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Retrieve
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Retrieve">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="webhooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Webhooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="widget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Widget
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dtos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DTOs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test cards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="icligo-payment-api-documentation"><strong>iCliGo Payment API Documentation</strong></h1>
+<p>This API allows you to manage payment intents, enabling payment capture, cancellations, and refunds.</p>
+<hr />
+<h2 id="authentication"><strong>Authentication</strong></h2>
+<p>To authenticate, include the following headers with all your API requests:</p>
+<ul>
+<li><strong>X-Application-Id</strong>: Your application ID.</li>
+<li><strong>X-Access-Token</strong>: A token used to authenticate your application's access to the API.</li>
+</ul>
+<p>The API will return a <strong>400 Bad Request</strong> response if these headers are missing or invalid. If the payment request is
+associated with an unauthorized or incorrect Application ID, a <strong>401 Unauthorised</strong> response will be returned. If an
+attempt is made to access a forbidden resource, a <strong>403 Forbidden</strong> response is returned.</p>
+<p><strong>Test Mode Support</strong>:</p>
+<p>Our system supports a test mode using test credentials, where to activate this mode it is necessary to make a request
+using test credentials.
+The corresponding intent will be marked as a test, and all later operations must use the same test credentials.</p>
+<h2 id="errors"><strong>Errors</strong></h2>
+<p>We have normalized the error payload, where all the errors obey the same format in order to be easier to read the error.</p>
+<p>The error payload includes the following parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td>Unix timestamp (in milliseconds) when the error occurred</td>
+<td>1694181328000</td>
+</tr>
+<tr>
+<td>status</td>
+<td>int</td>
+<td>HTTP status code of the error</td>
+<td>400</td>
+</tr>
+<tr>
+<td>error</td>
+<td>string</td>
+<td>Brief description of the error type</td>
+<td>"Bad Request"</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>Detailed error message providing more information about the error</td>
+<td>"Invalid request: missing required fields."</td>
+</tr>
+<tr>
+<td>path</td>
+<td>string</td>
+<td>The API endpoint path where the error occurred</td>
+<td>"/payments/create-payment-intent"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Error Payload Example</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1727169321150</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bad Request&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Headers &#39;X-Access-Token&#39; and &#39;X-Application-Id&#39; are necessary.&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/payments/create-payment-intent&quot;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>HTTP Status code summary</strong></p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+<td>Everything worked as expected.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td>The request was unacceptable, often due to missing a required parameter or some auth aspect like the headers.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td>No valid pairs of auth headers was provided.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td>The client doesn’t have permissions to perform the request</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td>The requested resource doesn’t exist.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Server Errors</td>
+<td>Something went wrong on iCliGo's end.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="field-validation">Field Validation</h3>
+<p>Our API provides detailed error responses for invalid or missing fields across different levels of object complexity:</p>
+<ul>
+<li><strong>Root-Level Field Errors</strong>: When a required field at the top level is missing or invalid, the error message will
+  specify the exact field name.
+  Example: "name" is missing.</li>
+<li><strong>Nested Object Field Errors</strong>: For fields within nested objects, the error message includes the full path to the
+  field.<br />
+  Example: <code>"resume.owner"</code> indicates an issue with the <code>owner</code> field inside the <code>resume</code> object.</li>
+<li><strong>Array Field Errors</strong>: Errors in array elements include the specific array index and nested field path.<br />
+  Example: <code>"product[1].details.night"</code> points to the <code>night</code> field in the details of the second product (index 1).</li>
+<li><strong>Serialization Field Errors</strong>: Errors that occur during the serialization process, e.g., when an enumeration value is
+  invalid.<br />
+  Example: <code>"intentType: Value 'BOOKINx' is not valid for field 'intentType' (expected type: IntentType)"</code>.</li>
+<li><strong>Malformed JSON</strong>: For errors caused by malformed JSON, the error message will be generic, stating:<br />
+<code>"Malformed JSON request"</code>.</li>
+</ul>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1732807499846</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bad Request&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid request payload. Reason(s): {&#39;product[1].details.night&#39;:&#39;Is required for product type CRUISE&#39;}&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/payments/create-payment-intent&quot;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1732810810592</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bad Request&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid request payload. Reason(s): {&#39;products.[1].detail.circuit.[0].checkin&#39;:&#39;Value abc is not valid! Expected type: Date&#39;}&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/payments/create-payment-intent&quot;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1732810694764</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bad Request&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid request payload. Reason(s): {&#39;General&#39;:&#39;Malformed JSON request.&#39;}&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/payments/create-payment-intent&quot;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="payment-flow"><strong>Payment Flow</strong></h2>
+<h3 id="1-create-payment-intent"><strong>1. Create Payment Intent</strong></h3>
+<p>To initiate a payment, you first need to create a payment intent. This intent holds all the necessary information to
+facilitate the payment process.</p>
+<p><strong>API Endpoint:</strong></p>
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><strong>Path</strong>: <code>/payments/create-payment-intent</code></li>
+</ul>
+<hr />
+<h5 id="request"><strong>Request</strong></h5>
+<p>This request contains all the necessary information about the payment, such as the client making the purchase, the
+product being bought, and additional details like success/failure URLs and whether manual capture is required.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To create a test intent make the request with the test credentials.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The product array can accommodate various product types. The following example demonstrates an intent with one of all available products. For detailed payload information, please refer to the specific ProductDto documentation.</p>
+</div>
+<p>Request DTO: <a href="CreateIntentRequest/"><strong>CreateIntentRequest</strong></a></p>
+<details>
+  <summary>Request Payload Example With All Products</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;userId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5c6bd4ff-fe65-4899-ac50-af305c27f86d&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;userEmail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;joedoe@email.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">&quot;userContact&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;+351 910 000 000&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">&quot;userName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Joe Doe&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="nt">&quot;cancellationFees&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">      </span><span class="nt">&quot;limitDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2000-12-12&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span><span class="nt">&quot;price&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10.00&quot;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="nt">&quot;cancellationFeesStrings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="s2">&quot;Non-refundable.&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="s2">&quot;Refundable until 12-12-2000 with a fee of 10.00.&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="s2">&quot;string ....&quot;</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">  </span><span class="nt">&quot;resume&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="nt">&quot;owner&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bob Smith&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="nt">&quot;clients&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name 1&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">        </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email@email.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">        </span><span class="nt">&quot;dateOfBirth&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2000-10-10&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">        </span><span class="nt">&quot;children&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name 2&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">        </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email2@email.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="w">        </span><span class="nt">&quot;dateOfBirth&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2000-10-10&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">        </span><span class="nt">&quot;children&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="w">  </span><span class="nt">&quot;intentType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BOOKING&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="w">  </span><span class="nt">&quot;productId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-product-id-123&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="w">  </span><span class="nt">&quot;products&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FLIGHT&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TAP air PORTUGAL&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a><span class="w">      </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-04&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a><span class="w">      </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a><span class="w">      </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a><span class="w">        </span><span class="nt">&quot;flightNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1234546&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a><span class="w">        </span><span class="nt">&quot;departure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-05&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a><span class="w">        </span><span class="nt">&quot;arrival&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a><span class="w">        </span><span class="nt">&quot;departureTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a><span class="w">        </span><span class="nt">&quot;arrivalTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;16:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a><span class="w">        </span><span class="nt">&quot;departureAirport&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OPO&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a><span class="w">        </span><span class="nt">&quot;arrivalAirport&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IST&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-50" name="__codelineno-4-50" href="#__codelineno-4-50"></a><span class="w">        </span><span class="nt">&quot;departureCity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Porto&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-51" name="__codelineno-4-51" href="#__codelineno-4-51"></a><span class="w">        </span><span class="nt">&quot;arrivalCity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-52" name="__codelineno-4-52" href="#__codelineno-4-52"></a><span class="w">        </span><span class="nt">&quot;departureCountry&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Portugal&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-53" name="__codelineno-4-53" href="#__codelineno-4-53"></a><span class="w">        </span><span class="nt">&quot;arrivalCountry&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Turkey&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a><span class="w">        </span><span class="nt">&quot;baggage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a><span class="w">        </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4h&quot;</span>
+<a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CRUISE&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cruise name&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a><span class="w">      </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-15&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-62" name="__codelineno-4-62" href="#__codelineno-4-62"></a><span class="w">      </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-63" name="__codelineno-4-63" href="#__codelineno-4-63"></a><span class="w">      </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-64" name="__codelineno-4-64" href="#__codelineno-4-64"></a><span class="w">        </span><span class="nt">&quot;night&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span>
+<a id="__codelineno-4-65" name="__codelineno-4-65" href="#__codelineno-4-65"></a><span class="w">        </span><span class="nt">&quot;roomType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OCEAN_VIEW&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-66" name="__codelineno-4-66" href="#__codelineno-4-66"></a><span class="w">        </span><span class="nt">&quot;regime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;all-inclusive&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-67" name="__codelineno-4-67" href="#__codelineno-4-67"></a><span class="w">        </span><span class="nt">&quot;circuit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-4-68" name="__codelineno-4-68" href="#__codelineno-4-68"></a><span class="w">          </span><span class="p">{</span>
+<a id="__codelineno-4-69" name="__codelineno-4-69" href="#__codelineno-4-69"></a><span class="w">            </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-11T11:03:42.501+00:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-70" name="__codelineno-4-70" href="#__codelineno-4-70"></a><span class="w">            </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-11T11:03:42.501+00:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a><span class="w">            </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Turkey&quot;</span>
+<a id="__codelineno-4-72" name="__codelineno-4-72" href="#__codelineno-4-72"></a><span class="w">          </span><span class="p">},</span>
+<a id="__codelineno-4-73" name="__codelineno-4-73" href="#__codelineno-4-73"></a><span class="w">          </span><span class="p">{</span>
+<a id="__codelineno-4-74" name="__codelineno-4-74" href="#__codelineno-4-74"></a><span class="w">            </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20T11:03:42.501+00:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-75" name="__codelineno-4-75" href="#__codelineno-4-75"></a><span class="w">            </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20T11:03:42.501+00:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-76" name="__codelineno-4-76" href="#__codelineno-4-76"></a><span class="w">            </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Turkey&quot;</span>
+<a id="__codelineno-4-77" name="__codelineno-4-77" href="#__codelineno-4-77"></a><span class="w">          </span><span class="p">}</span>
+<a id="__codelineno-4-78" name="__codelineno-4-78" href="#__codelineno-4-78"></a><span class="w">        </span><span class="p">]</span>
+<a id="__codelineno-4-79" name="__codelineno-4-79" href="#__codelineno-4-79"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-4-80" name="__codelineno-4-80" href="#__codelineno-4-80"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-4-81" name="__codelineno-4-81" href="#__codelineno-4-81"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-4-82" name="__codelineno-4-82" href="#__codelineno-4-82"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TRANSFER&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-83" name="__codelineno-4-83" href="#__codelineno-4-83"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BUS 309&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-84" name="__codelineno-4-84" href="#__codelineno-4-84"></a><span class="w">      </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-85" name="__codelineno-4-85" href="#__codelineno-4-85"></a><span class="w">      </span><span class="nt">&quot;transport&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BUS&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-86" name="__codelineno-4-86" href="#__codelineno-4-86"></a><span class="w">      </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-87" name="__codelineno-4-87" href="#__codelineno-4-87"></a><span class="w">      </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-88" name="__codelineno-4-88" href="#__codelineno-4-88"></a><span class="w">      </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-89" name="__codelineno-4-89" href="#__codelineno-4-89"></a><span class="w">      </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-90" name="__codelineno-4-90" href="#__codelineno-4-90"></a><span class="w">        </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul Transfers&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-91" name="__codelineno-4-91" href="#__codelineno-4-91"></a><span class="w">        </span><span class="nt">&quot;reception&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Crowne Plaza: Istanbul - Old City&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-92" name="__codelineno-4-92" href="#__codelineno-4-92"></a><span class="w">        </span><span class="nt">&quot;receptionTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-09-20T16:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-93" name="__codelineno-4-93" href="#__codelineno-4-93"></a><span class="w">        </span><span class="nt">&quot;destinationTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-09-20T16:15&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-94" name="__codelineno-4-94" href="#__codelineno-4-94"></a><span class="w">        </span><span class="nt">&quot;destination&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul Airport&quot;</span>
+<a id="__codelineno-4-95" name="__codelineno-4-95" href="#__codelineno-4-95"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-4-96" name="__codelineno-4-96" href="#__codelineno-4-96"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-4-97" name="__codelineno-4-97" href="#__codelineno-4-97"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-4-98" name="__codelineno-4-98" href="#__codelineno-4-98"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACTIVITY&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-99" name="__codelineno-4-99" href="#__codelineno-4-99"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Activity&#39;s name&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-100" name="__codelineno-4-100" href="#__codelineno-4-100"></a><span class="w">      </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-101" name="__codelineno-4-101" href="#__codelineno-4-101"></a><span class="w">      </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-102" name="__codelineno-4-102" href="#__codelineno-4-102"></a><span class="w">      </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-15&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-103" name="__codelineno-4-103" href="#__codelineno-4-103"></a><span class="w">      </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-15&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-104" name="__codelineno-4-104" href="#__codelineno-4-104"></a><span class="w">      </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-4-105" name="__codelineno-4-105" href="#__codelineno-4-105"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-4-106" name="__codelineno-4-106" href="#__codelineno-4-106"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-4-107" name="__codelineno-4-107" href="#__codelineno-4-107"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INSURANCE&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-108" name="__codelineno-4-108" href="#__codelineno-4-108"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Seguro XYZ&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-109" name="__codelineno-4-109" href="#__codelineno-4-109"></a><span class="w">      </span><span class="nt">&quot;price&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<a id="__codelineno-4-110" name="__codelineno-4-110" href="#__codelineno-4-110"></a><span class="w">      </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-4-111" name="__codelineno-4-111" href="#__codelineno-4-111"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-4-112" name="__codelineno-4-112" href="#__codelineno-4-112"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-4-113" name="__codelineno-4-113" href="#__codelineno-4-113"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EVENT&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-114" name="__codelineno-4-114" href="#__codelineno-4-114"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Event&#39;s name&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-115" name="__codelineno-4-115" href="#__codelineno-4-115"></a><span class="w">      </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-116" name="__codelineno-4-116" href="#__codelineno-4-116"></a><span class="w">      </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-01&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-117" name="__codelineno-4-117" href="#__codelineno-4-117"></a><span class="w">      </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-10&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-118" name="__codelineno-4-118" href="#__codelineno-4-118"></a><span class="w">      </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-4-119" name="__codelineno-4-119" href="#__codelineno-4-119"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-4-120" name="__codelineno-4-120" href="#__codelineno-4-120"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-4-121" name="__codelineno-4-121" href="#__codelineno-4-121"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACCOMMODATION&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-122" name="__codelineno-4-122" href="#__codelineno-4-122"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hotel&#39;s name&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-123" name="__codelineno-4-123" href="#__codelineno-4-123"></a><span class="w">      </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-124" name="__codelineno-4-124" href="#__codelineno-4-124"></a><span class="w">      </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-05&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-125" name="__codelineno-4-125" href="#__codelineno-4-125"></a><span class="w">      </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-126" name="__codelineno-4-126" href="#__codelineno-4-126"></a><span class="w">      </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-127" name="__codelineno-4-127" href="#__codelineno-4-127"></a><span class="w">      </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-128" name="__codelineno-4-128" href="#__codelineno-4-128"></a><span class="w">        </span><span class="nt">&quot;night&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span>
+<a id="__codelineno-4-129" name="__codelineno-4-129" href="#__codelineno-4-129"></a><span class="w">        </span><span class="nt">&quot;roomType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OCEAN_VIEW&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-130" name="__codelineno-4-130" href="#__codelineno-4-130"></a><span class="w">        </span><span class="nt">&quot;regime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;all-inclusive&quot;</span>
+<a id="__codelineno-4-131" name="__codelineno-4-131" href="#__codelineno-4-131"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-4-132" name="__codelineno-4-132" href="#__codelineno-4-132"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-133" name="__codelineno-4-133" href="#__codelineno-4-133"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-4-134" name="__codelineno-4-134" href="#__codelineno-4-134"></a><span class="w">  </span><span class="nt">&quot;company&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;icligo.pt&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-135" name="__codelineno-4-135" href="#__codelineno-4-135"></a><span class="w">  </span><span class="nt">&quot;currency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-136" name="__codelineno-4-136" href="#__codelineno-4-136"></a><span class="w">  </span><span class="nt">&quot;micrositeCurrency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-137" name="__codelineno-4-137" href="#__codelineno-4-137"></a><span class="w">  </span><span class="nt">&quot;microsite&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;icligo.pt&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-138" name="__codelineno-4-138" href="#__codelineno-4-138"></a><span class="w">  </span><span class="nt">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pt&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-139" name="__codelineno-4-139" href="#__codelineno-4-139"></a><span class="w">  </span><span class="nt">&quot;manualCapture&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-4-140" name="__codelineno-4-140" href="#__codelineno-4-140"></a><span class="w">  </span><span class="nt">&quot;successUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://success.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-141" name="__codelineno-4-141" href="#__codelineno-4-141"></a><span class="w">  </span><span class="nt">&quot;failureUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://failure.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-142" name="__codelineno-4-142" href="#__codelineno-4-142"></a><span class="w">  </span><span class="nt">&quot;ideaId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15847300&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-143" name="__codelineno-4-143" href="#__codelineno-4-143"></a><span class="w">  </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span>
+<a id="__codelineno-4-144" name="__codelineno-4-144" href="#__codelineno-4-144"></a><span class="w">  </span><span class="nt">&quot;micrositeAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span>
+<a id="__codelineno-4-145" name="__codelineno-4-145" href="#__codelineno-4-145"></a><span class="w">  </span><span class="nt">&quot;totalAmountService&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2500.00</span>
+<a id="__codelineno-4-146" name="__codelineno-4-146" href="#__codelineno-4-146"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+
+<hr />
+<h5 id="responses"><strong>Responses</strong></h5>
+<p><strong>Success response (200 OK)</strong></p>
+<p>The success response returns the submitted information along with additional details, such as the amounts authorized,
+captured, etc.</p>
+<p>Response DTO: <a href="ExternalPaymentDto/"><strong>ExternalPaymentDto</strong></a></p>
+<details>
+  <summary>Response Example With All Products</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;b91c35cc-db74-4663-a491-bed750686faa&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;travel-c-app-test&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">&quot;userId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5c6bd4ff-fe65-4899-ac50-af305c27f86d&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">&quot;productId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-product-id-123&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">&quot;intentType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BOOKING&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nt">&quot;resume&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="nt">&quot;owner&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bob Smith&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="nt">&quot;clients&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name 1&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">                </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email@email.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">                </span><span class="nt">&quot;dateOfBirth&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2000-10-10&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">                </span><span class="nt">&quot;children&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name 2&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">                </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email2@email.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">                </span><span class="nt">&quot;dateOfBirth&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2000-10-10&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">                </span><span class="nt">&quot;children&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">        </span><span class="p">]</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">    </span><span class="nt">&quot;products&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FLIGHT&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TAP air PORTUGAL&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">            </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-04&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">                </span><span class="nt">&quot;flightNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1234546&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="w">                </span><span class="nt">&quot;departure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-05&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="w">                </span><span class="nt">&quot;arrival&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="w">                </span><span class="nt">&quot;departureTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="w">                </span><span class="nt">&quot;arrivalTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;16:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="w">                </span><span class="nt">&quot;departureAirport&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OPO&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="w">                </span><span class="nt">&quot;arrivalAirport&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IST&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a><span class="w">                </span><span class="nt">&quot;departureCity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Porto&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a><span class="w">                </span><span class="nt">&quot;arrivalCity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a><span class="w">                </span><span class="nt">&quot;departureCountry&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Portugal&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a><span class="w">                </span><span class="nt">&quot;arrivalCountry&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Turkey&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a><span class="w">                </span><span class="nt">&quot;baggage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a><span class="w">                </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4h&quot;</span>
+<a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a><span class="w">            </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CRUISE&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cruise name&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a><span class="w">            </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-15&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a><span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a><span class="w">                </span><span class="nt">&quot;night&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span>
+<a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a><span class="w">                </span><span class="nt">&quot;roomType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OCEAN_VIEW&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a><span class="w">                </span><span class="nt">&quot;regime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;all-inclusive&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a><span class="w">                </span><span class="nt">&quot;circuit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a><span class="w">                    </span><span class="p">{</span>
+<a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a><span class="w">                        </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-11T11:03:42.501+00:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-57" name="__codelineno-5-57" href="#__codelineno-5-57"></a><span class="w">                        </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-11T11:03:42.501+00:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-58" name="__codelineno-5-58" href="#__codelineno-5-58"></a><span class="w">                        </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Turkey&quot;</span>
+<a id="__codelineno-5-59" name="__codelineno-5-59" href="#__codelineno-5-59"></a><span class="w">                    </span><span class="p">},</span>
+<a id="__codelineno-5-60" name="__codelineno-5-60" href="#__codelineno-5-60"></a><span class="w">                    </span><span class="p">{</span>
+<a id="__codelineno-5-61" name="__codelineno-5-61" href="#__codelineno-5-61"></a><span class="w">                        </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20T11:03:42.501+00:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-62" name="__codelineno-5-62" href="#__codelineno-5-62"></a><span class="w">                        </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20T11:03:42.501+00:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-63" name="__codelineno-5-63" href="#__codelineno-5-63"></a><span class="w">                        </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Turkey&quot;</span>
+<a id="__codelineno-5-64" name="__codelineno-5-64" href="#__codelineno-5-64"></a><span class="w">                    </span><span class="p">}</span>
+<a id="__codelineno-5-65" name="__codelineno-5-65" href="#__codelineno-5-65"></a><span class="w">                </span><span class="p">]</span>
+<a id="__codelineno-5-66" name="__codelineno-5-66" href="#__codelineno-5-66"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-5-67" name="__codelineno-5-67" href="#__codelineno-5-67"></a><span class="w">            </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-5-68" name="__codelineno-5-68" href="#__codelineno-5-68"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-5-69" name="__codelineno-5-69" href="#__codelineno-5-69"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-5-70" name="__codelineno-5-70" href="#__codelineno-5-70"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TRANSFER&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-71" name="__codelineno-5-71" href="#__codelineno-5-71"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BUS 309&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-72" name="__codelineno-5-72" href="#__codelineno-5-72"></a><span class="w">            </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-73" name="__codelineno-5-73" href="#__codelineno-5-73"></a><span class="w">            </span><span class="nt">&quot;transport&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BUS&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-74" name="__codelineno-5-74" href="#__codelineno-5-74"></a><span class="w">            </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-75" name="__codelineno-5-75" href="#__codelineno-5-75"></a><span class="w">            </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-76" name="__codelineno-5-76" href="#__codelineno-5-76"></a><span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-77" name="__codelineno-5-77" href="#__codelineno-5-77"></a><span class="w">                </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul Transfers&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-78" name="__codelineno-5-78" href="#__codelineno-5-78"></a><span class="w">                </span><span class="nt">&quot;reception&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Crowne Plaza: Istanbul - Old City&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-79" name="__codelineno-5-79" href="#__codelineno-5-79"></a><span class="w">                </span><span class="nt">&quot;receptionTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-09-20T16:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-80" name="__codelineno-5-80" href="#__codelineno-5-80"></a><span class="w">                </span><span class="nt">&quot;destinationTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-09-20T16:15&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-81" name="__codelineno-5-81" href="#__codelineno-5-81"></a><span class="w">                </span><span class="nt">&quot;destination&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul Airport&quot;</span>
+<a id="__codelineno-5-82" name="__codelineno-5-82" href="#__codelineno-5-82"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-5-83" name="__codelineno-5-83" href="#__codelineno-5-83"></a><span class="w">            </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-5-84" name="__codelineno-5-84" href="#__codelineno-5-84"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-5-85" name="__codelineno-5-85" href="#__codelineno-5-85"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-5-86" name="__codelineno-5-86" href="#__codelineno-5-86"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACTIVITY&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-87" name="__codelineno-5-87" href="#__codelineno-5-87"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Activity&#39;s name&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-88" name="__codelineno-5-88" href="#__codelineno-5-88"></a><span class="w">            </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-89" name="__codelineno-5-89" href="#__codelineno-5-89"></a><span class="w">            </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-90" name="__codelineno-5-90" href="#__codelineno-5-90"></a><span class="w">            </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-15&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-91" name="__codelineno-5-91" href="#__codelineno-5-91"></a><span class="w">            </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-15&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-92" name="__codelineno-5-92" href="#__codelineno-5-92"></a><span class="w">            </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-5-93" name="__codelineno-5-93" href="#__codelineno-5-93"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-5-94" name="__codelineno-5-94" href="#__codelineno-5-94"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-5-95" name="__codelineno-5-95" href="#__codelineno-5-95"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INSURANCE&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-96" name="__codelineno-5-96" href="#__codelineno-5-96"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Seguro XYZ&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-97" name="__codelineno-5-97" href="#__codelineno-5-97"></a><span class="w">            </span><span class="nt">&quot;price&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<a id="__codelineno-5-98" name="__codelineno-5-98" href="#__codelineno-5-98"></a><span class="w">            </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-5-99" name="__codelineno-5-99" href="#__codelineno-5-99"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-5-100" name="__codelineno-5-100" href="#__codelineno-5-100"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-5-101" name="__codelineno-5-101" href="#__codelineno-5-101"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EVENT&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-102" name="__codelineno-5-102" href="#__codelineno-5-102"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Event&#39;s name&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-103" name="__codelineno-5-103" href="#__codelineno-5-103"></a><span class="w">            </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-104" name="__codelineno-5-104" href="#__codelineno-5-104"></a><span class="w">            </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-01&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-105" name="__codelineno-5-105" href="#__codelineno-5-105"></a><span class="w">            </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-10&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-106" name="__codelineno-5-106" href="#__codelineno-5-106"></a><span class="w">            </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-5-107" name="__codelineno-5-107" href="#__codelineno-5-107"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-5-108" name="__codelineno-5-108" href="#__codelineno-5-108"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-5-109" name="__codelineno-5-109" href="#__codelineno-5-109"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACCOMMODATION&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-110" name="__codelineno-5-110" href="#__codelineno-5-110"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hotel&#39;s name&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-111" name="__codelineno-5-111" href="#__codelineno-5-111"></a><span class="w">            </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-112" name="__codelineno-5-112" href="#__codelineno-5-112"></a><span class="w">            </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-05&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-113" name="__codelineno-5-113" href="#__codelineno-5-113"></a><span class="w">            </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-114" name="__codelineno-5-114" href="#__codelineno-5-114"></a><span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-115" name="__codelineno-5-115" href="#__codelineno-5-115"></a><span class="w">                </span><span class="nt">&quot;night&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span>
+<a id="__codelineno-5-116" name="__codelineno-5-116" href="#__codelineno-5-116"></a><span class="w">                </span><span class="nt">&quot;roomType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OCEAN_VIEW&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-117" name="__codelineno-5-117" href="#__codelineno-5-117"></a><span class="w">                </span><span class="nt">&quot;regime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;all-inclusive&quot;</span>
+<a id="__codelineno-5-118" name="__codelineno-5-118" href="#__codelineno-5-118"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-5-119" name="__codelineno-5-119" href="#__codelineno-5-119"></a><span class="w">            </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-5-120" name="__codelineno-5-120" href="#__codelineno-5-120"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-121" name="__codelineno-5-121" href="#__codelineno-5-121"></a><span class="w">    </span><span class="p">],</span>
+<a id="__codelineno-5-122" name="__codelineno-5-122" href="#__codelineno-5-122"></a><span class="w">    </span><span class="nt">&quot;company&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;icligo.pt&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-123" name="__codelineno-5-123" href="#__codelineno-5-123"></a><span class="w">    </span><span class="nt">&quot;microsite&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;icligo.pt&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-124" name="__codelineno-5-124" href="#__codelineno-5-124"></a><span class="w">    </span><span class="nt">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pt&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-125" name="__codelineno-5-125" href="#__codelineno-5-125"></a><span class="w">    </span><span class="nt">&quot;currency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-126" name="__codelineno-5-126" href="#__codelineno-5-126"></a><span class="w">    </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CREATED&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-127" name="__codelineno-5-127" href="#__codelineno-5-127"></a><span class="w">    </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span>
+<a id="__codelineno-5-128" name="__codelineno-5-128" href="#__codelineno-5-128"></a><span class="w">    </span><span class="nt">&quot;totalAmountService&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2500.00</span><span class="p">,</span>
+<a id="__codelineno-5-129" name="__codelineno-5-129" href="#__codelineno-5-129"></a><span class="w">    </span><span class="nt">&quot;capturedAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-5-130" name="__codelineno-5-130" href="#__codelineno-5-130"></a><span class="w">    </span><span class="nt">&quot;authorizedAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-5-131" name="__codelineno-5-131" href="#__codelineno-5-131"></a><span class="w">    </span><span class="nt">&quot;refundedAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-5-132" name="__codelineno-5-132" href="#__codelineno-5-132"></a><span class="w">    </span><span class="nt">&quot;manualCapture&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-5-133" name="__codelineno-5-133" href="#__codelineno-5-133"></a><span class="w">    </span><span class="nt">&quot;captureDetails&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<a id="__codelineno-5-134" name="__codelineno-5-134" href="#__codelineno-5-134"></a><span class="w">    </span><span class="nt">&quot;refundDetails&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<a id="__codelineno-5-135" name="__codelineno-5-135" href="#__codelineno-5-135"></a><span class="w">    </span><span class="nt">&quot;successUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://success.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-136" name="__codelineno-5-136" href="#__codelineno-5-136"></a><span class="w">    </span><span class="nt">&quot;failureUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://failure.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-137" name="__codelineno-5-137" href="#__codelineno-5-137"></a><span class="w">    </span><span class="nt">&quot;testMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-5-138" name="__codelineno-5-138" href="#__codelineno-5-138"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+
+<p><strong>Error responses</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td>The request was unacceptable, often due to missing a required parameter or some auth aspect like the headers.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td>No valid pairs of auth headers was provided.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Server Errors</td>
+<td>Something went wrong on iCliGo's end.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="2-payment-page-widget"><strong>2. Payment Page / Widget</strong></h3>
+<p>After creating the payment intent, direct the user to the payment page or widget. This part is abstracted for you. The
+user will complete the payment, and you will receive a webhook with the payment status: <strong>AUTHORIZED</strong> (for manual
+capture) or <strong>COMPLETED</strong> (for automatic capture).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more information about how the widget works, please refer to the <a href="/documentation/widget/">Widget Documentation</a>.</p>
+</div>
+<hr />
+<h3 id="3-payment-capture-manual-vs-automatic"><strong>3. Payment Capture (Manual vs. Automatic)</strong></h3>
+<h4 id="31-manual-payment-flow"><strong>3.1 Manual Payment Flow</strong></h4>
+<p>If manual capture is selected, it’s necessary to proceed with the capture after the payment has been authorized. In
+automatic capture mode, the capture occurs automatically.</p>
+<p>In the case of manual capture, the system will send a webhook with the <strong>AUTHORIZED</strong> status once the user has paid for
+the order. This indicates that the payment has been authorized and the amount is ready to be captured.</p>
+<p>Afterward, it's necessary to call the <code>Capture</code> endpoint to complete the operation.</p>
+<p><strong>API Endpoint:</strong></p>
+<ul>
+<li><strong>Method</strong>: PUT</li>
+<li><strong>Path</strong>: <code>/payments/{payment_id}/capture</code></li>
+<li><strong>Path Variables</strong>:<ul>
+<li>payment_id: The ID of the payment intent.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h5 id="request_1"><strong>Request</strong></h5>
+<p>The request specifies the amount to be captured and includes an optional description.</p>
+<p>Request DTO: <a href="ExternalConfirmPaymentRequest/"><strong>ExternalConfirmPaymentRequest</strong></a></p>
+<details>
+  <summary>Request Payload Example</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Captured description.&quot;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+
+<hr />
+<h5 id="responses_1"><strong>Responses</strong></h5>
+<p><strong>Success response (200 OK)</strong></p>
+<p>The response is an object detailing the date when the capture occurred, along with the captured amount presented as a
+list of captures.</p>
+<p>Response DTO: <a href="ConfirmPaymentResponse/"><strong>ConfirmPaymentResponse</strong></a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Although the response includes a <code>list</code> of <code>CaptureDetail</code> objects, currently only a single capture is allowed. Therefore, you can expect the list to always contain just one element.</p>
+</div>
+<details>
+  <summary>Response Example</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1727193013453</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">&quot;capturedAmountInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">        </span><span class="nt">&quot;currency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="nt">&quot;captures&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;66f2df95-659b-a21d-974d-ba3b489d50d9&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Captured by client&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">            </span><span class="nt">&quot;captureTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1727193004172</span><span class="p">,</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">            </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">                </span><span class="nt">&quot;currency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">                </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Upon capture, a <strong>COMPLETED</strong> webhook will be sent, indicating that the payment has been successfully confirmed and captured.</p>
+</div>
+<p><strong>Error responses</strong></p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td>The request was unacceptable, often due to missing required parameters or incorrect authorization headers.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td>No valid authentication headers were provided.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td>The client lacks the necessary permissions to perform the request.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Server Error</td>
+<td>An issue occurred on iCliGo’s side.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="32-automatic-capture-payment-flow"><strong>3.2 Automatic Capture Payment Flow</strong></h4>
+<p>In this scenario, the <strong>AUTHORIZED</strong> webhook is suppressed. When the client pays for the order, a <strong>COMPLETED</strong> webhook
+is sent, indicating that the order is completed and the funds have been captured.</p>
+<hr />
+<h3 id="4-cancel-payment"><strong>4. Cancel Payment</strong></h3>
+<p>A payment can only be canceled if its status is either <strong>Created</strong> or <strong>Authorized</strong>. Payments cannot be canceled once
+they are completed.</p>
+<p><strong>API Endpoint:</strong></p>
+<ul>
+<li><strong>Method</strong>: PUT</li>
+<li><strong>Path</strong>: <code>/payments/{payment_id}/cancel</code></li>
+<li><strong>Path Variables</strong>:<ul>
+<li>payment_id: The ID of the payment intent.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h5 id="request_2"><strong>Request</strong></h5>
+<p>This request does not require a body. The specified payment intent will be canceled by making a PUT request to this
+endpoint using the provided payment_id.</p>
+<hr />
+<h5 id="responses_2"><strong>Responses</strong></h5>
+<p><strong>Success response (200 OK)</strong></p>
+<p>The success response returns the cancellation date.</p>
+<p>Request DTO: <a href="ExternalCancelPaymentResponse/"><strong>ExternalCancelPaymentResponse</strong></a></p>
+<details>
+  <summary>Basic Response Example</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1727193013453&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+
+<p><strong>Error responses</strong></p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td>The request was unacceptable, often due to missing required parameters or incorrect authorization headers.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td>No valid authentication headers were provided.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td>The client lacks the necessary permissions to perform the request.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Server Error</td>
+<td>An issue occurred on iCliGo’s side.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="5-refund">5. Refund</h3>
+<p>Refunds a payment for a given payment ID</p>
+<p><strong>API Endpoint:</strong></p>
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><strong>Path</strong>: <code>/payments/{payment_id}/refund</code></li>
+<li><strong>Path Variables</strong>:<ul>
+<li>payment_id: The ID of the payment intent.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h5 id="request_3"><strong>Request</strong></h5>
+<p>The request specifies the amount to be refunded and includes an optional description.</p>
+<p>Request DTO: <a href="ExternalRefundPaymentRequest.md"><strong>ExternalRefundPaymentRequest</strong></a></p>
+<details>
+  <summary>Request Payload Example</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Refund description.&quot;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+
+<hr />
+<h5 id="responses_3"><strong>Responses</strong></h5>
+<p><strong>Success response (200 OK)</strong></p>
+<p>The response is an object detailing the date when the refund occurred, along with the refund amount.</p>
+<p>Response DTO: <a href="RefundDetail/"><strong>RefundDetail</strong></a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Although the response includes a <code>list</code> of <code>RefundDetail</code> objects, currently only a single refund is allowed. Therefore, you can expect the list to always contain just one element.</p>
+</div>
+<details>
+  <summary>Response Example</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">[</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4444d000-659b-a21d-974d-ba3b489d50d9&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">      </span><span class="nt">&quot;captureId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;66f2df95-659b-a21d-974d-ba3b489d50d9&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">      </span><span class="nt">&quot;createTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1727193013453</span><span class="p">,</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Refund Description&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">      </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">          </span><span class="nt">&quot;currency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">          </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="p">]</span>
+</code></pre></div>
+</details>
+
+<p><strong>Error responses</strong></p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td>The request was unacceptable, often due to missing required parameters or incorrect authorization headers.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td>No valid authentication headers were provided.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td>The client lacks the necessary permissions to perform the request.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Server Error</td>
+<td>An issue occurred on iCliGo’s side.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="6-retrieve"><strong>6. Retrieve</strong></h3>
+<p>For a given ID retrieve all the information about the payment intent.</p>
+<p><strong>API Endpoint:</strong></p>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Path</strong>: <code>/payments/{payment_id}/retrieve</code></li>
+<li><strong>Path Variables</strong>:<ul>
+<li>payment_id: The ID of the payment intent.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h5 id="request_4"><strong>Request</strong></h5>
+<p>This request does not require a body. The specified payment intent will retrieve payment intent info by making a GET
+request to this endpoint using the provided payment_id.</p>
+<hr />
+<h5 id="responses_4"><strong>Responses</strong></h5>
+<p><strong>Success response (200 OK)</strong></p>
+<p>The response is an object detailing the payment intent info.</p>
+<p>Response DTO: <a href="ExternalPaymentDto/"><strong>ExternalPaymentDto</strong></a></p>
+<details>
+  <summary>Response Example With All Products</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;b91c35cc-db74-4663-a491-bed750686faa&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;travel-c-app-test&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="nt">&quot;userId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5c6bd4ff-fe65-4899-ac50-af305c27f86d&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nt">&quot;productId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-product-id-123&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="nt">&quot;intentType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BOOKING&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="nt">&quot;resume&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">        </span><span class="nt">&quot;owner&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bob Smith&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">        </span><span class="nt">&quot;clients&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name 1&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">                </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email@email.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">                </span><span class="nt">&quot;dateOfBirth&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2000-10-10&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">                </span><span class="nt">&quot;children&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name 2&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">                </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email2@email.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">                </span><span class="nt">&quot;dateOfBirth&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2000-10-10&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">                </span><span class="nt">&quot;children&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">        </span><span class="p">]</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">    </span><span class="nt">&quot;products&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FLIGHT&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TAP air PORTUGAL&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="w">            </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-04&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="w">                </span><span class="nt">&quot;flightNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1234546&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="w">                </span><span class="nt">&quot;departure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-05&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="w">                </span><span class="nt">&quot;arrival&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a><span class="w">                </span><span class="nt">&quot;departureTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a><span class="w">                </span><span class="nt">&quot;arrivalTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;16:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="w">                </span><span class="nt">&quot;departureAirport&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OPO&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a><span class="w">                </span><span class="nt">&quot;arrivalAirport&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IST&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a><span class="w">                </span><span class="nt">&quot;departureCity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Porto&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a><span class="w">                </span><span class="nt">&quot;arrivalCity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a><span class="w">                </span><span class="nt">&quot;departureCountry&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Portugal&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a><span class="w">                </span><span class="nt">&quot;arrivalCountry&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Turkey&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a><span class="w">                </span><span class="nt">&quot;baggage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a><span class="w">                </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4h&quot;</span>
+<a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a><span class="w">            </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-11-47" name="__codelineno-11-47" href="#__codelineno-11-47"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CRUISE&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-48" name="__codelineno-11-48" href="#__codelineno-11-48"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cruise name&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-49" name="__codelineno-11-49" href="#__codelineno-11-49"></a><span class="w">            </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-15&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-50" name="__codelineno-11-50" href="#__codelineno-11-50"></a><span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-51" name="__codelineno-11-51" href="#__codelineno-11-51"></a><span class="w">                </span><span class="nt">&quot;night&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span>
+<a id="__codelineno-11-52" name="__codelineno-11-52" href="#__codelineno-11-52"></a><span class="w">                </span><span class="nt">&quot;roomType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OCEAN_VIEW&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-53" name="__codelineno-11-53" href="#__codelineno-11-53"></a><span class="w">                </span><span class="nt">&quot;regime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;all-inclusive&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-54" name="__codelineno-11-54" href="#__codelineno-11-54"></a><span class="w">                </span><span class="nt">&quot;circuit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-11-55" name="__codelineno-11-55" href="#__codelineno-11-55"></a><span class="w">                    </span><span class="p">{</span>
+<a id="__codelineno-11-56" name="__codelineno-11-56" href="#__codelineno-11-56"></a><span class="w">                        </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-11T11:03:42.501+00:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-57" name="__codelineno-11-57" href="#__codelineno-11-57"></a><span class="w">                        </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-11T11:03:42.501+00:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-58" name="__codelineno-11-58" href="#__codelineno-11-58"></a><span class="w">                        </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Turkey&quot;</span>
+<a id="__codelineno-11-59" name="__codelineno-11-59" href="#__codelineno-11-59"></a><span class="w">                    </span><span class="p">},</span>
+<a id="__codelineno-11-60" name="__codelineno-11-60" href="#__codelineno-11-60"></a><span class="w">                    </span><span class="p">{</span>
+<a id="__codelineno-11-61" name="__codelineno-11-61" href="#__codelineno-11-61"></a><span class="w">                        </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20T11:03:42.501+00:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-62" name="__codelineno-11-62" href="#__codelineno-11-62"></a><span class="w">                        </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20T11:03:42.501+00:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-63" name="__codelineno-11-63" href="#__codelineno-11-63"></a><span class="w">                        </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Turkey&quot;</span>
+<a id="__codelineno-11-64" name="__codelineno-11-64" href="#__codelineno-11-64"></a><span class="w">                    </span><span class="p">}</span>
+<a id="__codelineno-11-65" name="__codelineno-11-65" href="#__codelineno-11-65"></a><span class="w">                </span><span class="p">]</span>
+<a id="__codelineno-11-66" name="__codelineno-11-66" href="#__codelineno-11-66"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-11-67" name="__codelineno-11-67" href="#__codelineno-11-67"></a><span class="w">            </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-11-68" name="__codelineno-11-68" href="#__codelineno-11-68"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-11-69" name="__codelineno-11-69" href="#__codelineno-11-69"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-11-70" name="__codelineno-11-70" href="#__codelineno-11-70"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TRANSFER&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-71" name="__codelineno-11-71" href="#__codelineno-11-71"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BUS 309&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-72" name="__codelineno-11-72" href="#__codelineno-11-72"></a><span class="w">            </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-73" name="__codelineno-11-73" href="#__codelineno-11-73"></a><span class="w">            </span><span class="nt">&quot;transport&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BUS&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-74" name="__codelineno-11-74" href="#__codelineno-11-74"></a><span class="w">            </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-75" name="__codelineno-11-75" href="#__codelineno-11-75"></a><span class="w">            </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-76" name="__codelineno-11-76" href="#__codelineno-11-76"></a><span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-77" name="__codelineno-11-77" href="#__codelineno-11-77"></a><span class="w">                </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul Transfers&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-78" name="__codelineno-11-78" href="#__codelineno-11-78"></a><span class="w">                </span><span class="nt">&quot;reception&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Crowne Plaza: Istanbul - Old City&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-79" name="__codelineno-11-79" href="#__codelineno-11-79"></a><span class="w">                </span><span class="nt">&quot;receptionTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-09-20T16:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-80" name="__codelineno-11-80" href="#__codelineno-11-80"></a><span class="w">                </span><span class="nt">&quot;destinationTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-09-20T16:15&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-81" name="__codelineno-11-81" href="#__codelineno-11-81"></a><span class="w">                </span><span class="nt">&quot;destination&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul Airport&quot;</span>
+<a id="__codelineno-11-82" name="__codelineno-11-82" href="#__codelineno-11-82"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-11-83" name="__codelineno-11-83" href="#__codelineno-11-83"></a><span class="w">            </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-11-84" name="__codelineno-11-84" href="#__codelineno-11-84"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-11-85" name="__codelineno-11-85" href="#__codelineno-11-85"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-11-86" name="__codelineno-11-86" href="#__codelineno-11-86"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACTIVITY&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-87" name="__codelineno-11-87" href="#__codelineno-11-87"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Activity&#39;s name&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-88" name="__codelineno-11-88" href="#__codelineno-11-88"></a><span class="w">            </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-89" name="__codelineno-11-89" href="#__codelineno-11-89"></a><span class="w">            </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-90" name="__codelineno-11-90" href="#__codelineno-11-90"></a><span class="w">            </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-15&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-91" name="__codelineno-11-91" href="#__codelineno-11-91"></a><span class="w">            </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-15&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-92" name="__codelineno-11-92" href="#__codelineno-11-92"></a><span class="w">            </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-11-93" name="__codelineno-11-93" href="#__codelineno-11-93"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-11-94" name="__codelineno-11-94" href="#__codelineno-11-94"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-11-95" name="__codelineno-11-95" href="#__codelineno-11-95"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INSURANCE&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-96" name="__codelineno-11-96" href="#__codelineno-11-96"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Seguro XYZ&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-97" name="__codelineno-11-97" href="#__codelineno-11-97"></a><span class="w">            </span><span class="nt">&quot;price&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<a id="__codelineno-11-98" name="__codelineno-11-98" href="#__codelineno-11-98"></a><span class="w">            </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-11-99" name="__codelineno-11-99" href="#__codelineno-11-99"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-11-100" name="__codelineno-11-100" href="#__codelineno-11-100"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-11-101" name="__codelineno-11-101" href="#__codelineno-11-101"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EVENT&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-102" name="__codelineno-11-102" href="#__codelineno-11-102"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Event&#39;s name&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-103" name="__codelineno-11-103" href="#__codelineno-11-103"></a><span class="w">            </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-104" name="__codelineno-11-104" href="#__codelineno-11-104"></a><span class="w">            </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-01&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-105" name="__codelineno-11-105" href="#__codelineno-11-105"></a><span class="w">            </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-10&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-106" name="__codelineno-11-106" href="#__codelineno-11-106"></a><span class="w">            </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-11-107" name="__codelineno-11-107" href="#__codelineno-11-107"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-11-108" name="__codelineno-11-108" href="#__codelineno-11-108"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-11-109" name="__codelineno-11-109" href="#__codelineno-11-109"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACCOMMODATION&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-110" name="__codelineno-11-110" href="#__codelineno-11-110"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hotel&#39;s name&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-111" name="__codelineno-11-111" href="#__codelineno-11-111"></a><span class="w">            </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Istanbul&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-112" name="__codelineno-11-112" href="#__codelineno-11-112"></a><span class="w">            </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-05&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-113" name="__codelineno-11-113" href="#__codelineno-11-113"></a><span class="w">            </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-12-20&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-114" name="__codelineno-11-114" href="#__codelineno-11-114"></a><span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-115" name="__codelineno-11-115" href="#__codelineno-11-115"></a><span class="w">                </span><span class="nt">&quot;night&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span>
+<a id="__codelineno-11-116" name="__codelineno-11-116" href="#__codelineno-11-116"></a><span class="w">                </span><span class="nt">&quot;roomType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OCEAN_VIEW&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-117" name="__codelineno-11-117" href="#__codelineno-11-117"></a><span class="w">                </span><span class="nt">&quot;regime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;all-inclusive&quot;</span>
+<a id="__codelineno-11-118" name="__codelineno-11-118" href="#__codelineno-11-118"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-11-119" name="__codelineno-11-119" href="#__codelineno-11-119"></a><span class="w">            </span><span class="nt">&quot;importantInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Important notes ...&quot;</span>
+<a id="__codelineno-11-120" name="__codelineno-11-120" href="#__codelineno-11-120"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-11-121" name="__codelineno-11-121" href="#__codelineno-11-121"></a><span class="w">    </span><span class="p">],</span>
+<a id="__codelineno-11-122" name="__codelineno-11-122" href="#__codelineno-11-122"></a><span class="w">    </span><span class="nt">&quot;company&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;icligo.pt&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-123" name="__codelineno-11-123" href="#__codelineno-11-123"></a><span class="w">    </span><span class="nt">&quot;microsite&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;icligo.pt&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-124" name="__codelineno-11-124" href="#__codelineno-11-124"></a><span class="w">    </span><span class="nt">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pt&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-125" name="__codelineno-11-125" href="#__codelineno-11-125"></a><span class="w">    </span><span class="nt">&quot;currency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-126" name="__codelineno-11-126" href="#__codelineno-11-126"></a><span class="w">    </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CREATED&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-127" name="__codelineno-11-127" href="#__codelineno-11-127"></a><span class="w">    </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span>
+<a id="__codelineno-11-128" name="__codelineno-11-128" href="#__codelineno-11-128"></a><span class="w">    </span><span class="nt">&quot;totalAmountService&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2500.00</span><span class="p">,</span>
+<a id="__codelineno-11-129" name="__codelineno-11-129" href="#__codelineno-11-129"></a><span class="w">    </span><span class="nt">&quot;capturedAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-11-130" name="__codelineno-11-130" href="#__codelineno-11-130"></a><span class="w">    </span><span class="nt">&quot;authorizedAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-11-131" name="__codelineno-11-131" href="#__codelineno-11-131"></a><span class="w">    </span><span class="nt">&quot;refundedAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-11-132" name="__codelineno-11-132" href="#__codelineno-11-132"></a><span class="w">    </span><span class="nt">&quot;manualCapture&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-11-133" name="__codelineno-11-133" href="#__codelineno-11-133"></a><span class="w">    </span><span class="nt">&quot;captureDetails&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<a id="__codelineno-11-134" name="__codelineno-11-134" href="#__codelineno-11-134"></a><span class="w">    </span><span class="nt">&quot;refundDetails&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<a id="__codelineno-11-135" name="__codelineno-11-135" href="#__codelineno-11-135"></a><span class="w">    </span><span class="nt">&quot;successUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://success.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-136" name="__codelineno-11-136" href="#__codelineno-11-136"></a><span class="w">    </span><span class="nt">&quot;failureUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://failure.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-137" name="__codelineno-11-137" href="#__codelineno-11-137"></a><span class="w">    </span><span class="nt">&quot;testMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-11-138" name="__codelineno-11-138" href="#__codelineno-11-138"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+
+<p><strong>Error responses</strong></p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td>The request was unacceptable, often due to missing required parameters or incorrect authorization headers.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td>No valid authentication headers were provided.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td>The client lacks the necessary permissions to perform the request.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Server Error</td>
+<td>An issue occurred on iCliGo’s side.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="important-considerations"><strong>Important Considerations</strong></h2>
+<ul>
+<li><strong>Single Capture</strong>: A payment can only be captured once.</li>
+<li><strong>Refunds</strong>: Multiple refunds are allowed, but the total refunded amount cannot exceed the amount of intent.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <span>ICligo</span>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "announce.dismiss"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

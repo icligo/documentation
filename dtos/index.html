@@ -1,0 +1,1951 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://franciscomatos.gitlab.io/icligo-payments-docs/dtos/">
+      
+      
+        <link rel="prev" href="../widget/">
+      
+      
+        <link rel="next" href="../cards/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>DTOs - ICligo Payments API</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="DTOs - ICligo Payments API" />
+<meta property="og:image" content="https://franciscomatos.gitlab.io/icligo-payments-docs/assets/images/social/dtos.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://franciscomatos.gitlab.io/icligo-payments-docs/dtos/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="DTOs - ICligo Payments API" />
+<meta property="twitter:image" content="https://franciscomatos.gitlab.io/icligo-payments-docs/assets/images/social/dtos.png" />
+</head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dtos" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ICligo Payments API" class="md-header__button md-logo" aria-label="ICligo Payments API" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ICligo Payments API
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DTOs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="green"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../intro/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introduction
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Payment API
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../webhooks/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Webhooks
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../widget/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Widget
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  DTOs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../cards/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Test cards
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ICligo Payments API" class="md-nav__button md-logo" aria-label="ICligo Payments API" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    ICligo Payments API
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Payment API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webhooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Webhooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../widget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Widget
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DTOs
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DTOs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#amountinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AmountInfo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cancellationfeesdto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CancellationFeesDto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capturedetail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CaptureDetail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circuitdto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CircuitDto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clientdto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ClientDto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confirmpaymentresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ConfirmPaymentResponse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#createintentrequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateIntentRequest
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detaildto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DetailDto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#externalcancelpaymentresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExternalCancelPaymentResponse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#externalconfirmpaymentrequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExternalConfirmPaymentRequest
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#externalpaymentdto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExternalPaymentDto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#productdto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ProductDto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refunddetail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RefundDetail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumedto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ResumeDto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stopoversdto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StopoversDto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errorpayloadmessage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ErrorPayloadMessage
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test cards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="dtos"><strong>DTOs</strong></h1>
+<p>The following section defines the Data Transfer Objects (DTOs) used in our system. DTOs are simple objects designed to
+carry data between processes without containing any business logic. These objects ensure efficient data exchange between
+different layers or services while keeping the system modular and maintainable. Below is a list of the DTOs and their
+respective fields, which are used throughout the application.</p>
+<hr />
+<h2 id="amountinfo"><a href="../AmountInfo/"><strong>AmountInfo</strong></a></h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>currency</strong></td>
+<td><strong>String</strong></td>
+<td>Currency code for the payment. Must respect the ISO 4217 and be upper case.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>value</strong></td>
+<td><strong>Number</strong></td>
+<td>The total amount of the transaction in the specified currency.</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="cancellationfeesdto"><a href="../CancellationFeesDto/"><strong>CancellationFeesDto</strong></a></h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>limitDate</strong></td>
+<td><strong>Date</strong></td>
+<td>Limit date for cancellation, formatted as a string "yyyy-MM-dd".</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>price</strong></td>
+<td><strong>Number</strong></td>
+<td>Price of the cancellation.</td>
+<td>[required]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="capturedetail"><a href="../CaptureDetail/"><strong>CaptureDetail</strong></a></h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><strong>String</strong></td>
+<td>Unique identifier for the transaction or record.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>captureTime</strong></td>
+<td><strong>long</strong></td>
+<td>The timestamp when the transaction was captured.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>description</strong></td>
+<td><strong>String</strong></td>
+<td>Description of the capture.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>amount</strong></td>
+<td><a href="../AmountInfo/"><strong>AmountInfo</strong></a></td>
+<td>Detailed information about the captured amount, including currency and value.</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="circuitdto"><a href="../CircuitDto/"><strong>CircuitDto</strong></a></h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>checkin</strong></td>
+<td><strong>Date</strong></td>
+<td>The date and time when the check-in occurs.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>checkout</strong></td>
+<td><strong>Date</strong></td>
+<td>The date and time when the check-out occurs.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>location</strong></td>
+<td><strong>String</strong></td>
+<td>The location associated with the check-in and check-out.</td>
+<td>[optional]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="clientdto"><a href="../ClientDto/"><strong>ClientDto</strong></a></h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>name</strong></td>
+<td><strong>String</strong></td>
+<td>Name of the client.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>email</strong></td>
+<td><strong>String</strong></td>
+<td>Client&#x27;s email address.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>dateOfBirth</strong></td>
+<td><strong>Date</strong></td>
+<td>Client&#x27;s date of birth, formatted as a string.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>children</strong></td>
+<td><strong>Boolean</strong></td>
+<td>Indicates if the client is a child.</td>
+<td>[optional]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="confirmpaymentresponse"><a href="../ConfirmPaymentResponse/"><strong>ConfirmPaymentResponse</strong></a></h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>date</strong></td>
+<td><strong>Date</strong></td>
+<td>The date when the event or transaction occurred.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>capturedAmountInfo</strong></td>
+<td><a href="../AmountInfo/"><strong>AmountInfo</strong></a></td>
+<td>Details about the amount that had been captured.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>description</strong></td>
+<td><strong>String</strong></td>
+<td>A brief description providing additional context or details if applicable.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>captures</strong></td>
+<td><a href="../CaptureDetail/"><strong>CaptureDetail</strong></a></td>
+<td>Information about individual captures related to the transaction.</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="createintentrequest"><a href="../CreateIntentRequest/"><strong>CreateIntentRequest</strong></a></h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>clientId</strong></td>
+<td><strong>String</strong></td>
+<td>Unique client identifier. Identifies the client that is making the request, in this case it&#x27;syour company/merchant ID agreed at the beginning of the contract.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>userId</strong></td>
+<td><strong>String</strong></td>
+<td>The user ID associated with the payment.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>userName</strong></td>
+<td><strong>String</strong></td>
+<td>The User name.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>userEmail</strong></td>
+<td><strong>String</strong></td>
+<td>The User e-mail.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>userContact</strong></td>
+<td><strong>String</strong></td>
+<td>The User contact.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>productId</strong></td>
+<td><strong>String</strong></td>
+<td>The ID of the product being purchased.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>intentType</strong></td>
+<td><a href="../IntentTypeEnum/"><strong>IntentTypeEnum</strong></a></td>
+<td>Type of the product.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>resume</strong></td>
+<td><a href="../ResumeDto/"><strong>ResumeDto</strong></a></td>
+<td></td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>products</strong></td>
+<td><a href="../ProductDto/"><strong>[ProductDto]</strong></a></td>
+<td>A list of products associated with the payment.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>currency</strong></td>
+<td><strong>String</strong></td>
+<td>Currency code for the payment.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>company</strong></td>
+<td><strong>String</strong></td>
+<td>Company making the payment request.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>microsite</strong></td>
+<td><strong>String</strong></td>
+<td>The microsite making the payment request.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>country</strong></td>
+<td><strong>String</strong></td>
+<td>Country where the payment is being made.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>amount</strong></td>
+<td><strong>Number</strong></td>
+<td>The amount to be charged.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>totalAmountService</strong></td>
+<td><strong>Number</strong></td>
+<td>Total amount of the service. Obs: This is NOT the value to be charged, it's for visualization purpose that covers all the service's value.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>successUrl</strong></td>
+<td><strong>String</strong></td>
+<td>The success url to redirect the user after a successful payment.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>failureUrl</strong></td>
+<td><strong>String</strong></td>
+<td>The failure url to redirect the user after a failure on the payment.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>manualCapture</strong></td>
+<td><strong>Boolean</strong></td>
+<td>If the payment it will be on capture or manual form.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>expirationDate</strong></td>
+<td><strong>Date</strong></td>
+<td>The expiration date of the intent.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>cancellationFees</strong></td>
+<td><a href="../CancellationFeesDto/"><strong>[CancellationFeesDto]</strong></a></td>
+<td>List of cancellation fees</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>cancellationFeesStrings</strong></td>
+<td><strong>String</strong></td>
+<td>List of cancellation fees on plain</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>ideaId</strong></td>
+<td><strong>String</strong></td>
+<td>Idea identifier.</td>
+<td>[required]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="detaildto"><a href="../DetailDto/"><strong>DetailDto</strong></a></h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>night</strong></td>
+<td><strong>Integer</strong></td>
+<td>Number of nights for the stay.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>roomType</strong></td>
+<td><a href="../RoomTypeEnum/"><strong>RoomTypeEnum</strong></a></td>
+<td>Room type for accommodation.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>regime</strong></td>
+<td><strong>String</strong></td>
+<td>Accommodation regime.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>flightNumber</strong></td>
+<td><strong>String</strong></td>
+<td>Flight number for associated transportation.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>departure</strong></td>
+<td><strong>Date</strong></td>
+<td>Departure date for the transportation, formatted as a string.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>arrival</strong></td>
+<td><strong>Date</strong></td>
+<td>Arrival date for the transportation, formatted as a string.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>departureTime</strong></td>
+<td><strong>String</strong></td>
+<td>Departure time for the flight or transportation.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>arrivalTime</strong></td>
+<td><strong>String</strong></td>
+<td>Arrival time for the flight or transportation.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>departureAirport</strong></td>
+<td><strong>String</strong></td>
+<td>Departure airport code.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>arrivalAirport</strong></td>
+<td><strong>String</strong></td>
+<td>Arrival airport code.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>departureCity</strong></td>
+<td><strong>String</strong></td>
+<td>City of departure.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>arrivalCity</strong></td>
+<td><strong>String</strong></td>
+<td>City of arrival.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>departureCountry</strong></td>
+<td><strong>String</strong></td>
+<td>Country of departure.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>arrivalCountry</strong></td>
+<td><strong>String</strong></td>
+<td>Country of arrival.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>baggage</strong></td>
+<td><strong>String</strong></td>
+<td>Baggage details for the transportation.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>duration</strong></td>
+<td><strong>String</strong></td>
+<td>Duration of the transportation or stay.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>provider</strong></td>
+<td><strong>String</strong></td>
+<td>Service provider for the product or service.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>reception</strong></td>
+<td><strong>String</strong></td>
+<td>Reception details.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>receptionTime</strong></td>
+<td><strong>Date</strong></td>
+<td>Time of reception at the destination.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>destinationTime</strong></td>
+<td><strong>Date</strong></td>
+<td>Time of arrival at the destination.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>destination</strong></td>
+<td><strong>String</strong></td>
+<td>Destination details.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>circuit</strong></td>
+<td><a href="../CircuitDto/"><strong>CircuitDto</strong></a></td>
+<td>Details of the circuit, if applicable.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>stopovers</strong></td>
+<td><a href="../StopoversDto/"><strong>StopoversDto</strong></a></td>
+<td>Details of stopovers during transportation, if applicable.</td>
+<td>[optional]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="externalcancelpaymentresponse"><a href="../ExternalCancelPaymentResponse/"><strong>ExternalCancelPaymentResponse</strong></a></h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>date</strong></td>
+<td><strong>long</strong></td>
+<td>Timestamp of cancellation.</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="externalconfirmpaymentrequest"><a href="../ExternalConfirmPaymentRequest/"><strong>ExternalConfirmPaymentRequest</strong></a></h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>amount</strong></td>
+<td><strong>Number</strong></td>
+<td>Amount to be captured.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>description</strong></td>
+<td><strong>String</strong></td>
+<td>A brief description of the transaction or context for the amount information.</td>
+<td>[optional]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="externalpaymentdto"><a href="../ExternalPaymentDto/"><strong>ExternalPaymentDto</strong></a></h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><strong>String</strong></td>
+<td>Unique identifier for the payment intent.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>clientId</strong></td>
+<td><strong>String</strong></td>
+<td>Unique client identifier.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>userId</strong></td>
+<td><strong>String</strong></td>
+<td>User/Customer identifier who initiated the payment.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>service</strong></td>
+<td><strong>String</strong></td>
+<td>Service associated with the payment.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>serviceDescription</strong></td>
+<td><strong>String</strong></td>
+<td>Detailed description of the service.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>productId</strong></td>
+<td><strong>String</strong></td>
+<td>Product identifier related to the payment.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>intentType</strong></td>
+<td><a href="../ProductTypeEnum/"><strong>IntentTypeEnum</strong></a></td>
+<td>Type of the product for which the intent is being made.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>resume</strong></td>
+<td><a href="../ResumeDto/"><strong>ResumeDto</strong></a></td>
+<td>Resume of the service.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>products</strong></td>
+<td><a href="../ProductDto/"><strong>ProductDto</strong></a></td>
+<td>List of products associated with this payment.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>company</strong></td>
+<td><strong>String</strong></td>
+<td>Company associated with the payment.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>microsite</strong></td>
+<td><strong>String</strong></td>
+<td>Microsite used for making the payment.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>country</strong></td>
+<td><strong>String</strong></td>
+<td>Country where the payment is being made.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>currency</strong></td>
+<td><strong>String</strong></td>
+<td>Currency code for the payment. Must respect the ISO 4217 and be upper case.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>createdBy</strong></td>
+<td><strong>String</strong></td>
+<td>Username of the person who created the payment.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>state</strong></td>
+<td><a href="../StateEnum/"><strong>StateEnum</strong></a></td>
+<td>Current state of the payment.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>amount</strong></td>
+<td><strong>Number</strong></td>
+<td>Total amount of the order.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>totalAmountService</strong></td>
+<td><strong>Number</strong></td>
+<td>Total amount of the service. Obs: This is NOT the value to be charged, it's for visualization purpose that covers all the service's value.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>capturedAmount</strong></td>
+<td><strong>Number</strong></td>
+<td>Amount captured.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>authorizedAmount</strong></td>
+<td><strong>Number</strong></td>
+<td>Amount authorized to be captured.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>refundedAmount</strong></td>
+<td><strong>Number</strong></td>
+<td>Amount refunded.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>manualCapture</strong></td>
+<td><strong>Boolean</strong></td>
+<td>If the payment is on capture or manual form.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>captureDetails</strong></td>
+<td><a href="../CaptureDetail/"><strong>CaptureDetail</strong></a></td>
+<td>Details of the captures made for the payment.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>refundDetails</strong></td>
+<td><a href="../RefundDetail/"><strong>RefundDetail</strong></a></td>
+<td>Details of any refunds made for the payment.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>expirationDate</strong></td>
+<td><strong>Date</strong></td>
+<td>Expiration date of the payment.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>successUrl</strong></td>
+<td><strong>String</strong></td>
+<td>The success url to redirect the user after a successful payment.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>failureUrl</strong></td>
+<td><strong>String</strong></td>
+<td>The failure url to redirect the user after a failure on the payment.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>testMode</strong></td>
+<td><strong>Boolean</strong></td>
+<td>If the payment it was created using a account.</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="productdto"><a href="../ProductDto/"><strong>ProductDto</strong></a></h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>type</strong></td>
+<td><a href="../ProductTypeEnum/"><strong>ProductTypeEnum</strong></a></td>
+<td>Type of the product.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td><strong>String</strong></td>
+<td>Name of the product.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>location</strong></td>
+<td><strong>String</strong></td>
+<td>Location of the product.</td>
+<td>[required for: ACCOMMODATION, TRANSFER, ACTIVITY, and EVENT]</td>
+</tr>
+<tr>
+<td><strong>duration</strong></td>
+<td><strong>String</strong></td>
+<td>Duration of the product/service.</td>
+<td>[required for: ACTIVITY]</td>
+</tr>
+<tr>
+<td><strong>code</strong></td>
+<td><strong>String</strong></td>
+<td>Unique product code.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>transport</strong></td>
+<td><a href="../TransportEnum/"><strong>TransportEnum</strong></a></td>
+<td>Type of transport associated with the product, if applicable.</td>
+<td>[required for: TRANSFER]</td>
+</tr>
+<tr>
+<td><strong>checkin</strong></td>
+<td><strong>Date</strong></td>
+<td>Check-in date of the product, formatted as a string.</td>
+<td>[required for: FLIGHT, ACCOMMODATION, CRUISE, TRANSFER, ACTIVITY, and EVENT]</td>
+</tr>
+<tr>
+<td><strong>checkout</strong></td>
+<td><strong>Date</strong></td>
+<td>Check-out date of the product, formatted as a string.</td>
+<td>[required for: ACCOMMODATION, TRANSFER, ACTIVITY, and EVENT]</td>
+</tr>
+<tr>
+<td><strong>date</strong></td>
+<td><strong>Date</strong></td>
+<td>Date of the product activity or service, formatted as a string.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>price</strong></td>
+<td><strong>Number</strong></td>
+<td>Price of the product.</td>
+<td>[required for: INSURANCE]</td>
+</tr>
+<tr>
+<td><strong>detail</strong></td>
+<td><a href="../DetailDto/"><strong>DetailDto</strong></a></td>
+<td></td>
+<td>[required for: FLIGHT, ACCOMMODATION, CRUISE, and TRANSFER]</td>
+</tr>
+<tr>
+<td><strong>importantInfo</strong></td>
+<td><strong>String</strong></td>
+<td>String with Important information in plain text.</td>
+<td>[required]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="refunddetail"><a href="../RefundDetail/"><strong>RefundDetail</strong></a></h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><strong>String</strong></td>
+<td>Unique identifier for the transaction or record.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>captureId</strong></td>
+<td><strong>String</strong></td>
+<td>Identifier for the specific capture associated with the transaction. If applicable.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>createTime</strong></td>
+<td><strong>long</strong></td>
+<td>The timestamp when the refund was created.                      -</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>description</strong></td>
+<td><strong>String</strong></td>
+<td>A brief description providing additional context about the capture.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>amount</strong></td>
+<td><a href="../AmountInfo/"><strong>AmountInfo</strong></a></td>
+<td>Detailed information about the refund.</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="resumedto"><a href="../ResumeDto/"><strong>ResumeDto</strong></a></h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>description</strong></td>
+<td><strong>String</strong></td>
+<td>Description of the product or service.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>reference</strong></td>
+<td><strong>String</strong></td>
+<td>Reference ID for the product or service.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>owner</strong></td>
+<td><strong>String</strong></td>
+<td>Owner or responsible party for the transaction.</td>
+<td>[required]</td>
+</tr>
+<tr>
+<td><strong>email</strong></td>
+<td><strong>String</strong></td>
+<td>Owner&#x27;s contact email address.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>currency</strong></td>
+<td><strong>String</strong></td>
+<td>Currency code for the payment. Must respect the ISO 4217 and be upper case.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>amount</strong></td>
+<td><strong>Number</strong></td>
+<td>Total amount of the transaction.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>checkin</strong></td>
+<td><strong>Date</strong></td>
+<td>Check-in date for the booking, formatted as a string.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>checkout</strong></td>
+<td><strong>Date</strong></td>
+<td>Check-out date for the booking, formatted as a string.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>clients</strong></td>
+<td><a href="../ClientDto/"><strong>ClientDto</strong></a></td>
+<td>List of clients involved in the transaction.</td>
+<td>[optional]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="stopoversdto"><a href="../StopoversDto/"><strong>StopoversDto</strong></a></h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>departure</strong></td>
+<td><strong>Date</strong></td>
+<td>The date and time when the departure occurs.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>arrival</strong></td>
+<td><strong>Date</strong></td>
+<td>The date and time when the arrival occurs.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>departureTime</strong></td>
+<td><strong>String</strong></td>
+<td>The time of departure in a specified format (e.g., HH:MM).</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>arrivalTime</strong></td>
+<td><strong>String</strong></td>
+<td>The time of arrival in a specified format (e.g., HH:MM).</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>departureAirport</strong></td>
+<td><strong>String</strong></td>
+<td>The airport from which the journey departs.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>arrivalAirport</strong></td>
+<td><strong>String</strong></td>
+<td>The airport at which the journey arrives.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>departureCity</strong></td>
+<td><strong>String</strong></td>
+<td>The city from which the journey departs.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>arrivalCity</strong></td>
+<td><strong>String</strong></td>
+<td>The city at which the journey arrives.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>departureCountry</strong></td>
+<td><strong>String</strong></td>
+<td>The country from which the journey departs.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>arrivalCountry</strong></td>
+<td><strong>String</strong></td>
+<td>The country at which the journey arrives.</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>duration</strong></td>
+<td><strong>String</strong></td>
+<td>The total duration of the journey, typically expressed in hours and minutes.</td>
+<td>[optional]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="errorpayloadmessage"><a href="../ErrorPayloadMessage/"><strong>ErrorPayloadMessage</strong></a></h2>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>timestamp</strong></td>
+<td><strong>long</strong></td>
+<td>Timestamp of when the error occurred.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td><strong>int</strong></td>
+<td>HTTP status code of the error.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>error</strong></td>
+<td><strong>String</strong></td>
+<td>HTTP description of the error.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td><strong>String</strong></td>
+<td>Detailed error message.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>path</strong></td>
+<td><strong>String</strong></td>
+<td>The path of the endpoint where the error occurred.</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h1 id="enums"><strong>Enums</strong></h1>
+<p><a name="StateEnum"></a></p>
+<h2 id="stateenum"><a href="../StateEnum/">StateEnum</a></h2>
+<ul>
+<li><code>CREATED</code></li>
+<li><code>PROCESSING</code></li>
+<li><code>AUTHORIZED</code></li>
+<li><code>COMPLETED</code></li>
+<li><code>CANCELED</code></li>
+<li><code>FAILED</code></li>
+<li><code>REFUNDED</code></li>
+</ul>
+<p><a name="ProductTypeEnum"></a></p>
+<h2 id="producttypeenum"><a href="../ProductTypeEnum/">ProductTypeEnum</a></h2>
+<ul>
+<li><code>ACCOMMODATION</code></li>
+<li><code>FLIGHT</code></li>
+<li><code>PACKAGE</code></li>
+<li><code>INSURANCE</code></li>
+<li><code>CRUISE</code></li>
+<li><code>ACTIVITY</code></li>
+<li><code>TRANSFER</code></li>
+</ul>
+<p><a name="ProductTypeEnum"></a></p>
+<h2 id="intenttypeenum"><a href="../IntentTypeEnum/">IntentTypeEnum</a></h2>
+<ul>
+<li><code>BOOKING</code></li>
+<li><code>SUBSCRIPTION</code></li>
+<li><code>GIFT</code></li>
+<li><code>EVENT</code></li>
+<li><code>SERVICE</code></li>
+</ul>
+<p><a name="RoomTypeEnum"></a></p>
+<h2 id="roomtypeenum"><a href="../RoomTypeEnum/">RoomTypeEnum</a></h2>
+<ul>
+<li><code>INSIDE</code></li>
+<li><code>OCEAN_VIEW</code></li>
+<li><code>BALCONY</code></li>
+<li><code>SUITE</code></li>
+</ul>
+<p><a name="TransportEnum"></a></p>
+<h2 id="transportenum"><a href="../TransportEnum/">TransportEnum</a></h2>
+<ul>
+<li><code>CAR</code></li>
+<li><code>BUS</code></li>
+<li><code>TRAIN</code> </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <span>ICligo</span>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "announce.dismiss"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
