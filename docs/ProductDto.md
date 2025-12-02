@@ -2,7 +2,7 @@
 
 | Name              | Type                                      | Description                                                     | Notes                                                                        |
 |-------------------|-------------------------------------------|-----------------------------------------------------------------|------------------------------------------------------------------------------|
-| **type**          | [**ProductTypeEnum**](ProductTypeEnum.md) | Type of the product.                                            | [required]                                                                   |
+| **type**          | **String** | Type of the product.                                            | [required]                                                                   |
 | **name**          | **String**                                | Name of the product.                                            | [required]                                                                   |
 | **location**      | **String**                                | Location of the product.                                        | [required for: ACCOMMODATION, TRANSFER, ACTIVITY, and EVENT]                 |
 | **duration**      | **String**                                | Duration of the product/service.                                | [required for: ACTIVITY]                                                     |
